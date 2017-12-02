@@ -1,0 +1,134 @@
+---
+layout: page
+title: Documents
+description: Documents
+---
+
+Documents are container elements. They are designed to represent a single 'window' within your application's interface. Documents are elements themselves, and the elements they contain directly are parented to them.
+
+### Identification
+
+Documents have a title, defined in RML by contents of the <title> tag within the document header. By default the title does not do anything, but can be used to populate the contents of a title bar (as in the Rocket Invaders from Mars demo). The function GetTitle() will return the document's title, SetTitle() will set it.
+
+```cpp
+// Sets the document's title.
+// @param[in] title The new title of the document.
+void SetTitle(EMP::Core::String& title);
+
+// Returns the title of this document.
+// @return The document's title.
+const EMP::Core::String& GetTitle() const;
+```
+
+If a document was loaded from an RML file, the function GetSourceURL() will return the path of the source RML.
+
+```cpp
+// Returns the source address of this document.
+// @return The source of this document, usually a file name.
+const EMP::Core::String& GetSourceURL() const;
+```
+
+### Documents and contexts
+
+Every document is part of a single context. The documents within a context are layered similarly to windows on a desktop. Document layering can be controlled through user input (ie, when a document is clicked on, by default it is raised to the top), programatically or through the 'z-index' property.
+
+The function GetContext() will return the document's context.
+
+```cpp
+// Returns the document's context.
+// @return The context this document exists within.
+Rocket::Core::Context* GetContext();
+```
+
+#### Layering
+
+The 'z-index' property of a document controls the rendering order similarly to elements. A document with a higher z-index will always be rendered on top of a document with a lower z-index. As well as integer values, you can use the z-index values of 'top' and 'bottom' to force a document to always be at the top or bottom of the document stack. Documents start with a default z-index of 0.
+
+The functions PullToFront() and PushToBack() will move the document to the front and back of the document stack among documents with a similar z-index. For example, calling PullToFront() on a document with a z-index of 1 will force all documents with a z-index lower than 1, and all other documents with a z-index of 1, to be rendered before it. However, documents with a higher z-index will still be rendered after it.
+
+```cpp
+// Brings the document to the front of the document stack.
+void PullToFront();
+
+// Sends the document to the back of the document stack.
+void PushToBack();
+```
+
+Pulling and pushing documents only affects the document stack at the moment it is called. If further documents are loaded, or other documents are pushed and pulled, the document stack will change.
+
+#### Layering and the mouse
+
+By default, if the primary mouse button is pressed while hovering over a document, that document will be brought to the front of the document stack (similarly to a PullToFront() call). If a document has any 'z-index' value other than the default of 'auto', this behaviour will not occur.
+
+### Visibility
+
+When a document is loaded into a context, it begins hidden (it has a 'visibility' value of 'hidden'). To show a document, use the Show() function:
+
+```cpp
+// Show the document.
+// @param[in] focus_flags Flags controlling the changing of focus. Leave as FOCUS to switch focus to the document.
+void Show(int focus_flags = Rocket::Core::Document::FOCUS);
+```
+
+By default, the Show() function will make the document visible and switch keyboard focus to the document. Possible values of the focus_flags parameter are:
+
+* Rocket::Core::ElementDocument::NONE: The document will not steal focus, but will still be made visible.
+* Rocket::Core::ElementDocument::FOCUS: The default; the document will steal focus if possible.
+* Rocket::Core::ElementDocument::MODAL: The document will steal focus and prevent other documents from taking focus away until another Show() is called on the document without Rocket::Core::Document::MODAL. 
+
+To hide a document, call Hide().
+
+```cpp
+// Hide the document.
+void Hide();
+```
+
+### Closing
+
+Calling Close() on a document will remove the document from its context and destroy it and all of its elements.
+
+```cpp
+// Close the document.
+void Close();
+```
+
+### Creating new elements
+
+Similarly to HTML documents, Rocket documents are capable of creating new elements and text nodes. You can use the CreateElement() function to create a new element of a certain type:
+
+```cpp
+// Creates the named element.
+// @param[in] name The tag name of the element.
+Rocket::Core::Element* CreateElement(const EMP::Core::String& name);
+```
+
+The name parameter is the desired tag name of the new element. Note that as you cannot specify an independent instancer name or RML attributes to pass to the instancer, this method is not as flexible as creating an element through the factory, but is useful for easily creating simple elements.
+
+Call CreateTextNode() to create a new text element with a given text string:
+
+```cpp
+// Create a text element with the given text content.
+// @param[in] text The text content of the text element.
+Rocket::Core::ElementText* CreateTextNode(const EMP::Core::String& text);
+```
+
+The text parameter will be interpreted as a UTF-8 encoded string and converted to a UCS-2 string inside the text node. The element returned will be derived from Rocket::Core::ElementText.
+
+Note that neither of these functions actually attaches the new element to the document in any way.
+
+### Custom documents
+
+All documents are instanced like normal elements from the 'body' tag. The process for [creating a custom document](elements.html#custom-elements) type is identical to that for creating a custom element, except you should derive from Rocket::Core::ElementDocument instead of Rocket::Core::Element, and only register the element instancer against the 'body' tag.
+
+If you register an instancer for the 'body' tag that returns an element not derived from Rocket::Core::ElementDocument, documents will fail to load.
+
+There is one virtual function that is particular to Rocket::Core::ElementDocument:
+
+```cpp
+// Load a script into the document.
+// @param[in] stream Stream of code to process.
+// @param[in] source_name Name of the the script the source comes from, useful for debug information.
+virtual void LoadScript(EMP::Core::Stream* stream, const EMP::Core::String& source_name);
+```
+
+LoadScript() is generally only used to integrate a scripting language into Rocket. It is called on a document for every <script> tag with the script content. The default implementation does nothing; custom documents can do whatever they need to here to load, compile and bind the scripts for their elements. 

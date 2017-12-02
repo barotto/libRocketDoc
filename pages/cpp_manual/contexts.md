@@ -1,0 +1,201 @@
+---
+layout: page
+title: Contexts
+description: Contexts
+---
+
+Rocket contexts are independent collections of documents. All documents exist within a single context. Contexts are rendered, updated and given input independently of each other at the application's discretion.
+
+### Uses of multiple contexts
+
+Most games will feature a single context for the main interface. Multiple contexts could be used however for a number of different reasons.
+
+#### Multiple desktops
+
+A second or subsequent context could be used to store alternative 'desktops' that the user could switch to, in a similar fashion to many Linux desktops. This could be very useful for interface-heavy games where the user may have several windows open at once, more than could fit easily onto one screen.
+
+#### In-world interfaces
+
+Computer terminals or consoles in a 3D game world could themselves be Rocket contexts. As they wouldn't necessarily be viewed parallel to the screen, mouse input would need to be projected onto the surface. When the context was rendered, it would need to be transformed correctly to fit onto the surface or rendered onto a texture.
+
+### Creating a context
+
+To create a new context, use the CreateContext() function in Rocket::Core.
+
+```cpp
+// Creates a new element context.
+// @param[in] name The new name of the context. This must be unique.
+// @param[in] dimensions The initial dimensions of the new context.
+// @return The new context, or NULL if the context could not be created.
+Rocket::Core::Context* CreateContext(const EMP::Core::String& name,
+                                     const EMP::Core::Vector2i& dimensions);
+```
+
+The context needs a unique string name and initial dimensions. The dimensions are used to generate relative lengths (for example, if a document has a percentage dimension), and sets the extents for the mouse cursor within the context.
+
+To fetch a previously-constructed context, use the GetContext() function.
+
+```cpp
+// Fetches a previously constructed context by name.
+// @param[in] name The name of the desired context.
+// @return The desired context, or NULL if no context exists with the given name.
+Rocket::Core::Context* GetContext(const EMP::Core::String& name);
+```
+
+### Releasing a context
+
+Contexts are reference counted, and begin with a reference count of one. Once you have finished with a context, call RemoveReference() to release it. It will be destroyed, and all of its documents released.
+
+### Update and rendering
+
+If a context is active, it should have Update() called on it after the frame's input events have been sent to it.
+
+```cpp
+// Updates all elements in the context's documents.
+bool Update();
+```
+
+To render a context, call Render() on it. Easy!
+
+```cpp
+// Renders all visible elements in the context's documents.
+bool Render();
+```
+
+### Loading and creating documents
+
+Documents are loaded through contexts. To load a document from an RML file into a context, call the LoadDocument() function on the appropriate context.
+
+```cpp
+// Load a document into the context.
+// @param[in] document_path The path to the document to load.
+// @return The loaded document, or NULL if no document was loaded.
+ElementDocument* LoadDocument(const EMP::Core::String& document_path);
+```
+
+The document_path parameter will be given to Rocket's file interface? to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call Show() on the document to make it visible.
+
+You can also load documents directly from a memory stream, this can be useful if you want to receive documents over the network or similar.
+
+```cpp
+// Load a document into the context.
+// @param[in] string The string containing the document RML.
+// @return The loaded document, or NULL if no document was loaded.
+ElementDocument* LoadDocumentFromMemory(const EMP::Core::String& string);
+```
+
+To create a new, empty document you can populate dynamically, use the CreateDocument() function.
+
+```cpp
+// Creates a new, empty document and places it into this context.
+// @param[in] tag The document type to create.
+// @return The new document, or NULL if no document could be created.
+ElementDocument* CreateDocument(const EMP::Core::String& tag = "document");
+```
+
+The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a Rocket::Core::ElementDocument is instanced, it will be added to the context and returned.
+
+### Cursors
+
+Each context maintains a list of cursors that can be used to represent the mouse cursor. Regardless of the number of cursors loaded into a context, only one cursor is rendered at a time. The default cursor is the first element to be loaded; this will be the visible cursor unless an element overrides it through the ['cursor' property](../rcss/user_interface.html#cursors-the-cursor-property).
+
+#### Loading cursors
+
+Mouse cursors can be loaded into a context using the LoadMouseCursor() function.
+
+```cpp
+// Loads a document as a mouse cursor within this context.
+// @param[in] cursor_document_path The path to the document to load as a cursor.
+// @return The loaded cursor document, or NULL if no document was loaded.
+Rocket::Core::ElementDocument* LoadMouseCursor(const EMP::Core::String& cursor_document_path);
+```
+
+Cursors are documents themselves, and are loaded the same way internally. Any valid RML document can be loaded as a document; of course, you're most likely to want a simple document with an image decorator, but you're not limited to this!
+
+Note that the cursor's 'name' is the title of its document. This is the name you'll use to specify it through the 'cursor' property.
+
+#### Sharing cursors
+
+Mouse cursors can also be shared across contexts with the AddMouseCursor() function.
+
+```cpp
+// Adds a previously-loaded cursor document as a mouse cursor within this context.
+// @param[in] cursor_document The document to add as a cursor into this context.
+void AddMouseCursor(Rocket::Core::ElementDocument* cursor_document);
+```
+
+Call AddMouseCursor() with a cursor loaded into another context.
+
+### Events
+
+Event listeners can be attached to a context (rather than an element) to receive events sent to all elements within that context. As with elements, call AddEventListener() to attach a listener and RemoveEventListener() to detach.
+
+```cpp
+// Adds an event listener to the context's root element.
+// @param[in] event The name of the event to attach to.
+// @param[in] listener Listener object to be attached.
+// @param[in] in_capture_phase True if the listener is to be attached to the capture phase, false for the bubble phase.
+void AddEventListener(const EMP::Core::String& event,
+                      Rocket::Core::EventListener* listener,
+                      bool in_capture_phase = false);
+
+// Removes an event listener from the context's root element.
+// @param[in] event The name of the event to detach from.
+// @param[in] listener Listener object to be detached.
+// @param[in] in_capture_phase True to detach from the capture phase, false from the bubble phase.
+void RemoveEventListener(const EMP::Core::String& event,
+                         Rocket::Core::EventListener* listener,
+                         bool in_capture_phase = false);
+```
+
+### Input
+
+See the section on [input](input.html) for detail on sending user input from your application into Rocket contexts.
+
+### Custom contexts
+
+Contexts are created, like elements and decorators, through instancers. You can override the default context instancer if you want to create custom contexts. Generally, this is only required for adding support for scripting languages.
+
+#### Creating a custom context
+
+A custom context is a class derived from Rocket::Core::Context. There are no virtual methods on Rocket::Core::Context, so it cannot be specialised.
+
+#### Creating a custom context instancer
+
+A custom context instancer needs to be registered with the Rocket factory in order to override the default instancer. A custom context instancer needs to be derived from Rocket::Core::ContextInstancer, and implement the required virtual methods:
+
+```cpp
+// Instances a context.
+// @param[in] name Name of this context.
+// @return The instanced context.
+virtual Rocket::Core::Context* InstanceContext(const EMP::Core::String& name) = 0;
+
+// Releases a context previously created by this context.
+// @param[in] context The context to release.
+virtual void ReleaseContext(Rocket::Core::Context* context) = 0;
+
+// Releases this context instancer
+virtual void Release() = 0;
+```
+
+InstanceContext() will be called whenever a new context is requested. It takes a single parameter, name, the name of the new context. If a context can be created, it should be initialised and returned. Otherwise, return NULL (0).
+
+ReleaseContext() will be called whenever a context is released. The context instancer should destroy the context and free and resources allocated for it.
+
+Release() will be called when Rocket is shut down. The instancer should delete itself if it was dynamically allocated.
+
+#### Registering an instancer
+
+To register a custom instancer with Rocket, call RegisterContextInstancer() on the Rocket factory after Rocket has been initialised.
+
+```cpp
+Rocket::Core::ContextInstancer* custom_instancer = new CustomContextInstancer();
+Rocket::Core::Factory::RegisterContextInstancer(custom_instancer);
+custom_instancer->RemoveReference();
+```
+
+Like other instancers, context instancers are reference counted and begin with a single reference. The factory will add its own reference to the instancer once it is registered, so you must remove the initial reference afterwards.
+
+#### Enumerating Contexts
+
+All active contexts can be enumerated via the Rocket::Core::GetNumContexts() and Rocket::Core::GetContext(int index) function calls. 
