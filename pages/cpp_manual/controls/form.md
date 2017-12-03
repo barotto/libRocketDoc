@@ -139,7 +139,8 @@ The radio button (`<input type="radio" />`) and checkbox (`<input type="checkbox
 The checked status of a checkbox or radio button defaults to false, but can be initialised to true with the "checked" attribute. To uncheck a checkbox, remove the "checked" attribute with RemoveAttribute().
 Drop-down select box
 
-The simple drop-down select control is specified in RML with the `<select>` tag. Individual options within the select box are specified with child <option> elements. The value of the select control is set to the value attribute of the currently selected option. The following RML fragment declares a select box:
+The simple drop-down select control is specified in RML with the `<select>` tag. Individual options within the select box are specified with child `<option>` elements. The value of the select control is set to the value attribute of the currently selected option.
+The following RML fragment declares a select box:
 
 ```
 <select name="graphics">
