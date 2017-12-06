@@ -16,7 +16,7 @@ description: libRocket's documentation from the last available archive.org snaps
 1. [Rocket Markup Language](pages/rml.html)
 2. [Rocket CSS](pages/rcss.html)
 3. [Style guide](pages/style_guide.html) 
-4. Glossary 
+4. [Glossary](pages/glossary.html) 
 
 ### Tutorials
 
