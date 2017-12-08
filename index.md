@@ -20,11 +20,11 @@ description: libRocket's documentation from the last available archive.org snaps
 
 ### Tutorials
 
-1. Templating Rocket Invaders windows
-2. Setting up Rocket Invaders high scores
-3. Adding subtrees to Rocket Invaders high scores
-4. Integrating Python with Rocket Invaders
-5. Implementing Drag & Drop
+1. [Templating Rocket Invaders windows](pages/tutorials/window_template.html)
+2. [Setting up Rocket Invaders high scores](pages/tutorials/datagrid.html)
+3. [Adding subtrees to Rocket Invaders high scores](pages/tutorials/datagrid_tree.html)
+4. [Integrating Python with Rocket Invaders](pages/tutorials/python_event_system.html)
+5. [Implementing Drag & Drop](pages/tutorials/dragging.html)
 
 ### Other
 
