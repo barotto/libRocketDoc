@@ -36,13 +36,13 @@ public:
 
 	// Get the event type.
 	// @return The event type.
-	const EMP::Core::String& GetType() const;
+	const Rocket::Core::String& GetType() const;
 
 	// Returns the value of one of the event's parameters.
 	// @param key[in] The name of the desired parameter.
 	// @return The value of the requested parameter.
 	template < typename T >
-	T GetParameter(const EMP::Core::String& key, const T& default_value);
+	T GetParameter(const Rocket::Core::String& key, const T& default_value);
 
 	// Stops the propagation of the event.
 	void StopPropagation();
@@ -79,7 +79,7 @@ To subscribe an event listener to an element, call the AddEventListener() functi
 // @param[in] event Event to attach to.
 // @param[in] listener The listener object to be attached.
 // @param[in] in_capture_phase True to attach in the capture phase, false in bubble phase.
-void AddEventListener(const EMP::Core::String& event,
+void AddEventListener(const Rocket::Core::String& event,
                       Rocket::Core::EventListener* listener,
                       bool in_capture_phase = false);
 ```
@@ -98,7 +98,7 @@ To unsubscribe an event listener from an element, call the RemoveEventListener()
 // @param[in] event Event to detach from.
 // @param[in] listener The listener object to be detached.
 // @param[in] in_capture_phase True to detach from the capture phase, false from the bubble phase.
-void RemoveEventListener(const EMP::Core::String& event,
+void RemoveEventListener(const Rocket::Core::String& event,
                          Rocket::Core::EventListener* listener,
                          bool in_capture_phase = false);
 
@@ -111,15 +111,15 @@ The application can send an arbitrary event to an element through the DispatchEv
 // @param[in] event Name of the event in string form.
 // @param[in] parameters The event parameters.
 // @param[in] interruptible True if the propagation of the event be stopped.
-void DispatchEvent(const EMP::Core::String& event,
-                   const EMP::Core::Dictionary& parameters,
+void DispatchEvent(const Rocket::Core::String& event,
+                   const Rocket::Core::Dictionary& parameters,
                    bool interruptible = false);
 ```
 
 The event will be created and sent through the standard event loop. The following example sends a "close" event to an element:
 
 ```cpp
-EMP::Core::Dictionary parameters;
+Rocket::Core::Dictionary parameters;
 parameters.Set("source", "user");
 
 element->DispatchEvent("close", parameters);
@@ -142,8 +142,8 @@ A custom event instancer needs to be created and registered with the Rocket fact
 // @param[in] parameters Additional parameters for this event.
 // @param[in] interruptible If the event propagation can be stopped.
 virtual Rocket::Core::Event* InstanceEvent(Rocket::Core::Element* target,
-                                           const EMP::Core::String& name,
-                                           const EMP::Core::Dictionary& parameters,
+                                           const Rocket::Core::String& name,
+                                           const Rocket::Core::Dictionary& parameters,
                                            bool interruptible) = 0;
 
 // Releases an event instanced by this instancer.
@@ -203,7 +203,7 @@ A custom event listener instancer derives from Rocket::Core::EventListenerInstan
 ```cpp
 // Instance an event listener object.
 // @param value Value of the event.
-virtual Rocket::Core::EventListener* InstanceEventListener(const EMP::Core::String& value) = 0;
+virtual Rocket::Core::EventListener* InstanceEventListener(const Rocket::Core::String& value) = 0;
 
 // Releases this event listener instancer.
 virtual void Release() = 0;

@@ -8,7 +8,7 @@ Rocket uses text elements (elements derived from Rocket::Core::ElementText) to s
 
 ### Text encoding
 
-The string type used through the majority of Rocket's interfaces, EMP::Core::String, stores 8-bit wide characters. In order to store wider characters efficiently, text elements store their contents as a Rocket::Core::String type. The Rocket string stores 16-bit wide characters in UCS-2 format; while not sufficient to store every possible UTF-8 character, it can store every useful one, so is a good compromise between size and usefulness.
+The string type used through the majority of Rocket's interfaces, Rocket::Core::String, stores 8-bit wide characters. In order to store wider characters efficiently, text elements store their contents as a Rocket::Core::String type. The Rocket string stores 16-bit wide characters in UCS-2 format; while not sufficient to store every possible UTF-8 character, it can store every useful one, so is a good compromise between size and usefulness.
 
 When a Rocket string is constructed from an EMP string, it interprets the EMP string as being UTF-8 encoded and will convert it to UCS-2.
 
@@ -43,7 +43,7 @@ The SetText() function on a Rocket::Core::ElementText will change the text on th
 void SetText(const Rocket::Core::String& text);
 ```
 
-If you pass in a constant string or an EMP::Core::String, it will be converted to a Rocket string as described above (interpreted as UTF-8 encoding). This means it will interpret standard ASCII characters OK.
+If you pass in a constant string or an Rocket::Core::String, it will be converted to a Rocket string as described above (interpreted as UTF-8 encoding). This means it will interpret standard ASCII characters OK.
 
 Note that this sets the raw text on the element; the actual rendered text may differ due to whitespace processing.
 
@@ -60,7 +60,7 @@ const Rocket::Core::String& GetText() const;
 This will return the raw text as a UCS-2 encoded Rocket string. To convert the string to a UTF-8 encoded string, call ToUTF8() on the string.
 
 ```cpp
-EMP::Core::String utf8_string;
+Rocket::Core::String utf8_string;
 element_text->GetText().ToUTF8(utf8_string);
 ```
 

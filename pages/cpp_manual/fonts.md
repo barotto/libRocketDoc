@@ -12,7 +12,7 @@ To load a font, call one of the LoadFontFace() functions on Rocket::Core::FontDa
 // Adds a new font face to the database. The face's family, style and weight will be determined from the face itself.
 // @param[in] file_name The file to load the face from.
 // @return True if the face was loaded successfully, false otherwise.
-static bool LoadFontFace(const EMP::Core::String& file_name);
+static bool LoadFontFace(const Rocket::Core::String& file_name);
 ```
 
 This function will load the font file specified (opening it through the file interface). The font's family (the string you specify the font with using the 'font-family' RCSS property), the style (normal or italic) and weight (normal or bold) are all fetched from the font file itself. Rocket will generate the font data for specific sizes of the font as required by the application.
@@ -28,8 +28,8 @@ If you need to override the family name, style or weight of the font, use the mo
 // @param[in] style The style of the face (normal or italic).
 // @param[in] weight The weight of the face (normal or bold).
 // @return True if the face was loaded successfully, false otherwise.
-static bool LoadFontFace(const EMP::Core::String& file_name,
-                         const EMP::Core::String& family,
+static bool LoadFontFace(const Rocket::Core::String& file_name,
+                         const Rocket::Core::String& family,
                          Rocket::Core::Font::Style style,
                          Rocket::Core::Font::Weight weight);
 ```

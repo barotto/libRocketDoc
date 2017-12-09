@@ -14,7 +14,7 @@ Note: an excellent way to learn how to use data grids and data sources is the [d
 
 ### Data sources
 
-Data sources are named database-like objects that store tables of data, each of which can be queried row by row. Each table contains several named columns of data per row. Listeners can attach to data sources to be notified when changes to the data occur. All data sources derive from the EMP::Core::DataSource class. The constructor for the base class takes a unique string which is used to identify the data source. Concrete data sources must provide implementations for the pure virtual functions:
+Data sources are named database-like objects that store tables of data, each of which can be queried row by row. Each table contains several named columns of data per row. Listeners can attach to data sources to be notified when changes to the data occur. All data sources derive from the Rocket::Core::DataSource class. The constructor for the base class takes a unique string which is used to identify the data source. Concrete data sources must provide implementations for the pure virtual functions:
 
 ```cpp
 // Fetches the contents of one row of a table within the data source.
@@ -22,15 +22,15 @@ Data sources are named database-like objects that store tables of data, each of 
 // @param[in] table The name of the table to query.
 // @param[in] row_index The index of the desired row.
 // @param[in] columns The list of desired columns within the row.
-virtual void GetRow(EMP::Core::StringList& row,
-                    const EMP::Core::String& table,
+virtual void GetRow(Rocket::Core::StringList& row,
+                    const Rocket::Core::String& table,
                     int row_index,
-                    const EMP::Core::StringList& columns) = 0;
+                    const Rocket::Core::StringList& columns) = 0;
 
 // Fetches the number of rows within one of this data source's tables.
 // @param[in] table The name of the table to query.
 // @return The number of rows within the specified table.
-virtual int GetNumRows(const EMP::Core::String& table) = 0;
+virtual int GetNumRows(const Rocket::Core::String& table) = 0;
 ```
 
 GetRow() is called by the data grid when it needs to fetch the source's values. The parameters to the function are:
@@ -51,7 +51,7 @@ In order for an attached data grid to remain up-to-date, data sources need to in
 // @param[in] table The name of the table to have rows added to it.
 // @param[in] first_row_added The index of the first row added.
 // @param[in] num_rows_added The number of rows added (including the first row).
-void NotifyRowAdd(const EMP::Core::String& table,
+void NotifyRowAdd(const Rocket::Core::String& table,
                int first_row_added,
                int num_rows_added);
 ```
@@ -63,7 +63,7 @@ The NotifyRowAdd() function informs an attached data grid that a number of rows 
 // @param[in] table The name of the table to have rows removed from it.
 // @param[in] first_row_removed The index of the first row removed.
 // @param[in] num_rows_removed The number of rows removed (including the first row).
-void NotifyRowRemove(const EMP::Core::String& table,
+void NotifyRowRemove(const Rocket::Core::String& table,
                  int first_row_removed,
                  int num_rows_removed);
 ```
@@ -75,7 +75,7 @@ The NotifyRowRemove() function informs an attached data grid that a number of ro
 // @param[in] table The name of the table to have rows changed in it.
 // @param[in] first_row_changed The index of the first row changed.
 // @param[in] num_rows_changed The number of rows changed (including the first row).
-void NotifyRowChange(const EMP::Core::String& table,
+void NotifyRowChange(const Rocket::Core::String& table,
                  int first_row_changed,
                  int num_rows_changed);
 ```
@@ -85,7 +85,7 @@ The NotifyRowChange() function informs an attached data grid that a number of ro
 ```cpp
 // Tells all attached listeners that the row structure has completely changed in the data source.
 // @param[in] table The name of the table to have rows changed in it.
-void NotifyRowChange(const EMP::Core::String& table);
+void NotifyRowChange(const Rocket::Core::String& table);
 ```
 
 The simpler NotifyRowChange() function informs an attached data grid that one of the tables has completely changed or changed significantly. Use this function when the data set for a table changes entirely, or when many simultaneous individual changes occur that would otherwise cause many of the simpler RowsChanged() calls.
@@ -103,7 +103,7 @@ The data source can be changed in C++ with the SetDataSource() function.
 ```cpp
 // Sets a new data source for the contents of the data grid.
 // @param[in] data_source_name The name of the new data source.
-void SetDataSource(const EMP::Core::String& data_source_name);
+void SetDataSource(const Rocket::Core::String& data_source_name);
 ```
 
 #### Adding columns
@@ -123,10 +123,10 @@ The RML content between the opening and closing column tags will form the header
 // @param[in] initial_width The initial width, in pixels, of the column.
 // @param[in] header_rml The RML to use as the column header.
 // @return True if the column was added successfully, false if not.
-bool AddColumn(const EMP::Core::String& fields,
-               const EMP::Core::String& formatter,
+bool AddColumn(const Rocket::Core::String& fields,
+               const Rocket::Core::String& formatter,
                float initial_width,
-               const EMP::Core::String& header_rml);
+               const Rocket::Core::String& header_rml);
 ```
 
 ### Data formatters
@@ -139,8 +139,8 @@ A concrete data formatter must implement the FormatData() function:
 // Formats the raw results of a data source request into RML.
 // @param[out] formatted_data The formatted RML.
 // @param[in] raw_data A list of the raw data fields.
-virtual void FormatData(EMP::Core::String& formatted_data,
-                        const EMP::Core::StringList& raw_data) = 0;
+virtual void FormatData(Rocket::Core::String& formatted_data,
+                        const Rocket::Core::StringList& raw_data) = 0;
 ```
 
 See the high scores tutorial for examples of creating data formatters.

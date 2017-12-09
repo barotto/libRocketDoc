@@ -79,24 +79,24 @@ Rocket::Core::Geometry* geometry = new Rocket::Core::Geometry();
 To populate the object's vertices and indices, use the GetVertices() and GetIndices() functions to retrieve references to the internal arrays.
 
 ```cpp
-EMP::Core::STL::vector< Rocket::Core::Vertex >& vertices = geometry->GetVertices();
-EMP::Core::STL::vector< int >& indices = geometry->GetIndices();
+Rocket::Core::STL::vector< Rocket::Core::Vertex >& vertices = geometry->GetVertices();
+Rocket::Core::STL::vector< int >& indices = geometry->GetIndices();
 ```
 
 Remember to store the arrays as references! Then simply add elements to the arrays as appropriate for your geometry.
 
 ```cpp
 Rocket::Core::Vertex vertex;
-vertex.colour = EMP::Core::Colourb(255, 128, 192, 200);
-vertex.tex_coord = EMP::Core::Vector2f(0, 0);
+vertex.colour = Rocket::Core::Colourb(255, 128, 192, 200);
+vertex.tex_coord = Rocket::Core::Vector2f(0, 0);
 
-vertex.position = EMP::Core::Vector2f(0, 0);
+vertex.position = Rocket::Core::Vector2f(0, 0);
 vertices.insert(vertex);
-vertex.position = EMP::Core::Vector2f(0, 68);
+vertex.position = Rocket::Core::Vector2f(0, 68);
 vertices.insert(vertex);
-vertex.position = EMP::Core::Vector2f(42, 68);
+vertex.position = Rocket::Core::Vector2f(42, 68);
 vertices.insert(vertex);
-vertex.position = EMP::Core::Vector2f(42, 0);
+vertex.position = Rocket::Core::Vector2f(42, 0);
 vertices.insert(vertex);
 
 indices.insert(0);
@@ -120,7 +120,7 @@ To apply a texture to the geometry, call the SetTexture() function with a valid 
 // @param[in] texture_name The name of the texture to load.
 // @param[in] rcss_path The RCSS file the decorator definition was loaded from; this is used to resolve relative paths.
 // @return The index of the texture if the load was successful, or -1 if the load failed.
-int LoadTexture(const EMP::Core::String& texture_name, const EMP::Core::String& rcss_path);
+int LoadTexture(const Rocket::Core::String& texture_name, const Rocket::Core::String& rcss_path);
 
 // Returns one of the decorator's previously loaded textures.
 // @param[in] index The index of the desired texture.
@@ -143,7 +143,7 @@ A decorator instancer needs to derive from Rocket::Core::DecoratorInstancer. The
 // @param[in] name The type of decorator desired.
 // @param[in] properties All RCSS properties associated with the decorator.
 // @return The decorator if it was instanced successful, NULL if an error occured.
-virtual Rocket::Core::Decorator* InstanceDecorator(const EMP::Core::String& name,
+virtual Rocket::Core::Decorator* InstanceDecorator(const Rocket::Core::String& name,
                                                    const PropertyDictionary& properties) = 0;
 
 // Releases the given decorator.
@@ -187,7 +187,7 @@ To register a custom decorator instancer with Rocket, call the RegisterDecorator
 // @param[in] name The name of the decorator the instancer will be called for.
 // @param[in] instancer The instancer to call when the decorator name is encountered.
 // @return The added instancer if the registration was successful, NULL otherwise.
-static Rocket::Core::DecoratorInstancer* RegisterDecoratorInstancer(const EMP::Core::String& name,
+static Rocket::Core::DecoratorInstancer* RegisterDecoratorInstancer(const Rocket::Core::String& name,
                                                                     Rocket::Core::DecoratorInstancer* instancer);
 ```
 

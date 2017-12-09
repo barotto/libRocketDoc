@@ -8,7 +8,7 @@ So you've got Rocket integrated into your application, but how are you meant to 
 
 ### Reference counting
 
-Most Rocket objects are reference counted and derive from EMP::Core::ReferenceCountable. The functions AddReference() and RemoveReference() will add and remove a single reference respectively. Reference counted objects have an initial reference count of one. Rocket systems will add a reference to an object when the object enters their domain, and remove the reference when it leaves. When the reference count on an object drops to zero, it will be destroyed internally. It is important that you don't release objects yourself with the delete operator, except where required to in a custom [instancer](#the-factory-and-instancers).
+Most Rocket objects are reference counted and derive from Rocket::Core::ReferenceCountable. The functions AddReference() and RemoveReference() will add and remove a single reference respectively. Reference counted objects have an initial reference count of one. Rocket systems will add a reference to an object when the object enters their domain, and remove the reference when it leaves. When the reference count on an object drops to zero, it will be destroyed internally. It is important that you don't release objects yourself with the delete operator, except where required to in a custom [instancer](#the-factory-and-instancers).
 
 When you create a reference counted object and give control of it to a Rocket system, it is important that you remove the initial reference so the object will be destroyed as appropriate.
 

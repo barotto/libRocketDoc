@@ -73,7 +73,7 @@ context.LoadDocument('data/main_menu.rml').Show()
 To run this script, we simply need to import it at application start up. Add an import helper to the PythonInterface and call it just before the main shell loop.
 
 ```cpp
-bool PythonInterface::Import(const EMP::Core::String& name)
+bool PythonInterface::Import(const Rocket::Core::String& name)
 {
     PyObject* module = PyImport_ImportModule(name.CString());
     if (!module)
@@ -235,7 +235,7 @@ void ElementGame::OnUpdate()
 	game->Update();
 
 	if (game->IsGameOver())
-		DispatchEvent("gameover", EMP::Core::Dictionary(), false);
+		DispatchEvent("gameover", Rocket::Core::Dictionary(), false);
 }
 ```
 

@@ -19,23 +19,23 @@ If you take a look at the C++ code, you see that there's a HighScores class that
 
 ### Step 2: The data source
 
-EMP::Core::DataSource is an abstract base class which simulates the interface to a database. Each data source contains one or more tables, and each table contains rows and columns. The columns specify the fields each row has. To inherit from EMP::Core::DataSource, you need to override two functions:
+Rocket::Core::DataSource is an abstract base class which simulates the interface to a database. Each data source contains one or more tables, and each table contains rows and columns. The columns specify the fields each row has. To inherit from Rocket::Core::DataSource, you need to override two functions:
 
 ```cpp
-virtual void GetRow(EMP::Core::StringList& row, const EMP::Core::String& table, int row_index, const EMP::Core::StringList& columns) = 0;
-virtual int GetNumRows(const EMP::Core::String& table) = 0;
+virtual void GetRow(Rocket::Core::StringList& row, const Rocket::Core::String& table, int row_index, const Rocket::Core::StringList& columns) = 0;
+virtual int GetNumRows(const Rocket::Core::String& table) = 0;
 ```
 
 GetNumRows is the easy one - the function is passed in the name of a table, and it returns how many rows are currently in that table.
 
-GetRow is the meat of the data source implementation. It takes a table, an index to a row within that table and a list of columns that are being queried. The function must look that row up and, for each column in the list, push the data into the EMP::Core::StringList row.
+GetRow is the meat of the data source implementation. It takes a table, an index to a row within that table and a list of columns that are being queried. The function must look that row up and, for each column in the list, push the data into the Rocket::Core::StringList row.
 
 #### Implementation
 
-So, let's convert the lackluster HighScores class to a fully-fledged EMP::Core::DataSource. First of all include EMP/Core/DataSource.h and have HighScores inherit from EMP::Core::DataSource. Take a quick look at the EMP::Core::DataSource's constructor:
+So, let's convert the lackluster HighScores class to a fully-fledged Rocket::Core::DataSource. First of all include EMP/Core/DataSource.h and have HighScores inherit from Rocket::Core::DataSource. Take a quick look at the Rocket::Core::DataSource's constructor:
 
 ```cpp
-EMP::Core::DataSource(const EMP::Core::String& name = "");
+Rocket::Core::DataSource(const Rocket::Core::String& name = "");
 ```
 
 The name parameter that it takes is used to uniquely identify it. If this is set then we can use that name have a datagrid automatically look up our data source without any C++ code. If we don't pass in a name, then it'll default to the address of the data source object - much less useful! So it's best to call the constructor from HighScore's own constructor and pass in a name, like "high_scores". When we instance the DataSource it'll automatically add itself to the source database and be accessable from anywhere.
@@ -43,7 +43,7 @@ The name parameter that it takes is used to uniquely identify it. If this is set
 That's the basics covered, now we need to implement the two required functions. Add the GetRow and GetNumRows functions into HighScore. The implementation of these is fairly simple: GetNumRows returns the number of high scores we've got in the chart, and GetRow loops through the columns array and constructs a string for each requested column and pushes it into the passed-in string list. So you should end up with something like this:
 
 ```cpp
-void HighScores::GetRow(EMP::Core::StringList& row, const EMP::Core::String& table, int row_index, const EMP::Core::StringList& columns)
+void HighScores::GetRow(Rocket::Core::StringList& row, const Rocket::Core::String& table, int row_index, const Rocket::Core::StringList& columns)
 {
 	if (table == "scores")
 	{
@@ -55,23 +55,23 @@ void HighScores::GetRow(EMP::Core::StringList& row, const EMP::Core::String& tab
 			}
 			else if (columns[i] == "score")
 			{
-				row.push_back(EMP::Core::String(32, "%d", scores[row_index].score));
+				row.push_back(Rocket::Core::String(32, "%d", scores[row_index].score));
 			}
 			else if (columns[i] == "colour")
 			{
-				EMP::Core::String colour_string;
-				EMP::Core::TypeConverter< EMP::Core::Colourb, EMP::Core::String >::Convert(scores[row_index].colour, colour_string);
+				Rocket::Core::String colour_string;
+				Rocket::Core::TypeConverter< Rocket::Core::Colourb, Rocket::Core::String >::Convert(scores[row_index].colour, colour_string);
 				row.push_back(colour_string);
 			}
 			else if (columns[i] == "wave")
 			{
-				row.push_back(EMP::Core::String(8, "%d", scores[row_index].wave));
+				row.push_back(Rocket::Core::String(8, "%d", scores[row_index].wave));
 			}
 		}
 	}
 }
 
-int HighScores::GetNumRows(const EMP::Core::String& table)
+int HighScores::GetNumRows(const Rocket::Core::String& table)
 {
 	if (table == "scores")
 	{
@@ -94,7 +94,7 @@ This should leave you with a compiling HighScores now that all the pure virtual 
 
 #### Updating the data source
 
-Half of the point of having data sources is allowing them to update dynamically - it's not much fun if the data can't change after it's been displayed by the datagrid. So EMP::Core::DataSource has a few protected functions that you can call to let it know that something's changed inside the source:
+Half of the point of having data sources is allowing them to update dynamically - it's not much fun if the data can't change after it's been displayed by the datagrid. So Rocket::Core::DataSource has a few protected functions that you can call to let it know that something's changed inside the source:
 
 ```cpp
 // Tells all attached listeners that one or more rows have been added to the data source.
@@ -115,7 +115,7 @@ The first two are self-explanatory - call them after you've added or removed row
 So, out of a sense of completeness, we should add in a call to NotifyRowAdd whenever we add a row. We'd do the same if we removed or changed rows, but in this sample we just add rows. Check out the HighScores chart in Rocket Invaders from Mars to see how NotifyRowChange is used when the player enters their name. Anyway, here's the final SubmitScore function:
 
 ```cpp
-void HighScores::SubmitScore(const EMP::Core::String& name, const EMP::Core::Colourb& colour, int wave, int score)
+void HighScores::SubmitScore(const Rocket::Core::String& name, const Rocket::Core::Colourb& colour, int wave, int score)
 {
 	for (size_t i = 0; i < NUM_SCORES; i++)
 	{
@@ -193,20 +193,20 @@ This will tell the ship column to not just display the raw RGBA values that get 
 A data formatter inherits from the class Rocket::Controls::DataFormatter. It has one function that needs overriding:
 
 ```cpp
-virtual void FormatData(EMP::Core::String& formatted_data, const EMP::Core::StringList& raw_data) = 0;
+virtual void FormatData(Rocket::Core::String& formatted_data, const Rocket::Core::StringList& raw_data) = 0;
 ```
 
-This function takes a list of strings, which contains the fields from the data query. The string reference is used to return the final RML once the data has been formatted. It also has a constructor that takes a const char* (defaulting to "") in the same way as EMP::Core::DataSource. This is the name of the formatter, and is used to uniquely identify it to any datagrid columns that wish to use it.
+This function takes a list of strings, which contains the fields from the data query. The string reference is used to return the final RML once the data has been formatted. It also has a constructor that takes a const char* (defaulting to "") in the same way as Rocket::Core::DataSource. This is the name of the formatter, and is used to uniquely identify it to any datagrid columns that wish to use it.
 
 So to make a new formatter, first make a new class - I called mine "HighScoresShipFormatter". Have it inherit from Rocket::Controls::DataFormatter and define the FormatData function. In the .cpp file, call the Rocket::Controls::DataFormatter constructor called from the HighScoresShipFormatter constructor with the parameter "ship". This will give it the name that the datagrid column references it by. The next step is to write the FormatData function. Very handily there's a decorator which does exactly what we want, and it's mapped to the <defender> tag. The decorator reads the "colour" style applied to the \<defender\> tag and colours itself based on that. So all we have to do is read the raw colour information then construct a <defender> tag with a style with that colour. Here's my implementation:
 
 ```cpp
-void HighScoresShipFormatter::FormatData(EMP::Core::String& formatted_data, const EMP::Core::StringList& raw_data)
+void HighScoresShipFormatter::FormatData(Rocket::Core::String& formatted_data, const Rocket::Core::StringList& raw_data)
 {
-	EMP::Core::Colourb ship_colour;
-	EMP::Core::TypeConverter< EMP::Core::String, EMP::Core::Colourb >::Convert(raw_data[0], ship_colour);
+	Rocket::Core::Colourb ship_colour;
+	Rocket::Core::TypeConverter< Rocket::Core::String, Rocket::Core::Colourb >::Convert(raw_data[0], ship_colour);
 
-	EMP::Core::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
+	Rocket::Core::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
 	formatted_data = "<defender style=\"color: rgb(" + colour_string + ");\" />";
 }
 ```
@@ -226,7 +226,7 @@ class HighScoresShipFormatter : public Rocket::Controls::DataFormatter
 		HighScoresShipFormatter();
 		~HighScoresShipFormatter();
 
-		void FormatData(EMP::Core::String& formatted_data, const EMP::Core::StringList& raw_data);
+		void FormatData(Rocket::Core::String& formatted_data, const Rocket::Core::StringList& raw_data);
 };
 
 #include "HighScoresShipFormatter.h"
@@ -240,15 +240,15 @@ HighScoresShipFormatter::~HighScoresShipFormatter()
 {
 }
 
-void HighScoresShipFormatter::FormatData(EMP::Core::String& formatted_data, const EMP::Core::StringList& raw_data)
+void HighScoresShipFormatter::FormatData(Rocket::Core::String& formatted_data, const Rocket::Core::StringList& raw_data)
 {
 	// Data format:
 	// raw_data[0] is the colour, in "%d, %d, %d, %d" format.
 
-	EMP::Core::Colourb ship_colour;
-	EMP::Core::TypeConverter< EMP::Core::String, EMP::Core::Colourb >::Convert(raw_data[0], ship_colour);
+	Rocket::Core::Colourb ship_colour;
+	Rocket::Core::TypeConverter< Rocket::Core::String, Rocket::Core::Colourb >::Convert(raw_data[0], ship_colour);
 
-	EMP::Core::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
+	Rocket::Core::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
 
 	formatted_data = "<defender style=\"color: rgb(" + colour_string + ");\" />";
 }

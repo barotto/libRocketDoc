@@ -81,7 +81,7 @@ A number of input events send through key modifiers. In this case the following 
 
 **textinput**
 >Send to the focus element when a text character is entered.
->* data: An EMP::Core::word corresponding to the character value. 
+>* data: An Rocket::Core::word corresponding to the character value. 
 
 #### Mouse Events
 

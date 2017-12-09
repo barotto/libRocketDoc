@@ -17,7 +17,7 @@ virtual void OnInitialise();
 virtual void OnShutdown();
 
 // Called when a document load request occurs, before the document's file is opened.
-virtual void OnDocumentOpen(Context* context, const EMP::Core::String& document_path);
+virtual void OnDocumentOpen(Context* context, const Rocket::Core::String& document_path);
 // Called when a document is successfully loaded from file or instanced, initialised and added to its context. This is called before the document's 'load' event.
 virtual void OnDocumentLoad(ElementDocument* document);
 // Called when a document is unloaded from its context. This is called after the document's 'unload' event.

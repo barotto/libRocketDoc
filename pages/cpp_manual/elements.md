@@ -42,13 +42,13 @@ To retrieve the element's offset, use GetRelativeOffset() or GetAbsoluteOffset()
 // offset parent's top-left border corner.
 // @param[in] area The desired area position.
 // @return The relative offset.
-EMP::Core::Vector2f GetRelativeOffset(Rocket::Core::Box::Area area = Box::CONTENT) const;
+Rocket::Core::Vector2f GetRelativeOffset(Rocket::Core::Box::Area area = Box::CONTENT) const;
 
 // Returns the position of the top-left corner of one of the areas of this element's primary box, relative to
 // the element root.
 // @param[in] area The desired area position.
 // @return The absolute offset.
-EMP::Core::Vector2f GetAbsoluteOffset(Rocket::Core::Box::Area area = Box::CONTENT) const;
+Rocket::Core::Vector2f GetAbsoluteOffset(Rocket::Core::Box::Area area = Box::CONTENT) const;
 ```
 
 GetRelativeOffset() will return the offset from the element's offset parent's top-left border to one of the areas of the element's primary box. GetAbsoluteOffset() will return the offset from the top-left corner of the context the element is part of.
@@ -65,7 +65,7 @@ To check if a pseudo-class is set on a particular element, you can use either th
 // Checks if a specific pseudo-class has been set on the element.
 // @param[in] pseudo_class The name of the pseudo-class to check for.
 // @return True if the pseudo-class is set on the element, false if not.
-bool IsPseudoClassSet(const EMP::Core::String& pseudo_class) const;
+bool IsPseudoClassSet(const Rocket::Core::String& pseudo_class) const;
 
 // Gets a list of the current active pseudo-classes.
 // @return The list of active pseudo-classes.
@@ -80,7 +80,7 @@ To set or remove a pseudo-class, call SetPseudoClass().
 // Sets or removes a pseudo-class on the element.
 // @param[in] pseudo_class The pseudo class to activate or deactivate.
 // @param[in] activate True if the pseudo-class is to be activated, false to be deactivated.
-void SetPseudoClass(const EMP::Core::String& pseudo_class, bool activate);
+void SetPseudoClass(const Rocket::Core::String& pseudo_class, bool activate);
 ```
 
 Applications can make use of any pseudo-classes they wish for their own styling needs. However, Rocket maintains several pseudo-classes internally and it is not recommended you set or clear them yourself. These classes are:
@@ -164,9 +164,9 @@ Creating an element through the factory allows more control. The InstanceElement
 // @param[in] attributes The attributes to instance the element with.
 // @return The instanced element, or NULL if the instancing failed.
 static Rocket::Core::Element* InstanceElement(Rocket::Core::Element* parent,
-                                              const EMP::Core::String& instancer,
-                                              const EMP::Core::String& tag,
-                                              const EMP::Core::XMLAttributes& attributes);
+                                              const Rocket::Core::String& instancer,
+                                              const Rocket::Core::String& tag,
+                                              const Rocket::Core::XMLAttributes& attributes);
 ```
 
 The function's parameters are:
@@ -182,13 +182,13 @@ For example, the following will instance a 'div' element:
 Rocket::Core::Element* div_element = Rocket::Core::Factory::InstanceElement(NULL,
                                                                             "div",
                                                                             "div",
-                                                                            EMP::Core::XMLAttributes());
+                                                                            Rocket::Core::XMLAttributes());
 ```
 
 The following will instance a radio button element using the Controls plugin input instancer, but gives it a tag of 'radio':
 
 ```cpp
-EMP::Core::XMLAttributes attributes;
+Rocket::Core::XMLAttributes attributes;
 attributes.Set("type", "radio");
 attributes.Set("name", "graphics");
 attributes.Set("value", "OK");
@@ -207,11 +207,11 @@ To create an element through a document use one of the following functions:
 ```cpp
 // Creates the named element.
 // @param[in] name The tag name of the element.
-Rocket::Core::Element* CreateElement(const EMP::Core::String& name);
+Rocket::Core::Element* CreateElement(const Rocket::Core::String& name);
 
 // Create a text element with the given text content.
 // @param[in] text The text content of the text element.
-Rocket::Core::ElementText* CreateTextNode(const EMP::Core::String& text);
+Rocket::Core::ElementText* CreateTextNode(const Rocket::Core::String& text);
 ```
 
 CreateElement() takes a single parameter, name, the tag name of the new element. This will be used to both look up the instancer and tag the element. Like instancing the element through the factory, the new element will be returned if it was created successfully, or NULL if not.
@@ -270,7 +270,7 @@ virtual float GetBaseline() const;
 // Gets the intrinsic dimensions of this element, if it is of a type that has an inherent size.
 // @param[in] dimensions The dimensions to size, if appropriate.
 // @return True if the element has intrinsic dimensions, false otherwise.
-virtual bool GetIntrinsicDimensions(EMP::Core::Vector2f& dimensions);
+virtual bool GetIntrinsicDimensions(Rocket::Core::Vector2f& dimensions);
 
 // Called for every event sent to this element or one of its descendants.
 // @param[in] event The event to process.
@@ -297,10 +297,10 @@ virtual void OnChildRemove(Rocket::Core::Element* child);
 
 // Gets the markup and content of the element.
 // @param[out] content The content of the element.
-virtual void GetInnerRML(EMP::Core::String& content) const;
+virtual void GetInnerRML(Rocket::Core::String& content) const;
 // Returns the RML of this element and all children.
 // @param[out] content The content of this element and those under it, in XML form.
-virtual void GetRML(EMP::Core::String& content);
+virtual void GetRML(Rocket::Core::String& content);
 ```
 
 #### Layout
@@ -311,7 +311,7 @@ A custom element can override the GetIntrinsicDimensions() function if it wants 
 // Gets the intrinsic dimensions of this element, if it is of a type that has an inherent size.
 // @param[in] dimensions The dimensions to size, if appropriate.
 // @return True if the element has intrinsic dimensions, false otherwise.
-virtual bool GetIntrinsicDimensions(EMP::Core::Vector2f& dimensions);
+virtual bool GetIntrinsicDimensions(Rocket::Core::Vector2f& dimensions);
 ```
 
 If a custom element is to be a replaced element, it should override this function and return true. The actual intrinsic dimensions of the element should be put into the dimensions parameter. This function will be called every time the element is laid out, so the dimension can be a dynamic value. The default element returns false.
@@ -408,11 +408,11 @@ GetRML() is meant to return the RML required to generate the entire element. Thi
 ```cpp
 // Gets the markup and content of the element.
 // @param[out] content The content of the element.
-virtual void GetInnerRML(EMP::Core::String& content) const;
+virtual void GetInnerRML(Rocket::Core::String& content) const;
 
 // Returns the RML of this element and all children.
 // @param[out] content The content of this element and those under it, in XML form.
-virtual void GetRML(EMP::Core::String& content);
+virtual void GetRML(Rocket::Core::String& content);
 ```
 
 ### Creating a custom element instancer
@@ -427,8 +427,8 @@ A custom element instancer needs to be derived from Rocket::Core::ElementInstanc
 // @param[in] tag The tag of the element to instance.
 // @param[in] attributes Dictionary of attributes.
 virtual Rocket:Core::Element* InstanceElement(Rocket::Core::Element* parent,
-                                              const EMP::Core::String& tag,
-                                              const EMP::Core::XMLAttributes& attributes) = 0;
+                                              const Rocket::Core::String& tag,
+                                              const Rocket::Core::XMLAttributes& attributes) = 0;
 
 // Releases an element instanced by this instancer.
 // @param[in] element The element to release.
@@ -493,20 +493,20 @@ Custom node handlers derive from the Rocket::Core::XMLNodeHandler class and impl
 // @param attributes The tag attributes.
 // @return The new element, may be NULL if no element was created.
 virtual Rocket::Core::Element* ElementStart(Rocket::Core::XMLParser* parser,
-                                            const EMP::Core::String& name,
-                                            const EMP::Core::XMLAttributes& attributes) = 0;
+                                            const Rocket::Core::String& name,
+                                            const Rocket::Core::XMLAttributes& attributes) = 0;
 
 // Called when an element is closed.
 // @param parser The parser executing the parse.
 // @param name The XML tag name.
 virtual bool ElementEnd(Rocket::Core::XMLParser* parser,
-                        const EMP::Core::String& name) = 0;
+                        const Rocket::Core::String& name) = 0;
 
 // Called for element data.
 // @param parser The parser executing the parse.
 // @param data The element data.
 virtual bool ElementData(Rocket::Core::XMLParser* parser,
-                         const EMP::Core::String& data) = 0;
+                         const Rocket::Core::String& data) = 0;
 
 // Called to release the node handler.
 virtual void Release() = 0;
@@ -522,7 +522,7 @@ Each of these functions is passed a pointer to the XML parser running the parse.
 struct ParseFrame
 {
 	// Tag being parsed.
-	EMP::Core::String tag;
+	Rocket::Core::String tag;
 
 	// Element representing this frame.
 	Rocket::Core::Element* element;
@@ -543,7 +543,7 @@ If the node handler wants to change the node handler for the new element, it can
 // Pushes an element handler onto the parse stack for parsing child elements.
 // @param[in] tag The tag the handler was registered with.
 // @return True if an appropriate handler was found and pushed onto the stack, false if not.
-bool PushHandler(const EMP::Core::String& tag);
+bool PushHandler(const Rocket::Core::String& tag);
 
 // Pushes the default element handler onto the parse stack.
 void PushDefaultHandler();
@@ -557,7 +557,7 @@ Register a custom node handler with Rocket's XML parser with the static Register
 // @param[in] tag The tag the custom parser will handle.
 // @param[in] handler The custom handler.
 // @return The registered XML node handler.
-static Rocket::Core::XMLNodeHandler* RegisterNodeHandler(const EMP::Core::String& tag,
+static Rocket::Core::XMLNodeHandler* RegisterNodeHandler(const Rocket::Core::String& tag,
                                                          Rocket::Core::XMLNodeHandler* handler);
 ```
 

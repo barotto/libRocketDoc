@@ -76,7 +76,7 @@ You can either construct the box yourself, or use the static BuildBox() function
 // @param[in] containing_block The dimensions of the content area of the block containing the element.
 // @param[in] element The element to build the box for.
 // @param[in] inline_element True if the element is placed in an inline context, false if not.
-static void BuildBox(Box& box, const EMP::Core::Vector2f& containing_block, Element* element, bool inline_element = false);
+static void BuildBox(Box& box, const Rocket::Core::Vector2f& containing_block, Element* element, bool inline_element = false);
 ```
 
 BuildBox() will generate the values of a Rocket::Core::Box from the 'width', 'max-width', 'min-width', and 'height', 'max-height' and 'min-height' properties set on an element. The parameters are:
@@ -98,7 +98,7 @@ But if you want to force the hidden element to be a certain size, instead you mi
 
 ```cpp
 Rocket::Core::Box box;
-box.SetContent(EMP::Core::Vector2f(100, 150));
+box.SetContent(Rocket::Core::Vector2f(100, 150));
 box.SetEdge(Rocket::Core::Box::BORDER, Rocket::Core::Box::TOP, 1);
 hidden_element->SetBox(box);
 ```
@@ -112,7 +112,7 @@ To set the position of a hidden element, use the SetOffset() function. This sets
 // @param[in] offset The offset (in pixels) of our primary box's top-left border corner from our offset parent's top-left border corner.
 // @param[in] offset_parent The element this element is being positioned relative to.
 // @param[in] offset_fixed True if the element is fixed in place (and will not scroll), false if not.
-void SetOffset(const EMP::Core::Vector2f& offset,
+void SetOffset(const Rocket::Core::Vector2f& offset,
                Rocket::Core::Element* offset_parent,
                bool offset_fixed = false);
 ```
@@ -124,7 +124,7 @@ However, Rocket::Core::ElementUtilities has a number of functions to aid in posi
 // @param element[in] The element to size and position.
 // @param offset[in] The offset of the element inside its parent's content area.
 static bool PositionElement(Rocket::Core::Element* element,
-                            const EMP::Core::Vector2f& offset);
+                            const Rocket::Core::Vector2f& offset);
 
 PositionElement() resizes an element (using BuildBox()) and positions it within its parent. As positioning border-corner to border-corner can be quite confusing, this function treats the offset as between the content areas of the elements.
 
@@ -133,7 +133,7 @@ PositionElement() resizes an element (using BuildBox()) and positions it within 
 // @param offset[in] The offset from the parent's borders.
 // @param anchor[in] Defines which corner or edge the border is to be positioned relative to.
 static bool PositionElement(Rocket::Core::Element* element,
-                            const EMP::Core::Vector2f& offset,
+                            const Rocket::Core::Vector2f& offset,
                             Rocket::Core::ElementUtilities::PositionAnchor anchor);
 ```
 
@@ -163,7 +163,7 @@ Rocket's internal layout engine can be run on a hidden element to format the ele
 // @param[in] element The element to lay out.
 // @param[in] containing_block The size of the element's containing block.
 static bool FormatElement(Rocket::Core::Element* element,
-                          const EMP::Core::Vector2f& containing_block);
+                          const Rocket::Core::Vector2f& containing_block);
 ```
 
 ### Formatting hidden text elements
@@ -243,7 +243,7 @@ Then call AddLines() for each generated line.
 // Adds a new line into the text element.
 // @param[in] line_position The position of this line, as an offset from element.
 // @param[in] line The contents of the line.
-void AddLine(const EMP::Core::Vector2f& line_position,
+void AddLine(const Rocket::Core::Vector2f& line_position,
              const Rocket::Core::String& line) = 0;
 ```
 
@@ -265,7 +265,7 @@ while (!last_line)
 	last_line = text_element->GenerateString(line, line_length, line_width, line_begin, 200, 0, line_begin > 0);
 	line_begin += line_length;
 
-	text_element->AddLine(line, EMP::Core::Vector2f(position, 0));
+	text_element->AddLine(line, Rocket::Core::Vector2f(position, 0));
 	position += (float) Rocket::Core::ElementUtilities::GetLineHeight(text_element);
 }
 ```

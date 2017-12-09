@@ -16,9 +16,9 @@ If you want to dynamically create or load a style sheet, the Rocket factory (the
 
 ```cpp
 // Creates a style sheet from a user-generated string.
-static Rocket::Core::StyleSheet* InstanceStyleSheetString(const EMP::Core::String& string);
+static Rocket::Core::StyleSheet* InstanceStyleSheetString(const Rocket::Core::String& string);
 // Creates a style sheet from a file.
-static Rocket::Core::StyleSheet* InstanceStyleSheetFile(const EMP::Core::String& file_name);
+static Rocket::Core::StyleSheet* InstanceStyleSheetFile(const Rocket::Core::String& file_name);
 ```
 
 InstanceStyleSheetString() allows you to parse a string you've built up in your application into a style sheet. This is used in the debugger to keep all of its RML and RCSS content inline. InstanceStyleSheetFile() will load a style sheet from an RCSS file. Both of these functions will return a style sheet pointer on success, which you can then set on a document.
@@ -35,10 +35,10 @@ Properties can be requested from an element with the GetProperty() function.
 
 ```cpp
 // Returns one of this element's properties.
-const Rocket::Core::Property* GetProperty(const EMP::Core::String& name);		
+const Rocket::Core::Property* GetProperty(const Rocket::Core::String& name);		
 // Returns the values of one of this element's properties.		
 template < typename T >
-T Rocket::Core::GetProperty(const EMP::Core::String& name);
+T Rocket::Core::GetProperty(const Rocket::Core::String& name);
 ```
 
 The first, non-templated, GetProperty() function will return the value of request property on the element. If the element does not have the property defined itself, it will either return the default value (if the property is not inherited) or its parent's value (if it is inherited). If the property requested is invalid (ie, not defined in the specification), NULL will be returned.
@@ -62,7 +62,7 @@ public:
 	};
 
 	/// Get the property as a string.
-	EMP::Core::String ToString() const;
+	Rocket::Core::String ToString() const;
 
 	/// Templatised accessor.
 	template <typename T>
@@ -71,14 +71,14 @@ public:
 		return value.Get<T>();
 	}
 
-	EMP::Core::Variant value;
+	Rocket::Core::Variant value;
 	Unit unit;
 };
 ```
 
-Each property stores the unit its value is in and the value itself as a variant type (EMP::Core::Variant), which is a structure capable of storing a multitude of types. To retrieve the value from the variant, use the templated Get<>() function on the property or the variant itself. The type you should request the value as depends on the property's unit:
+Each property stores the unit its value is in and the value itself as a variant type (Rocket::Core::Variant), which is a structure capable of storing a multitude of types. To retrieve the value from the variant, use the templated Get<>() function on the property or the variant itself. The type you should request the value as depends on the property's unit:
 
-* UNKNOWN and STRING values should be requested as EMP::Core::String types.
+* UNKNOWN and STRING values should be requested as Rocket::Core::String types.
 * KEYWORD values should be requested as int types. Keyword values are stored as integers for speed; to check what the value means, you can compare it to the constant values defined in <Rocket/Core/StyleSheetKeywords.h>. For custom keyword properties, see below.
 * NUMBER, PX, EM and PERCENT values should be requested as float types. The exact meaning of the value depends on the unit. 
 
@@ -87,7 +87,7 @@ If you call Get<>() with the wrong type, the variant will do the best it can to 
 For example, the following will request the font family of an element:
 
 ```cpp
-element->GetProperty("font-family")->Get< EMP::Core::String >();
+element->GetProperty("font-family")->Get< Rocket::Core::String >();
 ```
 
 The following will check if an element's font weight is bold:
@@ -108,7 +108,7 @@ Properties can be set directly on an element with the SetProperty() function.
 
 ```cpp
 // Sets a local property override on the element.
-bool SetProperty(const EMP::Core::String& name, const EMP::Core::String& value);
+bool SetProperty(const Rocket::Core::String& name, const Rocket::Core::String& value);
 ```
 
 This is equivalent to setting an inline property on an element using the 'style' attribute. For example:
@@ -138,8 +138,8 @@ User-defined properties can be added to the global style sheet specification, so
 // @param[in] inherited True if this property is inherited from parent to child, false otherwise.
 // @param[in] forces_layout True if a change in this property on an element will cause the element's layout to possibly change.
 // @return The new property definition, ready to have parsers attached.
-static Rocket::Core::PropertyDefinition& RegisterProperty(const EMP::Core::String& property_name,
-                                                          const EMP::Core::String& default_value,
+static Rocket::Core::PropertyDefinition& RegisterProperty(const Rocket::Core::String& property_name,
+                                                          const Rocket::Core::String& default_value,
                                                           bool inherited,
                                                           bool forces_layout = false);
 ```
@@ -191,8 +191,8 @@ Each of the parsers stores their values as a particular unit and type in the pro
 
 * 'number' stores values as NUMBER, PX, EM or PERCENTAGE. Use Get< float >() to request the value.
 * 'keyword' stores values as KEYWORD. The value is the integer index of the specified keyword in the CSV list of allowed keywords; so, in the previous example, a value of 'none' would be 0, 'beep' would be 1, and so on. Use Get< int >() to request the value.
-* 'string' stores values as STRING. Use Get< EMP::Core::String >() to request the value.
-* 'colour' stores values as COLOUR. Use Get< EMP::Core::Colourb > to request the value. 
+* 'string' stores values as STRING. Use Get< Rocket::Core::String >() to request the value.
+* 'colour' stores values as COLOUR. Use Get< Rocket::Core::Colourb > to request the value. 
 
 #### Defining custom shorthands
 
@@ -204,8 +204,8 @@ You can define custom shorthands as well as properties. Use the RegisterShorthan
 // @param[in] properties A comma-separated list of the properties this definition is shorthand for.
 // @param[in] type The type of shorthand to declare.
 // @param True if all the property names exist, false otherwise.
-static bool RegisterShorthand(const EMP::Core::String& shorthand_name,
-                              const EMP::Core::String& property_names,
+static bool RegisterShorthand(const Rocket::Core::String& shorthand_name,
+                              const Rocket::Core::String& property_names,
                               Rocket::Core::PropertySpecification::ShorthandType type = Rocket::Core::PropertySpecification::AUTO);
 ```
 
@@ -248,7 +248,7 @@ If you want to define more complicated parsers for your property values, you can
 // @param[in] parameters The list of parameters defined for this property.
 // @return True if the value was parsed successfully, false otherwise.
 virtual bool ParseValue(Rocket::Core::Property& property,
-                        const EMP::Core::String& value,
+                        const Rocket::Core::String& value,
                         const Rocket::Core::ParameterMap& parameters) const = 0;
 
 // Called when the parser is released. This should free all dynamic memory used by the parser.

@@ -27,8 +27,8 @@ To create a new context, use the CreateContext() function in Rocket::Core.
 // @param[in] name The new name of the context. This must be unique.
 // @param[in] dimensions The initial dimensions of the new context.
 // @return The new context, or NULL if the context could not be created.
-Rocket::Core::Context* CreateContext(const EMP::Core::String& name,
-                                     const EMP::Core::Vector2i& dimensions);
+Rocket::Core::Context* CreateContext(const Rocket::Core::String& name,
+                                     const Rocket::Core::Vector2i& dimensions);
 ```
 
 The context needs a unique string name and initial dimensions. The dimensions are used to generate relative lengths (for example, if a document has a percentage dimension), and sets the extents for the mouse cursor within the context.
@@ -39,7 +39,7 @@ To fetch a previously-constructed context, use the GetContext() function.
 // Fetches a previously constructed context by name.
 // @param[in] name The name of the desired context.
 // @return The desired context, or NULL if no context exists with the given name.
-Rocket::Core::Context* GetContext(const EMP::Core::String& name);
+Rocket::Core::Context* GetContext(const Rocket::Core::String& name);
 ```
 
 ### Releasing a context
@@ -70,7 +70,7 @@ Documents are loaded through contexts. To load a document from an RML file into 
 // Load a document into the context.
 // @param[in] document_path The path to the document to load.
 // @return The loaded document, or NULL if no document was loaded.
-ElementDocument* LoadDocument(const EMP::Core::String& document_path);
+ElementDocument* LoadDocument(const Rocket::Core::String& document_path);
 ```
 
 The document_path parameter will be given to Rocket's file interface? to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call Show() on the document to make it visible.
@@ -81,7 +81,7 @@ You can also load documents directly from a memory stream, this can be useful if
 // Load a document into the context.
 // @param[in] string The string containing the document RML.
 // @return The loaded document, or NULL if no document was loaded.
-ElementDocument* LoadDocumentFromMemory(const EMP::Core::String& string);
+ElementDocument* LoadDocumentFromMemory(const Rocket::Core::String& string);
 ```
 
 To create a new, empty document you can populate dynamically, use the CreateDocument() function.
@@ -90,7 +90,7 @@ To create a new, empty document you can populate dynamically, use the CreateDocu
 // Creates a new, empty document and places it into this context.
 // @param[in] tag The document type to create.
 // @return The new document, or NULL if no document could be created.
-ElementDocument* CreateDocument(const EMP::Core::String& tag = "document");
+ElementDocument* CreateDocument(const Rocket::Core::String& tag = "document");
 ```
 
 The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a Rocket::Core::ElementDocument is instanced, it will be added to the context and returned.
@@ -107,7 +107,7 @@ Mouse cursors can be loaded into a context using the LoadMouseCursor() function.
 // Loads a document as a mouse cursor within this context.
 // @param[in] cursor_document_path The path to the document to load as a cursor.
 // @return The loaded cursor document, or NULL if no document was loaded.
-Rocket::Core::ElementDocument* LoadMouseCursor(const EMP::Core::String& cursor_document_path);
+Rocket::Core::ElementDocument* LoadMouseCursor(const Rocket::Core::String& cursor_document_path);
 ```
 
 Cursors are documents themselves, and are loaded the same way internally. Any valid RML document can be loaded as a document; of course, you're most likely to want a simple document with an image decorator, but you're not limited to this!
@@ -135,7 +135,7 @@ Event listeners can be attached to a context (rather than an element) to receive
 // @param[in] event The name of the event to attach to.
 // @param[in] listener Listener object to be attached.
 // @param[in] in_capture_phase True if the listener is to be attached to the capture phase, false for the bubble phase.
-void AddEventListener(const EMP::Core::String& event,
+void AddEventListener(const Rocket::Core::String& event,
                       Rocket::Core::EventListener* listener,
                       bool in_capture_phase = false);
 
@@ -143,7 +143,7 @@ void AddEventListener(const EMP::Core::String& event,
 // @param[in] event The name of the event to detach from.
 // @param[in] listener Listener object to be detached.
 // @param[in] in_capture_phase True to detach from the capture phase, false from the bubble phase.
-void RemoveEventListener(const EMP::Core::String& event,
+void RemoveEventListener(const Rocket::Core::String& event,
                          Rocket::Core::EventListener* listener,
                          bool in_capture_phase = false);
 ```
@@ -168,7 +168,7 @@ A custom context instancer needs to be registered with the Rocket factory in ord
 // Instances a context.
 // @param[in] name Name of this context.
 // @return The instanced context.
-virtual Rocket::Core::Context* InstanceContext(const EMP::Core::String& name) = 0;
+virtual Rocket::Core::Context* InstanceContext(const Rocket::Core::String& name) = 0;
 
 // Releases a context previously created by this context.
 // @param[in] context The context to release.

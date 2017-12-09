@@ -13,11 +13,11 @@ Documents have a title, defined in RML by contents of the <title> tag within the
 ```cpp
 // Sets the document's title.
 // @param[in] title The new title of the document.
-void SetTitle(EMP::Core::String& title);
+void SetTitle(Rocket::Core::String& title);
 
 // Returns the title of this document.
 // @return The document's title.
-const EMP::Core::String& GetTitle() const;
+const Rocket::Core::String& GetTitle() const;
 ```
 
 If a document was loaded from an RML file, the function GetSourceURL() will return the path of the source RML.
@@ -25,7 +25,7 @@ If a document was loaded from an RML file, the function GetSourceURL() will retu
 ```cpp
 // Returns the source address of this document.
 // @return The source of this document, usually a file name.
-const EMP::Core::String& GetSourceURL() const;
+const Rocket::Core::String& GetSourceURL() const;
 ```
 
 ### Documents and contexts
@@ -99,7 +99,7 @@ Similarly to HTML documents, Rocket documents are capable of creating new elemen
 ```cpp
 // Creates the named element.
 // @param[in] name The tag name of the element.
-Rocket::Core::Element* CreateElement(const EMP::Core::String& name);
+Rocket::Core::Element* CreateElement(const Rocket::Core::String& name);
 ```
 
 The name parameter is the desired tag name of the new element. Note that as you cannot specify an independent instancer name or RML attributes to pass to the instancer, this method is not as flexible as creating an element through the factory, but is useful for easily creating simple elements.
@@ -109,7 +109,7 @@ Call CreateTextNode() to create a new text element with a given text string:
 ```cpp
 // Create a text element with the given text content.
 // @param[in] text The text content of the text element.
-Rocket::Core::ElementText* CreateTextNode(const EMP::Core::String& text);
+Rocket::Core::ElementText* CreateTextNode(const Rocket::Core::String& text);
 ```
 
 The text parameter will be interpreted as a UTF-8 encoded string and converted to a UCS-2 string inside the text node. The element returned will be derived from Rocket::Core::ElementText.
@@ -128,7 +128,7 @@ There is one virtual function that is particular to Rocket::Core::ElementDocumen
 // Load a script into the document.
 // @param[in] stream Stream of code to process.
 // @param[in] source_name Name of the the script the source comes from, useful for debug information.
-virtual void LoadScript(EMP::Core::Stream* stream, const EMP::Core::String& source_name);
+virtual void LoadScript(Rocket::Core::Stream* stream, const Rocket::Core::String& source_name);
 ```
 
 LoadScript() is generally only used to integrate a scripting language into Rocket. It is called on a document for every <script> tag with the script content. The default implementation does nothing; custom documents can do whatever they need to here to load, compile and bind the scripts for their elements. 

@@ -28,11 +28,11 @@ The name of a form control can be retrieved and set using the GetName() and SetN
 ```cpp
 // Returns the name of the form control.
 // @return The name of the form control.
-EMP::Core::String GetName() const;
+Rocket::Core::String GetName() const;
 
 // Sets the name of the form control.
 // @param[in] name The new name of the form control.
-void SetName(const EMP::Core::String& name);
+void SetName(const Rocket::Core::String& name);
 ```
 
 The value of a form control can be retrieved and set using the GetValue() and SetValue() functions.
@@ -40,11 +40,11 @@ The value of a form control can be retrieved and set using the GetValue() and Se
 ```cpp
 // Returns a string representation of the current value of the form control.
 // @return The value of the form control.
-EMP::Core::String GetValue() const;
+Rocket::Core::String GetValue() const;
 
 // Sets the current value of the form control.
 // @param[in] value The new value of the form control.
-void SetValue(const EMP::Core::String& value);
+void SetValue(const Rocket::Core::String& value);
 ```
 
 The exact syntax of the value varies from control to control, but GetValue() will always return a value in a human-readable form.
@@ -189,8 +189,8 @@ Options can be procedurally added and removed with the Add(), Remove() and Remov
 // @param[in] before The index of the element to insert the new option before. If out of bounds the new option will be added at the end of the list.
 // @param[in] selectable If true this option can be selected. If false, this option is not selectable.
 // @return The index of the new option.
-int Add(const EMP::Core::String& rml,
-        const EMP::Core::String& value,
+int Add(const Rocket::Core::String& rml,
+        const Rocket::Core::String& value,
         int before = -1,
         bool selectable = true);
 
@@ -208,14 +208,14 @@ See the [style guide](../../style_guide.html) for documentation on applying prop
 
 ### Data-driven drop-down select box
 
-The data-driven drop-down select control is specified in RML with the <dataselect> tag. No options are specified within the tag; instead, they are populated from an EMP::Core::DataSource object, similarly to a data grid.
+The data-driven drop-down select control is specified in RML with the <dataselect> tag. No options are specified within the tag; instead, they are populated from an Rocket::Core::DataSource object, similarly to a data grid.
 
 The select control's interface is the Rocket::Controls::ElementFormControlDataSelect class. It derives from Rocket::Controls::ElementFormControlSelect. The data select's data source is set with the "source" attribute, and can be changed in C++ through the SetDataSource() method:
 
 ```cpp
 // Sets the data source the control's options are driven from.
 // @param[in] data_source The name of the new data source.
-void SetDataSource(const EMP::Core::String& data_source);
+void SetDataSource(const Rocket::Core::String& data_source);
 ```
 
 #### Applying properties
@@ -241,7 +241,7 @@ The form element's interface is the Rocket::Controls::ElementForm class. The for
 ```cpp
 // Submits the form.
 // @param[in] submit_value The value to send through as the 'submit' parameter.
-void Submit(const EMP::Core::String& submit_value = "");
+void Submit(const Rocket::Core::String& submit_value = "");
 ```
 
 The value of the submit_value parameter will become the value of the submit parameter on the submit event. This way, objects listening for event can distinguish between different kinds of submit actions.

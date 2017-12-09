@@ -47,7 +47,7 @@ Through C++, the contents of the panel tabs can be set to either unparsed RML or
 // Sets the specifed tab index's tab title RML.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] rml The RML to set on the tab title.
-void SetTab(int tab_index, const EMP::Core::String& rml);
+void SetTab(int tab_index, const Rocket::Core::String& rml);
 
 // Set the specifed tab index's title element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
@@ -67,7 +67,7 @@ Similarly to the panel tabs, the content of the panels themselves can be set to 
 // Sets the specifed tab index's tab panel RML.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] rml The RML to set on the tab panel.
-void SetPanel(int tab_index, const EMP::Core::String& rml);
+void SetPanel(int tab_index, const Rocket::Core::String& rml);
 
 // Set the specified tab index's body element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.

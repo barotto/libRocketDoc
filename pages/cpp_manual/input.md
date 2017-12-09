@@ -125,7 +125,7 @@ Rocket takes text input as 16-bit, UCS2-encoded characters. When text input occu
 ```cpp
 // Sends a single character of text as text input into this context.
 // @param[in] character The UCS-2 character to send into this context.
-void ProcessTextInput(EMP::Core::word character);
+void ProcessTextInput(Rocket::Core::word character);
 
 // Sends a string of text as text input into this context.
 // @param[in] string The UCS-2 string to send into this context.

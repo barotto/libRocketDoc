@@ -22,7 +22,7 @@ A pass-through translator would do the following:
 
 class SampleSystemInterface : public Rocket::Core::SystemInterface
 {
-	int TranslateString(EMP::Core::String& translated, const EMP::Core::String& input)
+	int TranslateString(Rocket::Core::String& translated, const Rocket::Core::String& input)
 	{
 		translated = input;
 		return 0;
@@ -64,7 +64,7 @@ If we were to localise Rocket Invaders, we'd want to move all of the English str
 Assuming the appliation has a StringTable class that has loaded the appropriate string table for the language, our sample translator would then become:
 
 ```cpp
-	int TranslateString(EMP::Core::String& translated, const EMP::Core::String& input)
+	int TranslateString(Rocket::Core::String& translated, const Rocket::Core::String& input)
 	{
 		// Attempt to find the translation in the string table.
 		if (StringTable::GetString(translated, input))
