@@ -28,8 +28,9 @@ description: libRocket's documentation from the last available archive.org snaps
 
 ### Other
 
-1. Localisation
-2. Frequently Asked Questions
+1. [Localisation](pages/localisation.html)
+2. [Frequently Asked Questions](pages/faq.html)
+3. [Planned features](pages/planned_features.html)
 
 ### Building
 
