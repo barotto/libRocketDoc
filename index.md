@@ -34,6 +34,6 @@ description: libRocket's documentation from the last available archive.org snaps
 
 ### Building
 
-1. Building libRocket with CMake
-2. Building FreeType for iOS
-3. Building Boost::Python
+1. [Building libRocket with CMake](pages/building_with_cmake.html)
+2. [Building FreeType for iOS](pages/building_freetype_for_ios.html)
+3. [Building Boost::Python](pages/building_boost_python.html)
