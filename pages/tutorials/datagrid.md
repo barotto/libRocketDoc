@@ -32,7 +32,7 @@ GetRow is the meat of the data source implementation. It takes a table, an index
 
 #### Implementation
 
-So, let's convert the lackluster HighScores class to a fully-fledged Rocket::Core::DataSource. First of all include EMP/Core/DataSource.h and have HighScores inherit from Rocket::Core::DataSource. Take a quick look at the Rocket::Core::DataSource's constructor:
+So, let's convert the lackluster HighScores class to a fully-fledged Rocket::Core::DataSource. First of all include Rocket/Core/DataSource.h and have HighScores inherit from Rocket::Core::DataSource. Take a quick look at the Rocket::Core::DataSource's constructor:
 
 ```cpp
 Rocket::Core::DataSource(const Rocket::Core::String& name = "");
@@ -211,7 +211,7 @@ void HighScoresShipFormatter::FormatData(Rocket::Core::String& formatted_data, c
 }
 ```
 
-Be sure to include \<EMP/Core/TypeConverter.h\> at the top of your .cpp file.
+Be sure to include \<Rocket/Core/TypeConverter.h\> at the top of your .cpp file.
 
 Then to tie it all together we need to instance the formatter. It'll automatically add itself to the formatter database, so in the main.cpp we only have to include the .h file and construct an instance after Rocket is initialised.
 
@@ -230,7 +230,7 @@ class HighScoresShipFormatter : public Rocket::Controls::DataFormatter
 };
 
 #include "HighScoresShipFormatter.h"
-#include <EMP/Core/TypeConverter.h>
+#include <Rocket/Core/TypeConverter.h>
 
 HighScoresShipFormatter::HighScoresShipFormatter() : Rocket::Controls::DataFormatter("ship")
 {

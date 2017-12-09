@@ -10,8 +10,6 @@ Rocket uses text elements (elements derived from Rocket::Core::ElementText) to s
 
 The string type used through the majority of Rocket's interfaces, Rocket::Core::String, stores 8-bit wide characters. In order to store wider characters efficiently, text elements store their contents as a Rocket::Core::String type. The Rocket string stores 16-bit wide characters in UCS-2 format; while not sufficient to store every possible UTF-8 character, it can store every useful one, so is a good compromise between size and usefulness.
 
-When a Rocket string is constructed from an EMP string, it interprets the EMP string as being UTF-8 encoded and will convert it to UCS-2.
-
 ### HTML characters
 
 Rocket text nodes support a subset of the full HTML-encoding for special characters to allow XML characters to be present in loose text. The characters supported are:

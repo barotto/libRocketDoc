@@ -104,7 +104,7 @@ SetAttribute() | Set the value of the named attribute from the current node. | s
 
 ### Dispatching events
 
-Events can be generated on an element from within Python with the DispatchEvent() function. When calling this function, the parameters are given as a Python dictionary; Rocket will convert this into an EMP dictionary when the C++ event is created.
+Events can be generated on an element from within Python with the DispatchEvent() function. When calling this function, the parameters are given as a Python dictionary.
 
 ```python
 element.DispatchEvent("open", {"object": "trapdoor", "priority": 11}, False)

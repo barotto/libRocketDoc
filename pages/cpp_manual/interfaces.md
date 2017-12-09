@@ -85,7 +85,7 @@ The LogMessage() function is called whenever Rocket generates a message. type is
 
 The render interface is how Rocket sends its generated geometry through to the application to render. It also uses the interface to load textures from external sources and from internally generated pixel data (for font textures). Applications must install a render interface before initialising Rocket.
 
-The render interface is given in <EMP/Core/RenderInterface.h>. To develop a custom render interface, create a class derived from Rocket::Core::RenderInterface and provide function definitions for the pure virtual functions, and any of the others that you wish to provide functionality for.
+The render interface is given in <Rocket/Core/RenderInterface.h>. To develop a custom render interface, create a class derived from Rocket::Core::RenderInterface and provide function definitions for the pure virtual functions, and any of the others that you wish to provide functionality for.
 
 #### Rendering simple geometry
 
