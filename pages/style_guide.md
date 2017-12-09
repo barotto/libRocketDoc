@@ -42,7 +42,7 @@ As described above, the scrollbar elements (scrollbarvertical and scrollbarhoriz
 
 The following is the section of the style sheet for Rocket Invaders from Mars relevant for scrollbars.
 
-```
+```css
 /* Fix the width and push the scrollbar back to the extents of the window. */
 scrollbarvertical
 {
@@ -138,7 +138,7 @@ The controls plugin adds support for range sliders; these are instanced through 
 
 These are styled in the same way you style scrollbars. Note that for input types, the controls plugin automatically sets the 'type' attribute of an input element as a class to ease their specification in a style sheet. So the following rule will apply properties to an input's slider track:
 
-```
+```css
 input.range slidertrack
 {
 	...
@@ -163,7 +163,7 @@ The select element generates three hidden elements:
 
 The following are the select element's RCSS rules and properties from the Rocket Invaders from Mars style sheet:
 
-```
+```css
 /* Specify the dimensions of the select element. */
 select
 {

@@ -30,7 +30,7 @@ We're going to look at adding the title bar first. What we need for this is:
 
 Add a 'div' element into the body, and give it an ID of 'title-bar'. The 'div' is a block-level element, as defined in the base style sheet, so by default it will size itself horizontally to take up the entire length of its parent element, the window. We could put the decorator straight into this element, but then it will be as long as the window; we only want it as long as the title text. So inside the 'div' element, add a 'span' element, and give it an ID of 'title'. Add a dummy title string inside the span, so we can easily get some text up there. By now, you should have this:
 
-```
+```html
 <body class="window">
 	<div id="title-bar">
 		<span id="title">Dummy Title</span>
@@ -42,7 +42,7 @@ Fire up the application; not much to look at yet, but we'll get there!
 
 The title text is rendering with the body text; we'll need something much bigger and bolder. In the RCSS file, add a new rule for the title span, assigning it a font size of 22, and a weight of bold. And why not a black text shadow while we're here? The rule should look something like this:
 
-```
+```css
 div#title-bar span
 {
 	font-size: 22;
@@ -58,13 +58,13 @@ That looks a bit better, but still no decorator.
 
 If you open up the file 'tutorial.png', you'll see it contains image information for the title bar (among other things). We'll need to now define the title element's decorator using the texture coordinates from this image. So, in the same rule that you added before, we declare the decorator:
 
-```
+```css
 	background-decorator: tiled-horizontal;
 ```
 
 Then, define the left side of the decorator:
 
-```
+```css
 	background-left-image: tutorial.png 147px 0px 229px 85px;
 ```
 
@@ -72,13 +72,13 @@ Note that all the coordinates are in pixels from the top-left of the image, rath
 
 For the centre, we want to stretch the middle pixels on the texture between the left and right sides all the way across.
 
-```
+```css
 	background-center-image: tutorial.png stretch 229px 0px 230px 85px;
 ```
 
 And lastly, the right side:
 
-```
+```css
 	background-right-image: tutorial.png 231px 0px 246px 85px;
 ```
 
@@ -90,7 +90,7 @@ Well that looks pretty crap! Because the 'span' element is inline, its height is
 
 Add some padding along the top of the span to begin with:
 
-```
+```css
 	padding-top: 50px;
 ```
 
@@ -100,21 +100,21 @@ To find out, you can use the debugger; press SHIFT-~ to open the debugging menu.
 
 Set the padding to 55px and take a look; the element should now be 85px high. Now shift some of the padding to the bottom and have a play around to get the text centered. I found the following combination got the text to look in the right place:
 
-```
+```css
 	padding-top: 13px;
 	padding-bottom: 42px;
 ```
 
 There's not much space to the left or right of the text yet; easy fixed, just add some left and right padding! We used the following for Rocket Invaders from Mars:
 
-```
+```css
 	padding-left: 85px;
 	padding-right: 25px;
 ```
 
 But have a play and see what works best. By now the title bar rule should look something like this:
 
-```
+```css
 div#title-bar span
 {
 	padding-left: 85px;
@@ -142,7 +142,7 @@ And the application should be looking like this:
 
 As I'm sure you'll have noticed by now, the title bar's in the wrong place! This can be fixed a number of ways, such as negative margins on the containing title element, margins on the body, etc, but we chose to solve it by positioning the title-bar element. To do this, add a new rule for the 'title-bar' element, declaring it as absolutely positioned.
 
-```
+```css
 div#title-bar
 {
 	position: absolute;
@@ -155,7 +155,7 @@ If you don't set the 'top' or 'left' (or 'right' or 'bottom') to change the heig
 
 We need to shift the element up, so we use the 'top' property to do this. If we declare 'top: 0px;', it will be aligned at the very top of the window; so, exactly where it is now. To move it up, specify a negative number. 40 pixels seems to do the trick.
 
-```
+```css
 div#title-bar
 {
 	position: absolute;
@@ -167,7 +167,7 @@ div#title-bar
 
 We still need a handle so we can drag the window around. This is easy; Rocket ships with a 'handle' element that can do just that (or resize an element). In the RML, wrap the contents of the 'title-bar' element with a 'handle' element. You can set its move target with the 'move_target' attribute; set it to '#document' so it knows to move its parent document when it is dragged. You should end up with this:
 
-```
+```html
 <div id="title-bar">
 	<handle move_target="#document">
 		<span id="title">Dummy Title</span>
@@ -188,7 +188,7 @@ Now we've got a title bar, we need somewhere to place the actual page content. W
 
 Add the block content element now; within the 'body' tag, just below the 'title-bar' element. Give it an ID of 'content' so we can identify it.
 
-```
+```html
 	<div id="title-bar">
 		<handle move_target="#document">
 			<span id="title">Dummy Title</span>
@@ -215,7 +215,7 @@ All elements have a default z-index of 0, so normally they would be rendered in 
 
 So to bring the content window above the title bar, create a new rule for the content element and assign it a z-index of 1.
 
-```
+```css
 div#content
 {
 	z-index: 1;
@@ -230,7 +230,7 @@ We need to push the document's content area so it appears entirely inside the wi
 
 Add some padding to the 'body' rule and take a look at the result. We found that 10px top / bottom and 15px right / left padding worked out pretty well. Our rule looks like this:
 
-```
+```css
 body.window
 {
 	background-decorator: tiled-box;
@@ -259,7 +259,7 @@ We haven't explicitly set the 'height' property on the content element, so it de
 
 As you can see, the overflow is still showing up. If you open up the debugger and inspect the content element again, you'll see that the element itself is now the right size, but the overflowing text is still visible. How overflow is handled is determined by the 'overflow' property; it defaults to 'visible', meaning descendant elements are not clipped by the element. Set the 'overflow' property to 'hidden' on the content element; the entire rule for the content element should look like this:
 
-```
+```css
 div#content
 {
 	height: 100%;
@@ -287,7 +287,7 @@ Well that doesn't look right! So what's happened here? When an element needs to 
 
 Elements that Rocket dynamically creates, like the scrollbar, can be styled through RCSS like normal elements. All we need to do is create a rule that will match the element 'scrollbarvertical'. First thing to do? Set its width so it doesn't occupy the whole element. The scrollbar graphics we've designed for Rocket Invaders from Mars are designed to be 27 pixels wide. This RCSS rule will resize the scrollbar:
 
-```
+```css
 scrollbarvertical
 {
 	width: 27px;
@@ -306,7 +306,7 @@ The scrollbar itself has four child elements that can be individually sized and 
 
 We'll start by decorating the track. If you open up 'tutorial.png' again, you'll see under the window background there's all the scrollbar images. We'll save you all the hard work, so here's the pixel offsets for the track's decorator:
 
-```
+```css
 scrollbarvertical slidertrack
 {
 	background-decorator: tiled-vertical;
@@ -320,7 +320,7 @@ Fire up the application again, and you've got a scrollbar track! As you can see 
 
 We've got more vertical decorators to define for the bar element:
 
-```
+```css
 scrollbarvertical sliderbar
 {
 	width: 23px;
@@ -344,7 +344,7 @@ Now the window should be looking like this:
 
 So where are the arrows? If you don't resize them yourself, they'll stay hidden. If we want to add them, first step is resizing them. Add a rule to resize 'sliderarrowinc' and 'sliderarrowdec' elements to 27 x 24 pixels:
 
-```
+```css
 scrollbarvertical sliderarrowdec,
 scrollbarvertical sliderarrowinc
 {
@@ -355,7 +355,7 @@ scrollbarvertical sliderarrowinc
 
 And add decorators to each of them:
 
-```
+```css
 scrollbarvertical sliderarrowdec
 {
 	icon-decorator: image;
@@ -375,7 +375,7 @@ And hey presto, we've got arrows! The scrollbar automatically resizes the slider
 
 How do we now resize the scrollbar so it fits in nicely with the window? We can give the scrollbar element itself negative margins, which cause it to push outside of its parent's content area. If you take a take a screenshot of the application and paste it into your paint program, you can see exactly how many pixels it needs to be shifted to the right, and extended on the top and bottom. We worked out 6 pixels up and down, 11 pixels to the left. Add these properties as negative margins to the 'scrollbarvertical' rule:
 
-```
+```css
 scrollbarvertical
 {
 	width: 27px;
@@ -393,7 +393,7 @@ And from that we've got:
 
 Now the scrollbar is functional, but there's no extra decoration for clicks and mouse-overs. You can add these in easily by changing the texture coordinates on the decorations for the :hover and :active pseudo-classes. For example, add the following rule to put in hover decoration on the bar:
 
-```
+```css
 scrollbarvertical sliderbar:hover
 {
 	background-top-image-s: 80px 103px;
@@ -409,13 +409,13 @@ Creating the template
 
 Make a copy of the RML file and call it 'template.rml'. To change it from a document into a template, change the top 'rml' tag to 'template'. The 'template' tag needs a couple of bits of information; the name of the template, set by the 'name' attribute, and the ID of the element where the document's content should go, set by the 'content' attribute. The final tag should look like:
 
-```
+```html
 <template name="window" content="content">
 ```
 
 Delete the title and the style declaration in the template header; we won't need those. Also remove the contents of the content element. You should end up with a template file looking like this:
 
-```
+```html
 <template name="window" content="content">
 <head>
 	<link type="text/css" href="../../assets/rkt.rcss"/>
@@ -443,7 +443,7 @@ Both the title and style declaration stay; these are unique to this document.
 
 The 'body' tag needs to be changed so it knows which template to inject itself into. Do this with the 'template' attribute, and set it to the name of the template. In our case, we called the template 'window'. Now delete the window elements inside the 'body' element, except for the actual content. You should end up with something like this:
 
-```
+```html
 <rml>
 <head>
 	<link type="text/template" href="template.rml"/>

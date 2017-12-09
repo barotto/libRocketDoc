@@ -62,7 +62,7 @@ We can now completely remove the existing event system from RocketInvaders as th
 
 Also remove all the EventManager initialisation from main.cpp as we'll replace it with a new Python script. I suggest you name it autoexec.py and place it in a python subfolder. It should look something like this:
 
-```
+```python
 import rocket
 
 context = rocket.GetContext('main')
@@ -245,7 +245,7 @@ We're still using C++ data formatters for the high scores, these can be moved in
 
 Here's my name formatter:
 
-```
+```python
 class NameDataFormatter(rocket.DataFormatter):
     def __init__(self):
         rocket.DataFormatter.__init__(self, "name")

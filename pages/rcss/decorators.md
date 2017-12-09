@@ -18,7 +18,7 @@ The declaration of a decorator is a property of the form:
 
 where <name> is the user-specified name of the decorator to declare, and <type> is the application-specific type of decorator. Rocket ships with the decorators 'image', 'tiled-box', 'tiled-horizontal' and 'tiled-vertical'. The decorator type 'none' is a reserved name that represents no decorator. For example, in the following:
 
-```
+```css
 button
 {
     icon-decorator: tiled-horizontal;
@@ -29,7 +29,7 @@ the RCSS is attaching a decorator of type 'tiled-horizontal' called 'icon' to al
 
 Decorator types can be overridden like any other property. So, in the example:
 
-```
+```css
 h1
 {
     icon-decorator: image;
@@ -53,7 +53,7 @@ Decorators have their own property specifications with properties and shorthands
 
 where <decorator_name> is the name the decorator was declared under, <property_name> is the name of the decorator's property to set, and <property_value> is the value of the property. For example:
 
-```
+```css
 h1
 {
     icon-decorator: image;
@@ -66,7 +66,7 @@ an 'image' decorator is declared, called 'icon'. On this decorator, the properti
 
 The decorator properties behave like other properties, so are subject to precedence and the cascade. For example, if the following RCSS was loaded after the previous example:
 
-```
+```css
 h1
 {
     icon-image-s-begin: 3px;
@@ -82,7 +82,7 @@ all 'h1' tags will have their 'icon' decorators defined with an 's-begin' proper
 
 Be careful of name conflicts! For example, in the following sample:
 
-```
+```css
 h1
 {
     icon-decorator: image;
@@ -100,7 +100,7 @@ an element of type 'h1' with a class of 'secondary' will have a single decorator
 
 If an element has more than one decorator on it, you can use the 'z-index' decorator property to control the render order in a similar fashion to elements. For example, in this sample:
 
-```
+```css
 button
 {
     background-decorator: tiled-horizontal;
@@ -119,7 +119,7 @@ Because of the way Rocket compiles pseudo-class rules within style sheets, overr
 
 In a nutshell, each decorator will only process properties from their element's base rules (ie, those not specifying dynamic pseudo-classes in their final simple selector) and one rule specifying a dynamic pseudo-class (or classes), that with the highest specificity. For example, in the following sample:
 
-```
+```css
 button
 {
     background-decorator: tiled-horizontal;
@@ -142,7 +142,7 @@ button:active
 
 if both the 'hover' and 'active' pseudo-classes are active on a 'button' element, the image-s-begin / end properties from the 'active' rule will be set, but the image-t-begin / -end properties from the 'hover' rule will be ignored. The 'active' rule is used as it has higher precedence that the 'hover' rule, appearing further down the file. If you wanted both the s and t properties set, you could create another rule:
 
-```
+```css
 button:active:hover
 {
     background-image-t-begin: 32px;

@@ -147,7 +147,7 @@ We need to make a new column in the datagrid, and into that column add a button 
 
 Open the tutorial.rml file in the data folder, and look at where the datagrid is defined. We have to squeeze an extra col element in there. We won't give this column a title, and it'll have a formatter to create the button we need. The only bit of information that the formatter needs is how many child rows the row has - if it has 0 children then we don't create a button, 1 or more children then we do create it. So it should look something like this:
 
-```
+```html
 <datagrid source="high_scores.scores">
 	<col fields="#num_children" formatter="expand_button" width="10%"></col>
 	<col fields="name" width="30%">Pilot:</col>
@@ -195,7 +195,7 @@ Don't forget to call the formatter the right name, and to instance the formatter
 
 All that remains is upgrading the defender decorator to support displaying different images. The project's already been set up in a way so that if we give the defender element the classes of alien_1, alien_2 or alien_3 then it'll display with the image of that alien instead of the defender. We should probably rename that element too, as it's a bit of misnomer now, but we'll leave that till later. :) If we make a new field - type - and pass that into the defender decorator as well, we can get then defender to allocate the right class to get it to display the corresponding image. So, in tutorial.rml:
 
-```
+```html
 <col fields="colour,type" formatter="ship" width="20%">Ship:</col>
 ```
 

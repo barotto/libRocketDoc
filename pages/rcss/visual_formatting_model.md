@@ -39,7 +39,7 @@ Block-level elements generate exactly one block box that itself contains only bl
 
 So, while processing the following RML fragment (assuming 'div' and 'p' elements are block, and 'img' elements are inline):
 
-```
+```html
 <div>
     <div>
     </div>

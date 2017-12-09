@@ -47,7 +47,7 @@ A shorthand property for setting image-t-begin and image-t-end.
 
 A shorthand property for setting image-src, image-s-begin, image-t-begin, image-s-end and image-t-end.
 
-```
+```css
 /* Declares an image decorator. */
 div#avatar
 {

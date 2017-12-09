@@ -21,7 +21,7 @@ name | Retrieves the context's name. | GetName()
 
 The documents property on the context can be referenced in several ways. For example, as an array:
 
-```
+```python
 for document in context.documents:
 	print document.title
 
@@ -32,7 +32,7 @@ while index < len(context.documents):
 
 Or as a dictionary, looking documents up by their ID:
 
-```
+```python
 try:
 	document = context.documents["highscores"]
 except KeyError:
@@ -41,7 +41,7 @@ except KeyError:
 
 Or accessing documents as attributes on the documents property itself:
 
-```
+```python
 try:
 	document = context.documents.highscores
 except AttributeError:
@@ -76,13 +76,13 @@ new_context = rocket.CreateContext("hud", rocket.Vector2i(1024, 768))
 
 Existing contexts can be accessed in Python via the contexts member on the rocket module. They can then be accessed via name or index.
 
-```
+```python
 context = rocket.contexts["hud"]
 ```
 
 List all contexts
 
-```
+```python
 for context in rocket.contexts:
   print context.name
 ```

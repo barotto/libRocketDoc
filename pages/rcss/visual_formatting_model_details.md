@@ -35,7 +35,7 @@ percentage
 auto
 >The width depends on the values of other properties. See below. 
 
-```
+```css
 /* Fixes the width of input elements of class 'text' to 12 times their line height. */
 input.text
 {
@@ -109,7 +109,7 @@ percentage
 auto
 >The width depends on the values of other properties. See below. 
 
-```
+```css
 /* Fixes the height of the background div to 100% of its containing block. */
 div#background
 {
@@ -193,7 +193,7 @@ length
 percentage
 >The line height is set to the element's font height scaled by the percentage. 
 
-```
+```css
 /* Three ways of setting the same line-height. */
 div
 {
@@ -242,13 +242,15 @@ percentage
 length
 >Raise or lower the element from the baseline by a fixed amount. 
 
-```
+```css
 /* Sample RCSS for defining a superscript tag. */
 super
 {
     vertical-align: super;
 }
+```
 
+```html
 /* Sample RML demonstrating rendering a superscript. */
 <p>
     Better than ever before!<super>*</super>

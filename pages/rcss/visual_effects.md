@@ -44,7 +44,7 @@ Note that, unlike CSS, if either of 'overflow-x' or 'overflow-y' is set to a val
 
 Shorthand for overflow-x overflow-y. If two values are specified, the first will be used to specify overflow-x and the second overflow-y. If one value is specified, if will be used to specify both.
 
-```
+```css
 /* Hide horizontal overflowing content and generate a scrollbar (if required) along the vertical axis. */
 div#content
 {

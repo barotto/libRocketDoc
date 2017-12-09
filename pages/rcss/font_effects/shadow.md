@@ -28,7 +28,7 @@ These properties define the offset, in pixels, between the source text and the s
 
 A shorthand property for setting offset-x and offset-y.
 
-```
+```css
 /* Declares a font effect shadow. */
 h1
 {

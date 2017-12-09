@@ -33,7 +33,7 @@ class SampleSystemInterface : public Rocket::Core::SystemInterface
 
 The TranslateString() method can be used in conjunction with an application's string table to make text substitutions on a document's text. For example, take the pause.rml file in the Rocket Invaders sample:
 
-```
+```html
 <rml>
 	<head>
 		<title>Quit?</title>
@@ -48,7 +48,7 @@ The TranslateString() method can be used in conjunction with an application's st
 
 If we were to localise Rocket Invaders, we'd want to move all of the English strings out from the RML and into a string table. The raw text in the RML would then be replaced with the string table tokens:
 
-```
+```html
 <rml>
 	<head>
 		<title>[QUIT_TITLE]</title>

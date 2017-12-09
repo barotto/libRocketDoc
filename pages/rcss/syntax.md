@@ -8,7 +8,7 @@ A style sheet is made up of a number of rules. Each rule has a number of selecto
 
 The basic syntax of a rule is as follows:
 
-```
+```css
 selector1,
 selector2,
 selector3
@@ -33,7 +33,7 @@ Which values each property accepts is given in their definition. Values may be k
 
 Specified as <number> in a property's Values list. A number can be an integer or real number.
 
-```
+```css
 font-size: 16;
 ```
 
@@ -47,7 +47,7 @@ Specified as <length> in a property's Values list. A length is a horizontal or v
 
 Note that as RCSS is designed solely for outputting to a computer monitor, it does not recognize the physical measurements **in**, **cm**, **mm**, **pt** or **pc**.
 
-```
+```css
 width: 125px;
 ```
 
@@ -55,7 +55,7 @@ width: 125px;
 
 Specified as <percentage> in the property's Values list. A percentage value is evaluated relative to some other value, which is specified in each property that supports a percentage. For example, width can be expressed as a percentage, which is evaluated against the width of the element's containing block.
 
-```
+```css
 min-height: 50%;
 ```
 
@@ -72,7 +72,7 @@ Specified as <colour> in the property's Values list. Colours represent a RGBA va
 
 So, for example, the following colour declarations are identical:
 
-```
+```css
 color: red;
 color: #F00;
 color: #FF0000FF;
@@ -85,7 +85,7 @@ color: rgba(255, 0, 0, 255);
 
 A style sheet can be either stored in an external file (usually with the extension .rcss) and referenced from an RML file, or declared inline inside an RML file. Referencing an external RCSS file is done using the <link> tag in the following manner:
 
-```
+```html
 <html>
     <head>
         <link type="text/css" href="sample.rcss" />
@@ -97,7 +97,7 @@ File paths are relative to the referencing document.
 
 Declaring an inline style sheet is done using the <style> tag, also within the <head> tag:
 
-```
+```html
 <html>
     <head>
         <style>
@@ -114,7 +114,7 @@ Multiple style sheets can be included in a single document and combined with inl
 
 Also, style sheet properties can be declared directly on an element. This is done by inserting semi-colon separated style sheet property declarations into the 'style' attribute of an element. For example, the following RML fragment:
 
-```
+```html
 <div style="width: 25%; min-width: 55px;">
 </div>
 ```

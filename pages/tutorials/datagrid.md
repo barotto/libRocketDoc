@@ -157,7 +157,7 @@ void HighScores::SubmitScore(const Rocket::Core::String& name, const Rocket::Cor
 
 Now on to the datagrid. To create one of these we make a Rocket element with the tag \<datagrid\>. Inside the datagrid we can define multiple \<col\>s - each \<col\> being a column in the grid. This is what it might look like:
 
-```
+```html
 <datagrid source="high_scores.scores">
 	<col fields="name" width="40%">Pilot:</col>
 	<col fields="colour" width="20%">Ship:</col>
@@ -184,7 +184,7 @@ Well, at least it's working. Time to pretty it up some:
 
 The third part of the datagrid system is the data formatter. A data formatter sits in between the data source and datagrid - it takes the raw field information and processes it into RML. So in this way you can turn the text returned by a column request into an icon, a button, an image with a caption, anything at all. Even another datagrid! To do this, first we go to the declaration of the datagrid in tutorial.rml and add the data formatter attribute to the ship col:
 
-```
+```html
 <col fields="colour" formatter="ship" width="20%">Ship:</col>
 ```
 
@@ -274,7 +274,7 @@ The datagrid can be styled just like any other Rocket element. RCSS hooks are pr
 
 So, using these hooks, we can make the datagrid look pretty much any way we want it to. First, let's add a background to the body. The RCSS rule shown below will add an image background (using a tiled-box decorator) around the body, change the text to black and center it, and finally add some margins and padding to move the text within the new border:
 
-```
+```css
 datagridbody
 {
 	color: black;
@@ -302,7 +302,7 @@ So now it should look like this:
 
 Much better! Header still is a bit lacking. We'll add a rule to add a tiled-horizontal decorator as a background, then some padding to bring the text inside the background:
 
-```
+```css
 datagridheader
 {
 	width: auto;
@@ -322,7 +322,7 @@ So now we've got the following:
 
 Looking pretty good now. One more thing to add a bit more zing: we'll colour the even rows differently to make it easier to see the row delineations. The following rule will do exactly that:
 
-```
+```css
 datagrid datagridrow:nth-child(even)
 {
 	background: #FFFFFFA0;

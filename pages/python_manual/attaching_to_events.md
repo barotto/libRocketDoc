@@ -14,7 +14,7 @@ self | The element thats currently being processed
 
 Example:
 
-```
+```html
 <button onclick="print('Clicked!')"/>
 ```
 
@@ -22,7 +22,7 @@ To aid in the coding of inline Python code, libRocket allows multiple lines of P
 
 Example:
 
-```
+```html
 <button onclick="print('Line 1');print('Line 2')"/>
 ```
 
@@ -32,14 +32,14 @@ The Python version of AddEventListener is modelled directly on Javascript. This 
 
 Method 1:
 
-```
+```python
 element = document.GetElementById('button')
 element.AddEventListener('click', "print('Line 1');print('Line 2')", True)
 ```
 
 Method 2:
 
-```
+```python
 def OnClick():
   for i in range(10):
     print('Line ' + str(i))

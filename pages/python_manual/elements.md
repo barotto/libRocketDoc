@@ -47,7 +47,7 @@ The child_nodes and attributes properties are accessed as arrays; they are index
 
 child_nodes is an array of element types. The array only includes visible elements; Python has no way of querying [hidden elements](../cpp_manual/hidden_elements.html). The following example iterates over all of an element's children, printing their tag names, ids and classes:
 
-```
+```python
 for child in element.child_nodes:
 	address = child.tag_name
 
@@ -63,7 +63,7 @@ for child in element.child_nodes:
 
 attributes is an array of attribute types, each of which has a name and value property. The following example iterates over an element's attributes, printing their names and values:
 
-```
+```python
 for attribute in element.attributes:
 	print attribute.name + ": " + attribute.value
 ```
@@ -74,7 +74,7 @@ The style property operates identically to its counterpart in Javascript. Proper
 
 The following example demonstrates uses of the style property:
 
-```
+```python
 element.style.width = "150px";
 if element.style.float != "none":
 	element.style.clear = "left";
@@ -106,7 +106,7 @@ SetAttribute() | Set the value of the named attribute from the current node. | s
 
 Events can be generated on an element from within Python with the DispatchEvent() function. When calling this function, the parameters are given as a Python dictionary; Rocket will convert this into an EMP dictionary when the C++ event is created.
 
-```
+```python
 element.DispatchEvent("open", {"object": "trapdoor", "priority": 11}, False)
 ```
 
@@ -116,7 +116,7 @@ Parameter keys must be strings, and values must be strings, integers or floating
 
 Elements can be created dynamically in Python using the document's CreateElement() or CreateTextNode() method. The following code sample uses CreateElement() to dynamically create a form control.
 
-```
+```python
 input_element = document.CreateElement("input")
 input_element.SetAttribute("type", "radio")
 input_element.SetAttribute("name", "graphics")

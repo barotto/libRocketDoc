@@ -18,7 +18,7 @@ All font effects have a 'color' property which is applied multiplicatively over 
 
 Unlike decorators, font effects are inherited from parent elements. For example, the following declaration:
 
-```
+```css
 h1
 {
     header-font-effect: outline;
@@ -29,7 +29,7 @@ h1
 
 will add an outline effect on the text within all 'h1' elements and their descendants. To prevent inheritance, override the effect with 'none'. For example, to prevent the 'h1' outline effect from affecting 'span' elements, you could specify the following:
 
-```
+```css
 h1 span
 {
     header-font-effect: none;

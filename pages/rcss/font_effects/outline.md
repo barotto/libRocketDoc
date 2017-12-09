@@ -18,7 +18,7 @@ Percentages: | N/A
 
 The width defines the maximum pixel width of the font's outline.
 
-```
+```css
 /* Declares a font effect outline. */
 h1
 {

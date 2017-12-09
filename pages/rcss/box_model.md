@@ -32,7 +32,7 @@ Applies to: | all elements
 Inherited: | no
 Percentages: | relative to the width of the containing block
 
-```
+```css
 /* Sets a bottom margin of 1em on all H1 elements. */
 h1
 {
@@ -50,7 +50,7 @@ Note that percentage margins are always evaluated relative to the width of the c
 
 A shorthand property for setting all four margin properties at once. If there is only one value, it applies to all sides. If there are two values, the first applies to the top and bottom, the second to left and right. If there are three values, the first applies to the top, the second to left and right, the third to the bottom. If there are four values, they are applied to top, right, bottom, left respectively.
 
-```
+```css
 /* Sets a top margin of 1em, a bottom margin of 10px, and a left and right margin of 0px on all div elements. */
 div
 {
@@ -76,7 +76,7 @@ These properties set the top, right, bottom and left padding of a box. Negative 
 
 Note that, like margins, percentage padding values are always evaluated relative to the width of the containing block, even for the top and bottom.
 
-```
+```css
 /* Specify a left padding for indenting major headings. */
 h1, h2
 {
@@ -88,7 +88,7 @@ h1, h2
 
 A shorthand property for setting all four padding properties at once. If there is only one value, it applies to all sides. If there are two values, the first applies to the top and bottom, the second to left and right. If there are three values, the first applies to the top, the second to left and right, the third to the bottom. If there are four values, they are applied to top, right, bottom, left respectively.
 
-```
+```css
 /* Specify uniform internal padding for a textarea. */
 textarea
 {
@@ -114,7 +114,7 @@ These properties set the border widths of a box. Note that the 'thin', 'medium' 
 
 A shorthand property for setting all four border width properties at once. If there is only one value, it applies to all sides. If there are two values, the first applies to the top and bottom, the second to left and right. If there are three values, the first applies to the top, the second to left and right, the third to the bottom. If there are four values, they are applied to top, right, bottom, left respectively.
 
-```
+```css
 /* Set a thin border under all primary headings. */
 h1
 {
@@ -143,7 +143,7 @@ Border shorthand properties
 
 Shorthand properties for setting the width and color of a border edge.
 
-```
+```css
 h1
 {
     border-bottom: 2px rgb(0%, 23%, 80%);

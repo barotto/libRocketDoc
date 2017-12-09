@@ -8,13 +8,13 @@ Selectors are used to select elements to apply specific rules to. The selector s
 
 Pattern | Meaning
 --- | ---
-E | Matches any element of type E (ie, an element declared in an RML document as <E>).
+E | Matches any element of type E (ie, an element declared in an RML document as \<E\>).
 E F | Matches any element of type F that is a descendant of an E element.
 E.foo | Matches any element of type E that has been declared with class 'foo'.
 E#foo | Matches any element of type E that has been declared with an ID of 'foo'.
 E:foo | Matches any element of type E that has the pseudo-class 'foo' currently active.
 
-Note that attribute selectors, the '+' selector, and the '>' selector are currently not supported.
+Note that attribute selectors, the '+' selector, and the '\>' selector are currently not supported.
 
 The following pseudo-classes are supported natively (this includes the full range of proposed structural selectors from CSS3):
 
