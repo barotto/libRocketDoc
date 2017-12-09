@@ -9,7 +9,7 @@ description: libRocket's documentation from the last available archive.org snaps
 ### Programming Documentation
 
 1. [C++ Manual](pages/cpp_manual.html)
-2. Python Manual
+2. [Python Manual](pages/python_manual.html)
 
 ### Authoring Documentation 
 
