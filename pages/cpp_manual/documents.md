@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Documents
-description: Documents
+parent: cpp_manual
 ---
 
 Documents are container elements. They are designed to represent a single 'window' within your application's interface. Documents are elements themselves, and the elements they contain directly are parented to them.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Visual formatting model details
-description: Visual formatting model details
+parent: rcss
 ---
 
 ### Definition of 'containing block'

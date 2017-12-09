@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Debugger plugin
-description: Debugger plugin
+parent: cpp_manual
 ---
 
 Rocket ships with an open-sourced visual debugger plugin that you can use and modify to aid you in development. You can try it out in the Rocket Invaders from Mars sample application by pressing SHIFT-~.

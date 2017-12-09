@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Outline Effect
-description: Outline Effect
+parent: rcss/font_effects
 ---
 
 The outline font effect renders a coloured outline around text.

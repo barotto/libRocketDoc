@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RML Events
-description: RML Events
+parent: rml
 ---
 
 The event system is based on the extremely flexible DOM event system.

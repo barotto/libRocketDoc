@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Controls plugin
-description: Controls plugin
+parent: cpp_manual
 ---
 
 ### Initialisation

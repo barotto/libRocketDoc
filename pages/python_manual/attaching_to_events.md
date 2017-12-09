@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Attaching To Events
-description: Attaching To Events
+parent: python_manual
 ---
 
 ### Statically in RML

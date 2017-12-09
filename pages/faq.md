@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Frequently Asked Questions
-description: Frequently Asked Questions
 ---
 
 ### How do I bind to events from C++/script?

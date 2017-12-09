@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Drag Tutorial
-description: Drag Tutorial
 ---
 
 libRocket has a few ways of implementing dragging of elements, such as:

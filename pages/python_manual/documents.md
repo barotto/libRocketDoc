@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Documents
-description: Documents
+parent: python_manual
 ---
 
 ### Interface

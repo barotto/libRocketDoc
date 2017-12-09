@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Building Boost::Python
-description: Building Boost::Python
 ---
 
 This page describes how to build Boost::Python for use with libRocket. This describes how to build against a debug version of Python on the Windows platform.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: API Reference
-description: API Reference
+parent: python_manual
 ---
 
 ### Module

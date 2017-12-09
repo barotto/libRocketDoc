@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Form controls
-description: Form controls
+parent: cpp_manual/controls
 ---
 
 The Controls plugin includes a fully-featured set of form controls. The full RML specification for these controls can be found here. The available form controls are:

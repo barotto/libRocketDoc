@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Loading fonts
-description: Loading fonts
+parent: python_manual
 ---
 
 The Rocket module exposes the LoadFontFace() function for loading a supported font file from Python. The function takes a single string as a parameter, the file name of the font to load.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RML Document Structure
-description: RML Document Structure
+parent: rml
 ---
 
 ### RML Element

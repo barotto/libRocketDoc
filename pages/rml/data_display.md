@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RML Data Display Elements
-description: RML Data Display Elements
+parent: rml
 ---
 
 ### DATAGRID Element

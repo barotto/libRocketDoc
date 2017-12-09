@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Getting started with Rocket
-description: Getting started with Rocket
+parent: cpp_manual
 ---
 
 This is the first place to look if you've just downloaded Rocket and want to kick the tyres.

@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Style Guide
-description: Style Guide
 ---
 
 libRocket and the controls plugin features several functional elements that need to by sized and decorated with RCSS properties, such as scrollbars, sliders and drop-down boxes. This document will go over all these elements and give recommendations on how you should style them.

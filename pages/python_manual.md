@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Python Manual
-description: Python Manual
 ---
 
 The Python interface to Rocket has been designed to resemble Javascript as closely as possible. Due the nature of the language, this is more possible in Python than C++.

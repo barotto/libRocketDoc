@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Datagrid Tutorial
-description: Datagrid Tutorial
 ---
 
 This tutorial will take you through the process of upgrading an existing body of data to be a data source, then creating a datagrid to read from that source.

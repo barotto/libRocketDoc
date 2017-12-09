@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Colours and backgrounds
-description: Colours and backgrounds
+parent: rcss
 ---
 
 ### Foreground colour: the 'color' property

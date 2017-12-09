@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Overview
-description: Overview
+parent: python_manual
 ---
 
 RocketPython can be used in an application that extends or embeds Python. The only limitation is that your application initialises Rocket with the necessary System and Render interfaces, but these can easily be done from a custom Python module.

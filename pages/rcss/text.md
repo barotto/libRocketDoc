@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Text
-description: Text
+parent: rcss
 ---
 
 ### Alignment: the 'text-align' property

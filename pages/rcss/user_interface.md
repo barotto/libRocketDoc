@@ -1,7 +1,7 @@
 ---
 layout: page
 title: User interface
-description: User interface
+parent: rcss
 ---
 
 ### Cursors: the 'cursor' property

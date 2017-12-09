@@ -1,7 +1,7 @@
 ---
 layout: page
 title: User input
-description: User input
+parent: cpp_manual
 ---
 
 Rocket does not read user input, but requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.

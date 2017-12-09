@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Rocket Cascading Style Sheet
-description: Rocket Cascading Style Sheet
 ---
 
 This document defines the Rocket Cascading Style Sheet language. RCSS is based on the [CSS2 specification](http://www.w3.org/TR/REC-CSS2/), with certain elements removed or altered to suit the needs of Rocket. In some cases, elements have been taken from the [CSS3 working draft](http://www.w3.org/Style/CSS/current-work). This document provides an overview of RCSS and the differences between RCSS and CSS, and should be read in conjunction with the CSS2 specification.

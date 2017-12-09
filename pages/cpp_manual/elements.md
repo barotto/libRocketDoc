@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Elements
-description: Elements
+parent: cpp_manual
 ---
 
 An element is the smallest subdivision of functionality within a document.

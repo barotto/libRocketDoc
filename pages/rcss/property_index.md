@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Property index
-description: Property index
+parent: rcss
 ---
 
 Following is a full index of properties recognised by RCSS. The **Notes** column details important changes from the CSS specification.

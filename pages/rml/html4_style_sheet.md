@@ -1,7 +1,7 @@
 ---
 layout: page
 title: HTML4 Style Sheet
-description: HTML4 Style Sheet
+parent: rml
 ---
 
 This sample style sheet is based on the recommended CSS 2.0 style sheet found [here](http://www.w3.org/TR/REC-CSS2/sample.html). It introduces default rules that we recommend you use as a basis for your own style sheet.

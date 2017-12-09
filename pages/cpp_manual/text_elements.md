@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Text Elements
-description: Text Elements
+parent: cpp_manual
 ---
 
 Rocket uses text elements (elements derived from Rocket::Core::ElementText) to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the Rocket factory, or through the CreateTextNode() function on a document.

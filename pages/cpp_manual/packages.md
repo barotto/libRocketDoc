@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Packages
-description: Packages
+parent: cpp_manual
 ---
 
 Rocket ships with four libraries, all with full source code.

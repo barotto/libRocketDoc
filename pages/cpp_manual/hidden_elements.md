@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hidden elements
-description: Hidden elements
+parent: cpp_manual
 ---
 
 Rocket distinguishes between normal elements that are part of the DOM and visible to all subsystems, and hidden (or non-DOM) elements that (by default) can only be found if explicitly asked for. Hidden elements are typically used by custom elements; for example, the drop-down select element in the Controls plugin creates hidden elements for its arrow button, the value field and the selection box.

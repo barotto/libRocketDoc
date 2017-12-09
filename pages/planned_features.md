@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Planned Features
-description: Planned Features
 ---
 
 Based on discussions in the forums, the following are planned features for libRocket.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Data grid
-description: Data grid
+parent: cpp_manual/controls
 ---
 
 The Controls plugin includes the data grid element, an element capable of fetching, positioning and rendering dynamic tabulated data. Data grids read their content from data sources. The class Rocket::Controls::ElementDataGrid is the interface for data grid elements.

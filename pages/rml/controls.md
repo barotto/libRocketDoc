@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RML Controls
-description: RML Controls
+parent: rml
 ---
 
 ### HANDLE Element

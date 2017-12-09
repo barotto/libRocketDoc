@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Elements
-description: Elements
+parent: python_manual
 ---
 
 ### Interface

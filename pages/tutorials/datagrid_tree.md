@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Datagrid Tree Tutorial
-description: Datagrid Tree Tutorial
 ---
 
 This tutorial expects that you've got a solid grounding in C++ and know the basics of RML and RCSS, and know the basics of datagrids (ie, completed the first [datagrid tutorial](datagrid.html).)

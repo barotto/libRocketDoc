@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Events
-description: Events
+parent: cpp_manual
 ---
 
 Events are sent to elements to indicate actions that have occurred to that element. Rocket generates many events internally (these are fully specified in the [RML event documentation](../rml/events.html)). The application can also send arbitrary events to elements.

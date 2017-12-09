@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Core Overview
-description: Core Overview
+parent: cpp_manual
 ---
 
 So you've got Rocket integrated into your application, but how are you meant to use it? This is an overview of the significant concepts and objects at the core of Rocket.

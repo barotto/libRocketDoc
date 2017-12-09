@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Building With CMake
-description: Building With CMake
 ---
 
 The easiest way to build libRocket on Mac and Linux is via the [CMake](http://cmake.org) build system. You'll first need to download CMake (or install via the package manager of your choice on Linux)

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Events
-description: Events
+parent: python_manual
 ---
 
 When an event is sent to python, three global variables are set up in the context of the called function.

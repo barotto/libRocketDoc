@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Selectors
-description: Selectors
+parent: rcss
 ---
 
 Selectors are used to select elements to apply specific rules to. The selector syntax supported in RCSS is as follows:

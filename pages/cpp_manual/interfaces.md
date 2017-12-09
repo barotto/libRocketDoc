@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Rocket Interfaces
-description: Rocket Interfaces
+parent: cpp_manual
 ---
 
 There are three interfaces that Rocket provides to control how it interacts with your application. These are the render interface, the system interface and the file interface.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RML Images
-description: RML Images
+parent: rml
 ---
 
 ### IMG Element

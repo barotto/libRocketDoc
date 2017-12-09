@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Image decorator
-description: Image decorator
+parent: rcss/decorators
 ---
 
 The 'image' decorator can render a single image or a rectangular subsection of a single image. It has the following properties:

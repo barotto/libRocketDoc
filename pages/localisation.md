@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Localisation
-description: Localisation
 ---
 
 While libRocket fully supports localisation, there are a number of issues you will need to be aware of.

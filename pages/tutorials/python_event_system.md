@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Python Event Tutorial
-description: Python Event Tutorial
 ---
 
 The Python interface to Rocket exposes a DOM API in a very similar way to Javascript. Python code can be attached to any event in the RML definition which in turn can dynamically update any part of the document, including opening new documents. Full source code to the final PyInvaders application can be found in the samples folder once the Python plugin has been installed.

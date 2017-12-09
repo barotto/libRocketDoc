@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
+    <title>{{ page.title }}
+    {% if site.title != page.title %} - {{ site.title }} {% endif %}
+    </title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
 
@@ -26,6 +28,15 @@
       <div class="navbar-inner">
         <div class="mycontainer">
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          {% if page.parent != nil %}
+            {% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
+            {% for parent_page in site.pages %}
+              {% if parent_page.url == parent_url %}
+                {% capture parent_link %}<a class="nav" href="{{ parent_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if parent_link %}{{parent_link}}{% endif %}
         </div>
       </div>
     </div>

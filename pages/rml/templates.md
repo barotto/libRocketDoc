@@ -1,7 +1,7 @@
 ---
 layout: page
 title: RML Templates
-description: RML Templates
+parent: rml
 ---
 
 ### TEMPLATE Element

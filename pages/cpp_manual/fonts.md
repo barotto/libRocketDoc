@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Loading Fonts
-description: Loading Fonts
+parent: cpp_manual
 ---
 
 TrueType and OpenType fonts can be loaded into Rocket by the application. Rocket has no default font, so at least one font must be loaded before text can be rendered.

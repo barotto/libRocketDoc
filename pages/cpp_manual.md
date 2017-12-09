@@ -1,7 +1,6 @@
 ---
 layout: page
 title: C++ Manual
-description: C++ Manual
 ---
 
 ### Introduction

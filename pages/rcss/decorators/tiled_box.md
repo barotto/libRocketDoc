@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tiled Vertical decorator
-description: Tiled Box decorator
+parent: rcss/decorators
 ---
 
 The 'tiled-box' decorator can render nine images, or subsections of images, across an element. One image is placed in each of the element's corners, one each stretched or tiled along the edges, and another stretched across the middle.

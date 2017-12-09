@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tiled Horizontal decorator
-description: Tiled Horizontal decorator
+parent: rcss/decorators
 ---
 
 The 'horizontal-tiled' decorator can render three images, or subsections of images, horizontally across an element. One image is placed on the left edge, another on the right edge, and the last is stretched or repeated across the middle.

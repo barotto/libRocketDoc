@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Plugins
-description: Plugins
+parent: cpp_manual
 ---
 
 Rocket has a simple, straightforward system for writing plugins. Plugins receive notification when contexts and elements are created and destroyed.

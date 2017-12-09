@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Embedding Python script
-description: Embedding Python script
+parent: python_manual
 ---
 
 When using the Python plugin, Python code can be embedded into RML files. Inline responses to events are executed as Python code. Functions, structures and variables can be declared or included with the \<script\> tag, then referenced from the inline code.
