@@ -15,7 +15,7 @@ You can query the current size of an element with the GetBox() and GetNumBoxes()
 ```cpp
 // Returns one of the boxes describing the size of the element.
 // @param[in] index The index of the desired box.
-/ @return The requested box.
+// @return The requested box.
 const Rocket::Core::Box& GetBox(int index = 0) const;
 
 // Returns the number of boxes making up this element's geometry.
@@ -547,12 +547,14 @@ bool PushHandler(const Rocket::Core::String& tag);
 
 // Pushes the default element handler onto the parse stack.
 void PushDefaultHandler();
+```
 
 If it doesn't call either of these methods, it will remain the node handler for any child elements it creates.
 Registering a custom node handler
 
 Register a custom node handler with Rocket's XML parser with the static RegisterNodeHandler() function on Rocket::Core::XMLParser. You can register the same handler multiple times with the parser against different tag names. RegisterNodeHandler() adds a reference to the node handler, so be sure to remove the initial reference from the handler once it has been registered.
 
+```cpp
 // Registers a custom node handler to be used to a given tag.
 // @param[in] tag The tag the custom parser will handle.
 // @param[in] handler The custom handler.
