@@ -8,7 +8,7 @@ An element is the smallest subdivision of functionality within a document.
 
 ### Size
 
-Elements are made up of zero or more boxes, each of which has a rectangular content area surrounded by three areas of varying thicknesses; padding, borders and margin (see the [box model documentation](../rcss/box_model.html) for more details).
+Elements are made up of zero or more boxes, each of which has a rectangular content area surrounded by three areas of varying thicknesses; padding, borders and margin (see the [box model documentation](../rcss/box_model.md) for more details).
 
 You can query the current size of an element with the GetBox() and GetNumBoxes() functions:
 

@@ -6,7 +6,7 @@ parent: python_manual
 
 ### Interface
 
-Documents derive from elements, so inherit their [interface](elements.html#interface). The document-specific interface is similar to the C++ interface; refer [there](../cpp_manual/documents.html) for the full functional documentation.
+Documents derive from elements, so inherit their [interface](elements.html#interface). The document-specific interface is similar to the C++ interface; refer [there](../cpp_manual/documents.md) for the full functional documentation.
 
 ####Properties
 

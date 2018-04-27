@@ -4,7 +4,7 @@ title: Font Effects
 parent: rcss
 ---
 
-Font effects are an extension to CSS for RCSS for applying effects, such as outlining or shadowing, to text. Similarly to [decorators](decorators.html), font effects are declared and named in a style sheet like a property, and configured with font-effect-specific properties. Custom font effects can be developed to apply arbitrary effects onto text.
+Font effects are an extension to CSS for RCSS for applying effects, such as outlining or shadowing, to text. Similarly to [decorators](decorators.md), font effects are declared and named in a style sheet like a property, and configured with font-effect-specific properties. Custom font effects can be developed to apply arbitrary effects onto text.
 
 ### Properties
 
@@ -40,5 +40,5 @@ h1 span
 
 Rocket comes with two built-in font effects:
 
-1. For rendering shadows, the [shadow](font_effects/shadow.html) effect.
-2. For outlining text, the [outline](font_effects/outline.html) effect. 
+1. For rendering shadows, the [shadow](font_effects/shadow.md) effect.
+2. For outlining text, the [outline](font_effects/outline.md) effect. 

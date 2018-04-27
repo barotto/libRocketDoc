@@ -156,7 +156,7 @@ button:active:hover
 
 Rocket comes with several built-in decorators for displaying images and tiled images behind elements.
 
-1. For displaying a single stretched image, the [image](decorators/image.html) decorator.
-2. For tiling images horizontally, the [tiled-horizontal](decorators/tiled_horizontal.html) decorator.
-3. For tiling images vertically, the [tiled-vertical](decorators/tiled_vertical.html) decorator.
-4. For tiling images across a box, the [tiled-box](decorators/tiled_box.html) decorator. 
+1. For displaying a single stretched image, the [image](decorators/image.md) decorator.
+2. For tiling images horizontally, the [tiled-horizontal](decorators/tiled_horizontal.md) decorator.
+3. For tiling images vertically, the [tiled-vertical](decorators/tiled_vertical.md) decorator.
+4. For tiling images across a box, the [tiled-box](decorators/tiled_box.md) decorator. 

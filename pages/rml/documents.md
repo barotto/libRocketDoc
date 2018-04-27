@@ -25,8 +25,8 @@ The LINK element is used to specify additional resources the document requires.
 **type** = cdata (CI)
 
 >Type of link, which should be one of:
->* text/rcss - [Rocket Style Sheet Specification](../rcss.html)
->* text/template - [Rocket Template](templates.html)
+>* text/rcss - [Rocket Style Sheet Specification](../rcss.md)
+>* text/template - [Rocket Template](templates.md)
 >* text/script - Rocket script
 
 **href** = cdata (CS)

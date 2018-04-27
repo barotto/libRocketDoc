@@ -45,7 +45,7 @@ tag_name | The name of the tag for the given element. | tagName
 
 The child_nodes and attributes properties are accessed as arrays; they are indexed numerically, from the front or back, and their length can be queried with the len() function.
 
-child_nodes is an array of element types. The array only includes visible elements; Python has no way of querying [hidden elements](../cpp_manual/hidden_elements.html). The following example iterates over all of an element's children, printing their tag names, ids and classes:
+child_nodes is an array of element types. The array only includes visible elements; Python has no way of querying [hidden elements](../cpp_manual/hidden_elements.md). The following example iterates over all of an element's children, printing their tag names, ids and classes:
 
 ```python
 for child in element.child_nodes:

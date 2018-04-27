@@ -121,4 +121,4 @@ Call the appropriate input functions to inject all relevant user input into your
 
 ### Where next?
 
-Now that you've had a (very!) brief introduction to Rocket, it is recommended you read the [packages guide](packages.html) and the [object overview](core_overview.html) to get an understanding of the composition of Rocket. From there, either work your way through the documentation, or dive on into the code and consult it as necessary. 
+Now that you've had a (very!) brief introduction to Rocket, it is recommended you read the [packages guide](packages.md) and the [object overview](core_overview.md) to get an understanding of the composition of Rocket. From there, either work your way through the documentation, or dive on into the code and consult it as necessary. 

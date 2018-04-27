@@ -10,7 +10,7 @@ The following diagram summarises the interaction between the objects described b
 
 (controls_datagrid_1.gif)
 
-Note: an excellent way to learn how to use data grids and data sources is the [data grid tutorial](../../tutorials/data_grid.html). This shows you how to build up a data source and create a data grid to read from it.
+Note: an excellent way to learn how to use data grids and data sources is the [data grid tutorial](../../tutorials/data_grid.md). This shows you how to build up a data source and create a data grid to read from it.
 
 ### Data sources
 

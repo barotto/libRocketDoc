@@ -7,7 +7,7 @@ The Python interface to Rocket exposes a DOM API in a very similar way to Javasc
 
 ### Step 1: Setting up the Python environment
 
-Make sure you've got the required Python support packages installed. For more information, see [this page](../python_manual/overview.html).
+Make sure you've got the required Python support packages installed. For more information, see [this page](../python_manual/overview.md).
 
 The first thing we need to do is initialise Python in our application. Once we have done this we can start executing scripts. We're going to make a PythonInterface class that will hide all the Python intricacies.
 

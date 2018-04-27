@@ -4,7 +4,7 @@ title: Decorators
 parent: cpp_manual
 ---
 
-Decorators are generic, configurable, reusable objects designed to be attached to elements to add custom rendering effects. Decorators render on top of an element's border and background. For a full description on how decorators are attached to elements and configured through RML, see the [relevant section in the RCSS documentation](../rcss/decorators.html).
+Decorators are generic, configurable, reusable objects designed to be attached to elements to add custom rendering effects. Decorators render on top of an element's border and background. For a full description on how decorators are attached to elements and configured through RML, see the [relevant section in the RCSS documentation](../rcss/decorators.md).
 
 ### Decorator overview
 

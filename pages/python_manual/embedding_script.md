@@ -30,7 +30,7 @@ Three global variables are accessible to inline event handlers. These are:
 <button onclick="print event.mouse_x + ', ' + event.mouse_y" />
 ```
 
-See the [element](elements.html), [document](documents.html) and [event](events.html) documentation for their full Python interfaces.
+See the [element](elements.md), [document](documents.md) and [event](events.md) documentation for their full Python interfaces.
 
 ### Embedding Python into RML
 

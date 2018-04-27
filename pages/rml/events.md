@@ -30,7 +30,7 @@ When using the Python plugin, event listeners bound through RML execute Python c
 <div onclick="print 'hello'; print 'goodbye'">
 ```
 
-For full details on Python events see the [Python Manual](../python_manual.html).
+For full details on Python events see the [Python Manual](../python_manual.md).
 
 ### Events
 
