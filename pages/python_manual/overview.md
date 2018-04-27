@@ -8,7 +8,7 @@ RocketPython can be used in an application that extends or embeds Python. The on
 
 To start using RocketPython simply import the module as you would any other extension. RocketPython will then plug itself into the running Rocket instance. It is important to import RocketPython before you create any Rocket Contexts, Documents or Elements otherwise you will not have access to these items from Python.
 
-For a full list of accessable classes and methods please see the libRocket Python [API Reference](api_reference.html).
+For a full list of accessable classes and methods please see the libRocket Python [API Reference](api_reference.md).
 
 ### Requirements
 
@@ -24,4 +24,4 @@ You can download our pre-built support package which includes both of these libr
 **MacOSX / Linux**  
 You'll need to compile and install both libraries and then update config.py (in the build directory) with the relevant paths before attempting to compile any python related code. See README.TXT in the samples folder for more information.
 
-The best place to start exploring RocketPython is to look at the PyInvaders sample application which is a rework of the standard Invaders sample but with python support. There is also a step by step [tutorial](../tutorials/python_event_system.html) describing the steps taken to do the conversion.
+The best place to start exploring RocketPython is to look at the PyInvaders sample application which is a rework of the standard Invaders sample but with python support. There is also a step by step [tutorial](../tutorials/python_event_system.md) describing the steps taken to do the conversion.

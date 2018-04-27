@@ -6,7 +6,7 @@ parent: cpp_manual
 
 A Rocket document may have a number of style sheets attached to it. Each of those style sheets has a list of RCSS properties and rules for selecting which elements those properties are applied to. Any element may also have properties set on them directly.
 
-This document only details the C++ interface into the style sheet and property system; for detailed information on what properties are supported and what their function is, see the [RCSS documentation](../rcss.html).
+This document only details the C++ interface into the style sheet and property system; for detailed information on what properties are supported and what their function is, see the [RCSS documentation](../rcss.md).
 
 ### Style sheets
 

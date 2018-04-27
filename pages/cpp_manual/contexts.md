@@ -150,7 +150,7 @@ void RemoveEventListener(const Rocket::Core::String& event,
 
 ### Input
 
-See the section on [input](input.html) for detail on sending user input from your application into Rocket contexts.
+See the section on [input](input.md) for detail on sending user input from your application into Rocket contexts.
 
 ### Custom contexts
 

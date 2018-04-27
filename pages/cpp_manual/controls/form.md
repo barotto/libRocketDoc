@@ -204,7 +204,7 @@ void RemoveAll();
 
 #### Applying properties
 
-See the [style guide](../../style_guide.html) for documentation on applying properties to a select box.
+See the [style guide](../../style_guide.md) for documentation on applying properties to a select box.
 
 ### Data-driven drop-down select box
 
@@ -220,7 +220,7 @@ void SetDataSource(const Rocket::Core::String& data_source);
 
 #### Applying properties
 
-See the [style guide](../../style_guide.html) for documentation on applying properties to a select box.
+See the [style guide](../../style_guide.md) for documentation on applying properties to a select box.
 
 ### Range slider
 
@@ -230,7 +230,7 @@ The minimum and maximum values for the range are specified with the "min" and "m
 
 #### Applying properties
 
-See the [style guide](../../style_guide.html) for documentation on applying properties to a range control.
+See the [style guide](../../style_guide.md) for documentation on applying properties to a range control.
 
 ### Form container
 

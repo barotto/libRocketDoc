@@ -5,7 +5,7 @@ title: Window Templating Tutorial
 
 This tutorial will take you step-by-step through the development of the RML and RCSS of the window template we used for Rocket Invaders from Mars. By the end of this tutorial you'll be able to create complex, flexible templates for your own application.
 
-To go through this tutorial you'll need an understanding of [RML](../rml.html) and [RCSS](../rcss.html).
+To go through this tutorial you'll need an understanding of [RML](../rml.md) and [RCSS](../rcss.md).
 
 ### Step 1: Taking a look
 

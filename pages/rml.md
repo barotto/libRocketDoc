@@ -9,18 +9,18 @@ RML maintains the core components of HTML4, including CSS and scripting (via the
 
 Contents
 
-1. [Elements](rml/elements.html) - The basic RML element.
-2. [Documents](rml/documents.html) - The HEAD and BODY of a document.
-3. [Images](rml/images.html) - Referencing images.
-4. [Style Sheets](rml/style_sheets.html) - Adding style to RML documents.
-5. [Forms](rml/forms.html) - User-input forms.
-6. [Controls](rml/controls.html) - Tabsets and window handles.
-7. [Data Display](rml/data_display.html) - Data grids and data selects.
-8. [Templates](rml/templates.html) - Making all your windows look consistent.
-9. [Events](rml/events.html) - Mouse clicks, movement, key presses, text entry. 
+1. [Elements](rml/elements.md) - The basic RML element.
+2. [Documents](rml/documents.md) - The HEAD and BODY of a document.
+3. [Images](rml/images.md) - Referencing images.
+4. [Style Sheets](rml/style_sheets.md) - Adding style to RML documents.
+5. [Forms](rml/forms.md) - User-input forms.
+6. [Controls](rml/controls.md) - Tabsets and window handles.
+7. [Data Display](rml/data_display.md) - Data grids and data selects.
+8. [Templates](rml/templates.md) - Making all your windows look consistent.
+9. [Events](rml/events.md) - Mouse clicks, movement, key presses, text entry. 
 
 Appendix
 
-1. [Element index](rml/element_index.html)
-2. [HTML4 style sheet](rml/html4_style_sheet.html) 
+1. [Element index](rml/element_index.md)
+2. [HTML4 style sheet](rml/html4_style_sheet.md) 
 

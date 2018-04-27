@@ -32,7 +32,7 @@ All of these elements can be styled through RCSS to be sized, positioned and ren
 4. Set the 'width' property of the sliderbar as appropriate. The height of the bar will be generated internally, but you can override this with the 'height' property, or use the 'min-height' and 'max-height' properties to influence it.
 5. Apply decorators to the elements as appropriate. 
 
-See the Rocket Invaders from Mars demo style sheet and the [templating tutorial](tutorials/window_template.html) for more pointers.
+See the Rocket Invaders from Mars demo style sheet and the [templating tutorial](tutorials/window_template.md) for more pointers.
 
 #### The 'scrollbar-margin' property
 

@@ -4,7 +4,7 @@ title: Events
 parent: cpp_manual
 ---
 
-Events are sent to elements to indicate actions that have occurred to that element. Rocket generates many events internally (these are fully specified in the [RML event documentation](../rml/events.html)). The application can also send arbitrary events to elements.
+Events are sent to elements to indicate actions that have occurred to that element. Rocket generates many events internally (these are fully specified in the [RML event documentation](../rml/events.md)). The application can also send arbitrary events to elements.
 
 When an event is dispatched to an element, it first goes through a bubble phase where the each of the element's ancestors has an opportunity to process the event and stop the propagation. The event is then sent to the target element, then goes through a capture phase where it falls back to its root ancestor.
 
@@ -55,7 +55,7 @@ The target element, returned by GetTargetElement(), is the element the event was
 
 The name of the event ("keydown", "focus", etc) is returned from GetType(). You can also use the equality operator to compare an event directly with a string.
 
-You can fetch the parameters of the event with the templated GetParameter() function. The exact parameters of each event are detailed in the [event documentation](../rml/events.html).
+You can fetch the parameters of the event with the templated GetParameter() function. The exact parameters of each event are detailed in the [event documentation](../rml/events.md).
 
 For event types that can be interrupted, a listener can call the StopPropagation() function on an event to prevent the event's progress through the event cycle.
 
