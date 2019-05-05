@@ -15,7 +15,7 @@ This tutorial shows how to use the third type, cloning, to implement dragging it
 
 Compile the drag tutorial (at */samples/tutorials/drag/*) and run the program; it should end up looking like this:
 
-![tutorial_drag_1.jpg](tutorial_drag_1.jpg)
+![dragging_1.jpg](dragging_1.jpg)
 
 Take a look at the source code. As you can see, the application creates two Inventory objects, each of which loads a document from the 'inventory.rml' file. The application then creates four inventory objects in one of the inventories; each of these objects is a libRocket element with a tag of 'icon'. At the bottom of the 'tutorial.rcss' file you can see the properties applied to 'icon'. It is sized to 100px x 100px with a margin to separate it from its neighbour icons and a decorator for its background image. It is floated left so icons will stack from left to right in the inventory windows.
 
@@ -113,7 +113,7 @@ All that's left to do before we can try out the dragging is to register the cont
 
 Fire it up, start dragging and see what happens.
 
-![tutorial_drag_2.jpg](tutorial_drag_2.jpg)
+![dragging_2.jpg](dragging_2.jpg)
 
 Success!
 

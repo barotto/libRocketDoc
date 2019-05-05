@@ -17,7 +17,7 @@ The Controls plugin includes a fully-featured set of form controls. The full RML
 
 Below is the hierarchy for the custom form elements included in the Controls plugin.
 
-(controls_form_1.gif)
+![form_1.gif](form_1.gif)
 
 ### Form control interface
 
@@ -142,7 +142,7 @@ Drop-down select box
 The simple drop-down select control is specified in RML with the `<select>` tag. Individual options within the select box are specified with child `<option>` elements. The value of the select control is set to the value attribute of the currently selected option.
 The following RML fragment declares a select box:
 
-```
+```html
 <select name="graphics">
 	<option value="bad">Bad</option>
 	<option value="ok">OK</option>

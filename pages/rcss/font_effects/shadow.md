@@ -6,7 +6,7 @@ parent: rcss/font_effects
 
 The shadow font effect renders a coloured copy of text with an offset, giving the effect of a shadow.
 
-![effect_shadow.jpg](effect_shadow_1.jpg)
+![shadow_1.jpg](shadow_1.jpg)
 
 The effect has the following properties:
 

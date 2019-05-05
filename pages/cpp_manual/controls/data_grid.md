@@ -8,9 +8,9 @@ The Controls plugin includes the data grid element, an element capable of fetchi
 
 The following diagram summarises the interaction between the objects described below in the data grid system.
 
-(controls_datagrid_1.gif)
+![data_grid_1.gif](data_grid_1.gif)
 
-Note: an excellent way to learn how to use data grids and data sources is the [data grid tutorial](../../tutorials/data_grid.html). This shows you how to build up a data source and create a data grid to read from it.
+Note: an excellent way to learn how to use data grids and data sources is the [data grid tutorial](../../tutorials/datagrid.html). This shows you how to build up a data source and create a data grid to read from it.
 
 ### Data sources
 
@@ -149,7 +149,7 @@ See the high scores tutorial for examples of creating data formatters.
 
 As you would imagine, data grids generate internal elements like they're going out of fashion. Below is a diagram of their internal layout.
 
-(controls_datagrid_2.gif)
+![data_grid_2.gif](data_grid_2.gif)
 
 The data grid element itself, tagged datagrid, has two direct children, datagridheader and datagridbody. The header element contains datagridcolumn elements, one for each column in the data grid. The body element contains all of the data rows, datagridrow elements. Each row contains datagridcell elements, one for each column in the datagrid. Both datagridcell and datagridcolumn elements contain arbitrary RML; in the column's case, the header RML for the column, in the cell's case, the RML generated from the data formatters.
 

@@ -13,7 +13,7 @@ For a detailed description on how DataGrids work with DataSources please see the
 
 Load up the Datagrid tutorial, compile and run it, you'll see a blank high scores window:
 
-![tutorial_datagrid_1.gif](tutorial_datagrid_1.gif)
+![datagrid_1.gif](datagrid_1.gif)
 
 If you take a look at the C++ code, you see that there's a HighScores class that loads and stores a set of high scores. At the moment it doesn't do much at all - the next step will be to turn this into data source so it can talk with the datagrid that we're going to add later.
 
@@ -176,7 +176,7 @@ Anything in between the \<col\> and \</col\> tags is put in a header row, above 
 
 Running the sample with the above code will give us the following output:
 
-![tutorial_datagrid_2.gif](tutorial_datagrid_2.gif)
+![datagrid_2.gif](datagrid_2.gif)
 
 Well, at least it's working. Time to pretty it up some:
 
@@ -256,7 +256,7 @@ void HighScoresShipFormatter::FormatData(Rocket::Core::String& formatted_data, c
 
 Run that and you should now see the correctly formatted ship colours:
 
-![tutorial_datagrid_3.gif](tutorial_datagrid_3.gif)
+![datagrid_3.gif](datagrid_3.gif)
 
 Excellent! Now to style the rest of the table.
 
@@ -270,7 +270,7 @@ The datagrid can be styled just like any other Rocket element. RCSS hooks are pr
 * **datagridrow**: Each row underneath the header.
 * **datagridcell**: Each cell inside a row. 
 
-![tutorial_datagrid_4.gif](tutorial_datagrid_4.gif)
+![datagrid_4.gif](datagrid_4.gif)
 
 So, using these hooks, we can make the datagrid look pretty much any way we want it to. First, let's add a background to the body. The RCSS rule shown below will add an image background (using a tiled-box decorator) around the body, change the text to black and center it, and finally add some margins and padding to move the text within the new border:
 
@@ -298,7 +298,7 @@ datagridbody
 
 So now it should look like this:
 
-![tutorial_datagrid_5.gif](tutorial_datagrid_5.gif)
+![datagrid_5.gif](datagrid_5.gif)
 
 Much better! Header still is a bit lacking. We'll add a rule to add a tiled-horizontal decorator as a background, then some padding to bring the text inside the background:
 
@@ -318,7 +318,7 @@ datagridheader
 
 So now we've got the following:
 
-![tutorial_datagrid_6.gif](tutorial_datagrid_6.gif)
+![datagrid_6.gif](datagrid_6.gif)
 
 Looking pretty good now. One more thing to add a bit more zing: we'll colour the even rows differently to make it easier to see the row delineations. The following rule will do exactly that:
 
@@ -331,4 +331,4 @@ datagrid datagridrow:nth-child(even)
 
 So finally, this is what we've come up with:
 
-![tutorial_datagrid_7.gif](tutorial_datagrid_7.gif)
+![datagrid_7.gif](datagrid_7.gif)

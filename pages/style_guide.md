@@ -13,12 +13,12 @@ Any element with scrolling overflow (a value of 'scroll' or 'auto' on either of 
 
 The scrollbar elements are tagged scrollbarhorizontal or scrollbarvertical, depending on their orientation. They are hidden elements parented directly to the scrolling element. Each scrollbar element contains four child elements:
 
-* sliderarrowdec: The button at the top (or left) of the scrollbar which can be clicked to scroll further up (or to the left) the element.
-* sliderarrowinc: The button at the bottom (or right) of the scrollbar which can be clicked to scroll further down (or to the right) the element.
-* slidertrack: The track that runs between the two arrow buttons.
-* sliderbar: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around. 
+* _sliderarrowdec_: The button at the top (or left) of the scrollbar which can be clicked to scroll further up (or to the left) the element.
+* _sliderarrowinc_: The button at the bottom (or right) of the scrollbar which can be clicked to scroll further down (or to the right) the element.
+* _slidertrack_: The track that runs between the two arrow buttons.
+* _sliderbar_: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around. 
 
-![styleguide_1.gif](styleguide_1.gif)
+![style_guide_1.gif](style_guide_1.gif)
 
 When both horizontal and vertical scrollbars are present on an element, they are both shortened by the amount necessary to avoid an intersection. Another element is created and placed in this intersection point, placed and sized appropriately. This corner element is tagged scrollbarcorner and exists only for decoration purposes.
 
@@ -26,17 +26,17 @@ When both horizontal and vertical scrollbars are present on an element, they are
 
 All of these elements can be styled through RCSS to be sized, positioned and rendered appropriately. The recommended method for configuring a scrollbar is given below (note that this is for a vertical scrollbar; for a horizontal, swap width and height):
 
-1. Set the 'width' property of the scrollbarvertical element to the appropriate value for your interface design. This should be enough to encompass the arrows, track and bar.
-2. Set the 'width' and 'height' properties of the sliderarrowdec and sliderarrowinc elements as appropriate. Set them to '0' if you don't want buttons.
-3. Set the 'width' property of the slidertrack as appropriate. The 'height' value will be ignored for the track and will always be set internally. Use 'margin-left' to position the track within the scrollbar.
-4. Set the 'width' property of the sliderbar as appropriate. The height of the bar will be generated internally, but you can override this with the 'height' property, or use the 'min-height' and 'max-height' properties to influence it.
+1. Set the 'width' property of the _scrollbarvertical_ element to the appropriate value for your interface design. This should be enough to encompass the arrows, track and bar.
+2. Set the 'width' and 'height' properties of the _sliderarrowdec_ and _sliderarrowinc_ elements as appropriate. Set them to '0' if you don't want buttons.
+3. Set the 'width' property of the _slidertrack_ as appropriate. The 'height' value will be ignored for the track and will always be set internally. Use 'margin-left' to position the track within the scrollbar.
+4. Set the 'width' property of the _sliderbar_ as appropriate. The height of the bar will be generated internally, but you can override this with the 'height' property, or use the 'min-height' and 'max-height' properties to influence it.
 5. Apply decorators to the elements as appropriate. 
 
 See the Rocket Invaders from Mars demo style sheet and the [templating tutorial](tutorials/window_template.html) for more pointers.
 
 #### The 'scrollbar-margin' property
 
-As described above, the scrollbar elements (scrollbarvertical and scrollbarhorizontal) will shorten themselves automatically to avoid a corner intersection. This can lead to scenarios where a scrollbar is popping on and off (during a window resize, for example) and causing the other scrollbar to rapidly change size. To avoid this, and force a scrollbar to always shorten itself for a corner, you can use the numerical 'scrollbar-margin' property on a scrollbar element. An element will shorten itself (on the bottom or right side, as appropriate) by the minimum of the appropriate corner dimension and the scrollbar margin.
+As described above, the scrollbar elements (_scrollbarvertical_ and _scrollbarhorizontal_) will shorten themselves automatically to avoid a corner intersection. This can lead to scenarios where a scrollbar is popping on and off (during a window resize, for example) and causing the other scrollbar to rapidly change size. To avoid this, and force a scrollbar to always shorten itself for a corner, you can use the numerical 'scrollbar-margin' property on a scrollbar element. An element will shorten itself (on the bottom or right side, as appropriate) by the minimum of the appropriate corner dimension and the scrollbar margin.
 
 #### Example RCSS
 
@@ -129,12 +129,12 @@ scrollbarvertical sliderarrowinc:active
 
 ### Sliders
 
-The controls plugin adds support for range sliders; these are instanced through the RML tag \<input type="range" ... /\>. Internally these are very similar to scrollbars, and contain identical child elements, i.e.:
+The controls plugin adds support for range sliders; these are instanced through the RML tag `<input type="range" ... />`. Internally these are very similar to scrollbars, and contain identical child elements, i.e.:
 
-* sliderarrowdec
-* sliderarrowinc
-* slidertrack
-* sliderbar 
+* _sliderarrowdec_
+* _sliderarrowinc_
+* _slidertrack_
+* _sliderbar_ 
 
 These are styled in the same way you style scrollbars. Note that for input types, the controls plugin automatically sets the 'type' attribute of an input element as a class to ease their specification in a style sheet. So the following rule will apply properties to an input's slider track:
 
@@ -147,17 +147,17 @@ input.range slidertrack
 
 ### Drop-down selection boxes
 
-The controls plugin adds support for drop-down boxes; these are instanced through the RML tag \<select\>, with individual options specified within the selection element with \<option\> tags.
+The controls plugin adds support for drop-down boxes; these are instanced through the RML tag `<select>`, with individual options specified within the selection element with `<option>` tags.
 
 #### Generated elements
 
 The select element generates three hidden elements:
 
-* selectvalue: The container element for the selected option.
-* selectarrow: The button rendered to the right of the value element. This element has the pseudo-class 'checked' set on it when the selection box is visible.
-* selectbox: The box containing the options. The visibility of this element is toggled when the arrow or value elements are clicked on, or when an option is selected. 
+* _selectvalue_: The container element for the selected option.
+* _selectarrow_: The button rendered to the right of the value element. This element has the pseudo-class 'checked' set on it when the selection box is visible.
+* _selectbox_: The box containing the options. The visibility of this element is toggled when the arrow or value elements are clicked on, or when an option is selected. 
 
-![styleguide_2.gif](styleguide_2.gif)
+![style_guide_2.gif](style_guide_2.gif)
 
 #### Example RCSS
 

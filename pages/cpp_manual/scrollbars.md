@@ -15,7 +15,7 @@ Scrollbar elements are tagged scrollbarvertical or scrollbarhorizontal depending
 * slidertrack: The track that runs between the two arrow buttons.
 * sliderbar: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around. 
 
-(scrollbars_1.gif)
+![scrollbars_1.gif](scrollbars_1.gif)
 
 When both horizontal and vertical scrollbars are present on an element, they are both shortened by the amount necessary to avoid an intersection. Another element is created and placed in this intersection point, placed and sized appropriately. This corner element is tagged scrollbarcorner and exists only for decoration purposes.
 

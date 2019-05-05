@@ -6,7 +6,7 @@ parent: rcss/font_effects
 
 The outline font effect renders a coloured outline around text.
 
-![effect_outline_1.jpg](effect_outline_1.jpg)
+![outline_1.jpg](outline_1.jpg)
 
 The effect has the following properties:
 

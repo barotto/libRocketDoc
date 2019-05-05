@@ -159,7 +159,7 @@ Open the tutorial.rml file in the data folder, and look at where the datagrid is
 
 Of course we've no formatter called "expand_button", we'll have to create that later. The "#num_children" field corresponds to the Rocket::Core::DataSource::NUM_CHILDREN string - we use this to ask the data source about its number of children. I took 10% width out of the Pilot column to make room. So, fire this up and see what we get:
 
-![tutorial_datagrid_tree_1.gif](tutorial_datagrid_tree_1.gif)
+![datagrid_tree_1.gif](datagrid_tree_1.gif)
 
 As you can see, we haven't got our "expand_button" formatter yet so it falls back to displaying the raw text output, in this case the number of children.
 
@@ -244,5 +244,5 @@ void HighScoresShipFormatter::FormatData(Rocket::Core::String& formatted_data, c
 
 Which gives us the following:
 
-![tutorial_datagrid_tree_3.gif](tutorial_datagrid_tree_3.gif)
+![datagrid_tree_3.gif](datagrid_tree_3.gif)
 

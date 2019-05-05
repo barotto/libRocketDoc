@@ -11,7 +11,7 @@ To go through this tutorial you'll need an understanding of [RML](../rml.html) a
 
 Compile the template tutorial (at /samples/tutorials/template/) and run the program; you should end up seeing this:
 
-![tutorial_template_1.gif](tutorial_template_1.gif)
+![window_template_1.gif](window_template_1.gif)
 
 All the the program does is load and show the document defined in data/tutorial.rml. The RML itself file references data/tutorial.rcss and data/tutorial.png. All we're interested in is the RML file and the RCSS file; open them both and take a look.
 
@@ -84,7 +84,7 @@ And lastly, the right side:
 
 Run the application again and see what we've got.
 
-![tutorial_template_2.gif](tutorial_template_2.gif)
+![window_template_2.gif](window_template_2.gif)
 
 Well that looks pretty crap! Because the 'span' element is inline, its height is derived from the height of its content; in this case, the dummy title text. The decorator squishes itself down to fit into the element. We can't throw a 'height' RCSS property in there either, as inline elements (except in a few cases) cannot have their heights set directly. So what do we do? Padding! Margins, padding and borders can all be set on inline elements and, while they don't affect the vertical positioning of the element, they do affect the size of the element and influence the position of child elements. So we can use padding to set the element to the right size and position the text right in the middle of the title bar.
 
@@ -136,7 +136,7 @@ div#title-bar span
 
 And the application should be looking like this:
 
-![tutorial_template_3.gif](tutorial_template_3.gif)
+![window_template_3.gif](window_template_3.gif)
 
 #### Placing the title bar
 
@@ -177,7 +177,7 @@ We still need a handle so we can drag the window around. This is easy; Rocket sh
 
 Now you should be able to drag the window around by holding onto the title. The application should now be looking something like this:
 
-![tutorial_template_4.gif](tutorial_template_4.gif)
+![window_template_4.gif](window_template_4.gif)
 
 ### Step 3: Placing the content
 
@@ -202,7 +202,7 @@ Why do we do this, rather than put the content directly into the 'body' element?
 
 Put some dummy content text into the new element and see what we've got.
 
-![tutorial_template_5.gif](tutorial_template_5.gif)
+![window_template_5.gif](window_template_5.gif)
 
 So we've got a couple of issues already:
 
@@ -253,7 +253,7 @@ Nice! Now the content's in the right place, but what happens if there's too much
 
 If you open the debugger again and look at the content element, you can see the problem:
 
-![tutorial_template_6.gif](tutorial_template_6.gif)
+![window_template_6.gif](window_template_6.gif)
 
 We haven't explicitly set the 'height' property on the content element, so it defaults to 'auto'. When calculating the height of a block-level element, 'auto' means it will grow to fit the content, regardless of the size of its containing element. If we set the 'height' property on the content element to '100%', it will force the height to be exactly that of its containing element's content area. Try that and see what we get.
 
@@ -279,7 +279,7 @@ Rocket also supports different overflow properties per axis, so you can (for exa
 
 Change the 'overflow' property on the content element to 'auto' or 'scroll' and check out the result.
 
-![tutorial_template_7.gif](tutorial_template_7.gif)
+![window_template_7.gif](window_template_7.gif)
 
 #### Resizing the scrollbar
 
@@ -338,7 +338,7 @@ One last thing on the bar; as no height has been explicitly set on the element, 
 
 Now the window should be looking like this:
 
-![tutorial_template_8.gif](tutorial_template_8.gif)
+![window_template_8.gif](window_template_8.gif)
 
 #### Adding the arrows
 
@@ -387,7 +387,7 @@ scrollbarvertical
 
 And from that we've got:
 
-![tutorial_template_9.gif](tutorial_template_9.gif)
+![window_template_9.gif](window_template_9.gif)
 
 #### Adding hover and click decoration
 

@@ -14,7 +14,7 @@ When you create a reference counted object and give control of it to a Rocket sy
 
 ### The element hierarchy
 
-(core_overview_1.gif)
+![core_overview_1.gif](core_overview_1.gif)
 
 #### Element
 
@@ -58,6 +58,6 @@ Decorators are objects designed to be attached to elements to render arbitrary e
 
 All of Rocket's objects that are able to be customised (elements, documents, contexts, decorators, events and event listeners) are constructed through the factory (Rocket::Core::Factory) with specific instancer types.
 
-(core_overview_2.gif)
+![core_overview_2.gif](core_overview_2.gif)
 
 Instancers are abstract types that are capable of creating and destroying concrete Rocket objects. They are described throughout their documentation alongside their respective types. 

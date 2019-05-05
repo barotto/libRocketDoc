@@ -10,7 +10,7 @@ You can find the RML documentation for the tab set element [here](../../rml/cont
 
 Here is an RML sample demonstrating the declaration of a tab set:
 
-```cpp
+```html
 <rml>
 	<head>
 	</head>
@@ -91,11 +91,11 @@ Tab sets and their elements can have properties applied on them like other eleme
 
 The diagram below details the internal hierarchy of the tab set.
 
-(controls_tabset_1.gif)
+![tab_set_1.gif](tab_set_1.gif)
 
 The tab set element itself (tagged tabset) will have two child elements, panels, which holds all the panel elements, and tabs, which holds all the tab elements. Each of the panel and tab elements hold arbitrary RML content. A typical RCSS definition for a tab set would be follows:
 
-```cpp
+```css
 /* Force the tabset element to a fixed size. */
 tabset
 {
