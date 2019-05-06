@@ -8,7 +8,7 @@ description: libMissile's documentation
 
 ### libMissile
 
-[libMissile](https://mikke89.github.io/libMissile) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to libMissile is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository](https://github.com/mikke89/libMissileDoc/).
+[libMissile](https://github.com/mikke89/libMissile) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to libMissile is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository](https://github.com/mikke89/libMissileDoc/).
 
 [**libMissile features and changes**](pages/libmissile_features.html)
 
