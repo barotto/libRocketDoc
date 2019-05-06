@@ -1,10 +1,10 @@
-## libRocket Documentation
+## libMissile Documentation
 
-[libRocket](https://github.com/libRocket/libRocket)'s documentation converted to Markdown.
+[libMissile](https://github.com/mikke89/libMissile)'s documentation converted to Markdown.
 
 To compile for offline use, use [Jekyll](https://jekyllrb.com/).
 
-See online [here](https://barotto.github.io/libRocketDoc).
+See online [here](https://mikke89.github.io/libMissileDoc).
 
 ### License (MIT)
 
