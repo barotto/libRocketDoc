@@ -1,10 +1,10 @@
-## libMissile Documentation
+## RmlUi Documentation
 
-[libMissile](https://github.com/mikke89/libMissile)'s documentation converted to Markdown.
+Official documentation of [RmlUi](https://github.com/mikke89/RmlUi).
 
 To compile for offline use, use [Jekyll](https://jekyllrb.com/).
 
-See online [here](https://mikke89.github.io/libMissileDoc).
+See online [here](https://mikke89.github.io/RmlUi).
 
 ### License (MIT)
 

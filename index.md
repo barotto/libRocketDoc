@@ -1,16 +1,16 @@
 ---
 layout: page
-title: libMissile Documentation
-description: libMissile's documentation
+title: RmlUi Documentation
+description: RmlUi's documentation
 ---
 
-![rocket-home](assets/libmissile.png)
+![rocket-home](assets/rmlui.png)
 
-### libMissile
+### RmlUi
 
-[libMissile](https://github.com/mikke89/libMissile) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to libMissile is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository](https://github.com/mikke89/libMissileDoc/).
+[RmlUi](https://github.com/mikke89/RmlUi) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to RmlUi is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository](https://github.com/mikke89/RmlUiDoc).
 
-[**libMissile features and changes**](pages/libmissile_features.html)
+[**RmlUi features and changes**](pages/rmlui_features.html)
 
 ### Programming Documentation
 
@@ -40,6 +40,6 @@ description: libMissile's documentation
 
 ### Building
 
-1. [Building libMissile with CMake](pages/building_with_cmake.html)
+1. [Building RmlUi with CMake](pages/building_with_cmake.html)
 2. [Building FreeType for iOS](pages/building_freetype_for_ios.html)
 3. [Building Boost::Python](pages/building_boost_python.html)

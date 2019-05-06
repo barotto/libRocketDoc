@@ -1,9 +1,9 @@
 ---
 layout: page
-title: libMissile Features and Changes
+title: RmlUi Features and Changes
 ---
 
-A quick glance at some of the features added beyond libRocket.
+A quick glance at some of the features added in RmlUi since libRocket.
 
 
 ### Transform property

@@ -8,7 +8,7 @@ highlighter: rouge
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : libMissile Documentation
+title : RmlUi Documentation
 author :
   name : Michael R. P. Ragazzon
   email : michael.ragazzon@gmail.com
@@ -17,7 +17,7 @@ author :
   feedburner : nil
 
 # NOTE: If replacing this next line with your own URL, you likely want "https://" not "http://"
-production_url : https://mikke89.github.io/libMissileDoc
+production_url : https://mikke89.github.io/RmlUiDoc
 
 # Tell Github to use the kramdown markdown interpreter
 # (see https://help.github.com/articles/migrating-your-pages-site-from-maruku)
@@ -52,7 +52,7 @@ JB :
   #     This means always setting the protocol (http|https) or prefixing with "/"
   #
   # NOTE: If replacing this next line with your own URL, you likely want "https://" not "http://"
-  BASE_PATH: https://mikke89.github.io/libMissileDoc
+  BASE_PATH: https://mikke89.github.io/RmlUiDoc
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
