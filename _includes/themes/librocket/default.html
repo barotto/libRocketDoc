@@ -16,10 +16,17 @@
     <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- fav and touch icons -->
-
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ ASSET_PATH }}/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ ASSET_PATH }}/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ ASSET_PATH }}/icons/favicon-16x16.png">
+	<link rel="manifest" href="{{ ASSET_PATH }}/icons/site.webmanifest">
+	<link rel="mask-icon" href="{{ ASSET_PATH }}/icons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="{{ ASSET_PATH }}/icons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#2d89ef">
+	<meta name="msapplication-config" content="{{ ASSET_PATH }}/icons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	
     <!-- atom & rss feed -->
-    <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
   </head>
 
@@ -32,7 +39,7 @@
             {% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
             {% for parent_page in site.pages %}
               {% if parent_page.url == parent_url %}
-                {% capture parent_link %}<a class="nav" href="{{ parent_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
+                {% capture parent_link %}<a class="nav" href="{{BASE_PATH}}{{ parent_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
               {% endif %}
             {% endfor %}
           {% endif %}
