@@ -73,7 +73,7 @@ Documents are loaded through contexts. To load a document from an RML file into 
 ElementDocument* LoadDocument(const Rocket::Core::String& document_path);
 ```
 
-The document_path parameter will be given to Rocket's file interface? to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call Show() on the document to make it visible.
+The document_path parameter will be given to Rocket's [file interface](interfaces.html#the-file-interface) to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call Show() on the document to make it visible.
 
 You can also load documents directly from a memory stream, this can be useful if you want to receive documents over the network or similar.
 
