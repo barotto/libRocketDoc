@@ -24,6 +24,26 @@ string
 
 Cursors can be loaded into Rocket using the Rocket::Core::Context::LoadCursor() function.
 
+### Pointer events: the 'pointer-events' property
+
+*cursor*
+
+Value: | auto \| none
+Initial: | auto
+Applies to: | all elements
+Inherited: | yes
+Percentages: | N/A
+
+Set the element property to disregard mouse input events on this and descending elements.
+
+
+auto
+> The element behaves as it would if the pointer-events property were not specified.
+
+none
+> The element is never the target of pointer events.
+
+
 ### Drag & drop: the 'drag' property
 
 The 'drag' property is a new property, not shared by CSS. It controls the generation of events as the mouse cursor begins a drag over an element (ie, clicks the left mouse button and moves the mouse), drags over elements (moves the mouse with the button depressed) and finishes a drag, or 'drops', an element over another.

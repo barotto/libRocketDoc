@@ -34,6 +34,7 @@ Pseudo-class | Meaning
 :only-child | Matches an element that has no sibling elements.
 :only-of-type | Matches an element that has no sibling elements of its type.
 :empty | Matches an element that has no child nodes.
+:checked | Matches an element that is selected in a drop-down lists.
 
 For a much fuller description of the :nth- style selectors, please refer to the respective page of the CSS3 working draft. 'even' and 'odd' are supported in RCSS.
 

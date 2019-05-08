@@ -19,13 +19,14 @@ If you are not, read through this documentation while consulting the CSS2 specif
 4. [Box model](rcss/box_model.html)
 5. [Visual formatting model](rcss/visual_formatting_model.html)
 6. [Visual formatting model details](rcss/visual_formatting_model_details.html)
-7. [Visual effects](rcss/visual_effects.html)
-8. [Colours and backgrounds](rcss/colours_backgrounds.html)
-9. [Fonts](rcss/fonts.html)
-10. [Text](rcss/text.html)
-11. [Cursors, Dragging and Tabbing](rcss/user_interface.html)
-12. [Decorators](rcss/decorators.html)
-13. [Font effects](rcss/font_effects.html)
+7. [Animations, transitions, and transforms](rcss/animations_transitions_transforms.html)
+8. [Visual effects](rcss/visual_effects.html)
+9. [Colours and backgrounds](rcss/colours_backgrounds.html)
+10. [Fonts](rcss/fonts.html)
+12. [Text](rcss/text.html)
+13. [Cursors, Dragging and Tabbing](rcss/user_interface.html)
+14. [Decorators](rcss/decorators.html)
+15. [Font effects](rcss/font_effects.html)
 
 ### Appendix
 

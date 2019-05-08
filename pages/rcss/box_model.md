@@ -98,6 +98,8 @@ textarea
 
 ### Border properties
 
+_Note_: the border-style properties are not yet supported. All borders are rendered as solid lines. 
+
 #### Border width
 
 *border-top-width, border-right-width, border-bottom-width, border-left-width*
@@ -139,6 +141,8 @@ These properties specify the colour of each of a box's border edges.
 A shorthand property for setting all four border colour properties at once. If there is only one value, it applies to all sides. If there are two values, the first applies to the top and bottom, the second to left and right. If there are three values, the first applies to the top, the second to left and right, the third to the bottom. If there are four values, they are applied to top, right, bottom, left respectively.
 Border shorthand properties
 
+#### Border shorthands
+
 *border-top, border-right, border-bottom, border-left*
 
 Shorthand properties for setting the width and color of a border edge.
@@ -150,4 +154,10 @@ h1
 }
 ```
 
-Note that the border shorthand and the border-style properties are not yet supported. All borders are rendered as solid lines. 
+*border*
+
+Shorthand property for setting an element's border. It sets the values of border-width and border-color.
+
+```css
+border: 4px #e99;
+```

@@ -43,12 +43,32 @@ Specified as <length> in a property's Values list. A length is a horizontal or v
 
 * px: One px is equivalent to one pixel on the output medium.
 * em: One em is equivalent to the line-height of the current font.
-* ex: One ex is equivalent to the height of the current font's lower-case x. 
+* ex: One ex is equivalent to the height of the current font's lower-case x.
+* dp: One dp is equivalent to one pixel scaled by a globally defined ratio. 
 
 Note that as RCSS is designed solely for outputting to a computer monitor, it does not recognize the physical measurements **in**, **cm**, **mm**, **pt** or **pc**.
 
 ```css
 width: 125px;
+```
+
+##### Density-independent pixel (dp)
+
+The `dp` unit behaves like `px` except that its size can be set globally to scale relative to pixels. This makes it easy to achieve a scalable user interface. Set the ratio globally on the context by calling:
+
+```c++
+float dp_ratio = 1.5f;
+context->SetDensityIndependentPixelRatio(dp_ratio);
+```
+
+Usage example in RCSS:
+```css
+div#header 
+{
+	width: 800dp;
+	height: 50dp;
+	font-size: 20dp;
+}
 ```
 
 #### Percentages
