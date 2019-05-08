@@ -23,10 +23,10 @@ If you are not, read through this documentation while consulting the CSS2 specif
 8. [Visual effects](rcss/visual_effects.html)
 9. [Colours and backgrounds](rcss/colours_backgrounds.html)
 10. [Fonts](rcss/fonts.html)
-12. [Text](rcss/text.html)
-13. [Cursors, Dragging and Tabbing](rcss/user_interface.html)
-14. [Decorators](rcss/decorators.html)
-15. [Font effects](rcss/font_effects.html)
+11. [Text](rcss/text.html)
+12. [Cursors, Dragging and Tabbing](rcss/user_interface.html)
+13. [Decorators](rcss/decorators.html)
+14. [Font effects](rcss/font_effects.html)
 
 ### Appendix
 

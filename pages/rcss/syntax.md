@@ -34,7 +34,7 @@ Which values each property accepts is given in their definition. Values may be k
 Specified as <number> in a property's Values list. A number can be an integer or real number.
 
 ```css
-font-size: 16;
+z-index: 16;
 ```
 
 #### Lengths

@@ -45,7 +45,7 @@ The title text is rendering with the body text; we'll need something much bigger
 ```css
 div#title-bar span
 {
-	font-size: 22;
+	font-size: 22px;
 	font-weight: bold;
 
 	text-shadow: 2px 2px black;
@@ -122,7 +122,7 @@ div#title-bar span
 	padding-top: 17px;
 	padding-bottom: 48px;
 
-	font-size: 22;
+	font-size: 22px;
 	font-weight: bold;
 
 	text-shadow: 2px 2px black;

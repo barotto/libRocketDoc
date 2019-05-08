@@ -25,7 +25,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 'font' | 'font-style' 'font-weight' 'font-size' 'font-family' 'font-charset' | | | | | 
 'font-charset' | \<urange\> | U+0020-007E | all | yes | N/A | Introduced for RCSS. Specifies required range of characters.
 'font-family' | \<string\> | | all | yes | N/A | Only single family supported.
-'font-size' | \<number\> \| \<percentage\> | 12 | all | yes | size of parent font | 
+'font-size' | \<length\> \| \<percentage\> | 12 | all | yes | size of parent font | 
 'font-style' | normal \| italic | normal | all | yes | N/A | 'oblique' not supported.
 'font-weight' | normal \| bold | normal | all | yes | N/A | Intermediate weights not supported.
 'height' | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
