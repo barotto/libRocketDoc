@@ -58,7 +58,7 @@ The system interface is given in <{{page.lib_dir}}/Core/SystemInterface.h>. To d
 
 ```cpp
 // Get the number of seconds elapsed since the start of the application.
-virtual float GetElapsedTime() = 0;
+virtual double GetElapsedTime() = 0;
 ```
 
 Provide function definitions for the other virtual functions if required:
