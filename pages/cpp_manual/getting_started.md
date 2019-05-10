@@ -15,7 +15,7 @@ If you haven't already done so, take a look at the sample applications in /Sampl
 {{page.lib_name}} is developed following the C++11 standard and to be used on the following platforms:
 
 * Windows 32/64bit, compiling with Microsoft Visual Studio 2015+.
-* MacOSX Intel 32/64bit, compiling with GCC 4.8+.
+* macOS Intel 32/64bit, compiling with GCC 4.8+.
 * Linux, compiling with GCC 4.8+. 
 
 #### Visual Studio
@@ -26,12 +26,12 @@ If you haven't already done so, take a look at the sample applications in /Sampl
 * Link with RocketCore_d.lib (for debug builds) or RocketCore.lib (for non-debug builds).
 * Copy the appropriate DLLs (ie, RocketCore_d.dll for debug builds, RocketCore.dll for non-debug builds) from the /bin/ folder into the directory your executable will run from. 
 
-#### MacOSX / Linux
+#### macOS / Linux
 
 * Add the {{page.lib_name}} include path (/include/ under the {{page.lib_dir}} directory) and library path (/lib/) to the paths in your build system.
 * #include <{{page.lib_dir}}/Core.h> in your project.
 * Link with RocketCore.
-* Either copy the {{page.lib_name}} libraries into your application's working directory, or set a LD_LIBRARY_PATH (DYLD_LIBRARY_PATH for MacOSX) environment variable. 
+* Either copy the {{page.lib_name}} libraries into your application's working directory, or set a LD_LIBRARY_PATH (DYLD_LIBRARY_PATH for macOS) environment variable. 
 
 ### Initialising {{page.lib_name}}
 

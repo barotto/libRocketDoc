@@ -21,7 +21,7 @@ RocketPython requires [Python 2.5](http://www.python.org) and [Boost::Python 1.3
 **Windows**  
 You can download our pre-built support package which includes both of these libraries. Extract the archive into C:\rocket_support and the projects should compile without modification.
 
-**MacOSX / Linux**  
+**macOS / Linux**  
 You'll need to compile and install both libraries and then update config.py (in the build directory) with the relevant paths before attempting to compile any python related code. See README.TXT in the samples folder for more information.
 
 The best place to start exploring RocketPython is to look at the PyInvaders sample application which is a rework of the standard Invaders sample but with python support. There is also a step by step [tutorial](../tutorials/python_event_system.html) describing the steps taken to do the conversion.
