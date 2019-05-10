@@ -60,7 +60,6 @@ If you'd like to take an in-depth look at setting up your own render interface, 
 #### Initialising the library
 
 Call {{page.lib_ns}}::Core::Initialise() once you have installed the system and render interfaces and {{page.lib_name}} will start up.
-NOTE: If you have licensed rocket, please pass your license key to the initialise function.
 
 ### Creating a context
 
