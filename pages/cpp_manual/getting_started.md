@@ -20,15 +20,15 @@ If you haven't already done so, take a look at the sample applications in /Sampl
 
 #### Visual Studio
 
-* Add the 32/64bit include path (/include/ under the {{page.lib_dir}} directory) to your include paths (either through Tools -> Options -> Projects and Solutions -> VC++ Directories -> Show directories for: Include files for all projects that you build, or Project -> Properties -> Configuration Properties -> C++ -> Additional Include Directories for this project only).
+* Add the 32/64bit include path (/include/ under the {{page.lib_name}} directory) to your include paths (either through Tools -> Options -> Projects and Solutions -> VC++ Directories -> Show directories for: Include files for all projects that you build, or Project -> Properties -> Configuration Properties -> C++ -> Additional Include Directories for this project only).
 * #include <{{page.lib_dir}}/Core.h> in your project.
-* Add the {{page.lib_name}} library path (/bin/ under the {{page.lib_dir}} directory) to your library paths.
+* Add the {{page.lib_name}} library path (/bin/ under the {{page.lib_name}} directory) to your library paths.
 * Link with RocketCore_d.lib (for debug builds) or RocketCore.lib (for non-debug builds).
 * Copy the appropriate DLLs (ie, RocketCore_d.dll for debug builds, RocketCore.dll for non-debug builds) from the /bin/ folder into the directory your executable will run from. 
 
 #### macOS / Linux
 
-* Add the {{page.lib_name}} include path (/include/ under the {{page.lib_dir}} directory) and library path (/lib/) to the paths in your build system.
+* Add the {{page.lib_name}} include path (/include/ under the {{page.lib_name}} directory) and library path (/lib/) to the paths in your build system.
 * #include <{{page.lib_dir}}/Core.h> in your project.
 * Link with RocketCore.
 * Either copy the {{page.lib_name}} libraries into your application's working directory, or set a LD_LIBRARY_PATH (DYLD_LIBRARY_PATH for macOS) environment variable. 
