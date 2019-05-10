@@ -8,7 +8,7 @@ This is the first place to look if you've just downloaded {{page.lib_name}} and 
 
 ### Samples
 
-If you haven't already done so, take a look at the sample applications in /Samples/. There you can find a whole heap of useful examples of how to use and abuse {{page.lib_name}}. Also in there you can find the shell library we used to develop all the samples (in /samples/shell/), which can be great if you want to write a quick and dirty application of your own.
+If you haven't already done so, take a look at the sample applications in /Samples/. There you can find a whole heap of useful examples of how to use and abuse {{page.lib_name}}. Also in there you can find the shell library we used to develop all the samples (in /Samples/shell/), which can be great if you want to write a quick and dirty application of your own.
 
 ### Setting up the build environment
 
@@ -51,7 +51,7 @@ For more uses of the system interface, see the [documentation](interfaces.html#t
 
 #### The render interface
 
-The render interface is defined in <{{page.lib_dir}}/Core/RenderInterface.h>. It provides a way for {{page.lib_name}} to send its geometry into your application's rendering pipeline. If you want to get {{page.lib_name}} up and running as quickly as possible in your own application, you can copy the render interface defined in the sample shell if your application is using OpenGL (you can find this at /samples/shell/include/ShellRenderInterface.h and /samples/shell/src/ShellRenderInterface.cpp), or the DirectX sample if your application is using DirectX 9 (you can find this at /samples/basic/directx/src/RenderInterfaceDirectX.*).
+The render interface is defined in <{{page.lib_dir}}/Core/RenderInterface.h>. It provides a way for {{page.lib_name}} to send its geometry into your application's rendering pipeline. If you want to get {{page.lib_name}} up and running as quickly as possible in your own application, you can copy the render interface defined in the sample shell if your application is using OpenGL (you can find this at /Samples/shell/include/ShellRenderInterface.h and /Samples/shell/src/ShellRenderInterface.cpp), or the DirectX sample if your application is using DirectX 9 (you can find this at /Samples/basic/directx/src/RenderInterfaceDirectX.*).
 
 Once you have a render interface for your application, install it into {{page.lib_name}} by calling {{page.lib_ns}}::Core::SetRenderInterface().
 

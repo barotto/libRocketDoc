@@ -13,7 +13,7 @@ This tutorial shows how to use the third type, cloning, to implement dragging it
 
 ### Step 1: Taking a look
 
-Compile the drag tutorial (at */samples/tutorials/drag/*) and run the program; it should end up looking like this:
+Compile the drag tutorial (at */Samples/tutorials/drag/*) and run the program; it should end up looking like this:
 
 ![dragging_1.jpg](dragging_1.jpg)
 

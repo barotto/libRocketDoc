@@ -136,4 +136,4 @@ These functions will generate an 'ontextinput' event targeted at the context's c
 
 ### Sample input processing
 
-The sample shell (found under your {{page.lib_name}} installation at /samples/shell/) contains a sample implementation of input processing for all of {{page.lib_name}}'s supported platforms, including a key-to-text converter for a US-keyboard layout (see /samples/shell/src/Input.cpp). 
+The sample shell (found under your {{page.lib_name}} installation at /Samples/shell/) contains a sample implementation of input processing for all of {{page.lib_name}}'s supported platforms, including a key-to-text converter for a US-keyboard layout (see /Samples/shell/src/Input.cpp). 

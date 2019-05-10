@@ -123,7 +123,7 @@ If a compiled geometry handle is returned through CompileGeometry(), {{page.lib_
 
 If the compiled geometry alters or is otherwise not needed any further, {{page.lib_name}} will call ReleaseCompiledGeometry() to request the application to release it.
 
-See the DirectX sample (/samples/basic/directx/) and Ogre3D (/samples/basic/ogre3d/) for examples of render interfaces making use of compiled geometry.
+See the DirectX sample (/Samples/basic/directx/) and Ogre3D (/Samples/basic/ogre3d/) for examples of render interfaces making use of compiled geometry.
 
 #### Configuring the scissor region
 
@@ -141,7 +141,7 @@ EnableScissorRegion() is called to enable to disable scissoring on {{page.lib_na
 
 SetScissorRegion() is called when {{page.lib_name}} wants to define the current scissor region. The scissor region is given as a rectangle, x and y being the top-left corner (as a pixel offset from the top-left corner of the rendering context). width and height are the dimensions of the rectangle, in pixels. Until the scissor region is changed, all {{page.lib_name}} geometry should be clipped to fall within this region.
 
-For example implementations of the scissoring functions, see the sample shell (/samples/shell/) for OpenGL or the DirectX sample (/samples/basic/directx/) for DirectX 9.
+For example implementations of the scissoring functions, see the sample shell (/Samples/shell/) for OpenGL or the DirectX sample (/Samples/basic/directx/) for DirectX 9.
 
 #### Generating and releasing textures
 

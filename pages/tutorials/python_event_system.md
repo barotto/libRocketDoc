@@ -108,7 +108,7 @@ bool PythonInterface::Initialise()
 	// Setup the Python search path.
 	const char* python_path = Py_GetPath();
 	char buffer[1024];
-	snprintf(buffer, 1024, "../samples/invaders/python;%s", python_path);
+	snprintf(buffer, 1024, "../Samples/invaders/python;%s", python_path);
 	buffer[1023] = '\0';
 	PySys_SetPath(buffer);
 
@@ -160,7 +160,7 @@ bool PythonInterface::Initialise()
     // Setup the Python search path.
     const char* python_path = Py_GetPath();
     char buffer[1024];
-    snprintf(buffer, 1024, "../samples/invaders/python;%s", python_path);
+    snprintf(buffer, 1024, "../Samples/invaders/python;%s", python_path);
     buffer[1023] = '\0';
     PySys_SetPath(buffer);
 

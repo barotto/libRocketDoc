@@ -9,7 +9,7 @@ To go through this tutorial you'll need an understanding of [RML](../rml.html) a
 
 ### Step 1: Taking a look
 
-Compile the template tutorial (at /samples/tutorials/template/) and run the program; you should end up seeing this:
+Compile the template tutorial (at /Samples/tutorials/template/) and run the program; you should end up seeing this:
 
 ![window_template_1.gif](window_template_1.gif)
 
