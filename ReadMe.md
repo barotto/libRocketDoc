@@ -4,7 +4,7 @@ Official documentation of [RmlUi](https://github.com/mikke89/RmlUi).
 
 To compile for offline use, use [Jekyll](https://jekyllrb.com/).
 
-See online [here](https://mikke89.github.io/RmlUi).
+See online [here](https://mikke89.github.io/RmlUiDoc).
 
 ### License (MIT)
 
