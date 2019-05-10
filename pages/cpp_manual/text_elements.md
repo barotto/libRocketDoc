@@ -4,15 +4,15 @@ title: Text Elements
 parent: cpp_manual
 ---
 
-Rocket uses text elements (elements derived from Rocket::Core::ElementText) to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the Rocket factory, or through the CreateTextNode() function on a document.
+{{page.lib_name}} uses text elements (elements derived from {{page.lib_ns}}::Core::ElementText) to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the {{page.lib_name}} factory, or through the CreateTextNode() function on a document.
 
 ### Text encoding
 
-The string type used through the majority of Rocket's interfaces, Rocket::Core::String, stores 8-bit wide characters. In order to store wider characters efficiently, text elements store their contents as a Rocket::Core::String type. The Rocket string stores 16-bit wide characters in UCS-2 format; while not sufficient to store every possible UTF-8 character, it can store every useful one, so is a good compromise between size and usefulness.
+The string type used through the majority of {{page.lib_name}}'s interfaces, {{page.lib_ns}}::Core::String, stores 8-bit wide characters. In order to store wider characters efficiently, text elements store their contents as a {{page.lib_ns}}::Core::String type. The {{page.lib_name}} string stores 16-bit wide characters in UCS-2 format; while not sufficient to store every possible UTF-8 character, it can store every useful one, so is a good compromise between size and usefulness.
 
 ### HTML characters
 
-Rocket text nodes support a subset of the full HTML-encoding for special characters to allow XML characters to be present in loose text. The characters supported are:
+{{page.lib_name}} text nodes support a subset of the full HTML-encoding for special characters to allow XML characters to be present in loose text. The characters supported are:
 
 * `&lt;` The less-than symbol, '<'.
 * `&gt;` The greater-than symbol, '>'.
@@ -33,15 +33,15 @@ The following fragment puts the characters in correctly:
 
 ### Setting an element's text
 
-The SetText() function on a Rocket::Core::ElementText will change the text on the text element to a new string.
+The SetText() function on a {{page.lib_ns}}::Core::ElementText will change the text on the text element to a new string.
 
 ```cpp
 // Sets the raw string this text element contains.
 // @param[in] text The new string to set on this element.
-void SetText(const Rocket::Core::String& text);
+void SetText(const {{page.lib_ns}}::Core::String& text);
 ```
 
-If you pass in a constant string or an Rocket::Core::String, it will be converted to a Rocket string as described above (interpreted as UTF-8 encoding). This means it will interpret standard ASCII characters OK.
+If you pass in a constant string or an {{page.lib_ns}}::Core::String, it will be converted to a {{page.lib_name}} string as described above (interpreted as UTF-8 encoding). This means it will interpret standard ASCII characters OK.
 
 Note that this sets the raw text on the element; the actual rendered text may differ due to whitespace processing.
 
@@ -52,13 +52,13 @@ The GetText() function will return the element's raw text.
 ```cpp
 // Returns the raw string this text element contains.
 // @return This element's raw text.
-const Rocket::Core::String& GetText() const;
+const {{page.lib_ns}}::Core::String& GetText() const;
 ```
 
-This will return the raw text as a UCS-2 encoded Rocket string. To convert the string to a UTF-8 encoded string, call ToUTF8() on the string.
+This will return the raw text as a UCS-2 encoded {{page.lib_name}} string. To convert the string to a UTF-8 encoded string, call ToUTF8() on the string.
 
 ```cpp
-Rocket::Core::String utf8_string;
+{{page.lib_ns}}::Core::String utf8_string;
 element_text->GetText().ToUTF8(utf8_string);
 ```
 

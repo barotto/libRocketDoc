@@ -3,7 +3,7 @@ layout: page
 title: Window Templating Tutorial
 ---
 
-This tutorial will take you step-by-step through the development of the RML and RCSS of the window template we used for Rocket Invaders from Mars. By the end of this tutorial you'll be able to create complex, flexible templates for your own application.
+This tutorial will take you step-by-step through the development of the RML and RCSS of the window template we used for _Rocket Invaders from Mars_. By the end of this tutorial you'll be able to create complex, flexible templates for your own application.
 
 To go through this tutorial you'll need an understanding of [RML](../rml.html) and [RCSS](../rcss.html).
 
@@ -105,7 +105,7 @@ Set the padding to 55px and take a look; the element should now be 85px high. No
 	padding-bottom: 42px;
 ```
 
-There's not much space to the left or right of the text yet; easy fixed, just add some left and right padding! We used the following for Rocket Invaders from Mars:
+There's not much space to the left or right of the text yet; easy fixed, just add some left and right padding! We used the following for _Rocket Invaders from Mars_:
 
 ```css
 	padding-left: 85px;
@@ -165,7 +165,7 @@ div#title-bar
 
 #### Adding a handle
 
-We still need a handle so we can drag the window around. This is easy; Rocket ships with a 'handle' element that can do just that (or resize an element). In the RML, wrap the contents of the 'title-bar' element with a 'handle' element. You can set its move target with the 'move_target' attribute; set it to '#document' so it knows to move its parent document when it is dragged. You should end up with this:
+We still need a handle so we can drag the window around. This is easy; {{page.lib_name}} ships with a 'handle' element that can do just that (or resize an element). In the RML, wrap the contents of the 'title-bar' element with a 'handle' element. You can set its move target with the 'move_target' attribute; set it to '#document' so it knows to move its parent document when it is dragged. You should end up with this:
 
 ```html
 <div id="title-bar">
@@ -273,9 +273,9 @@ Take a look at the result; the overflowing content is hidden, but we can't get t
 
 ### Step 4: Adding a scrollbar
 
-To tell Rocket a scrollbar is required on the content element, we can change the 'overflow' property from 'hidden' to either 'auto' or 'scroll'. 'scroll' will put a scrollbar around the element all the time, even if it isn't required; 'auto' will only put a scrollbar on an axis with overflow.
+To tell {{page.lib_name}} a scrollbar is required on the content element, we can change the 'overflow' property from 'hidden' to either 'auto' or 'scroll'. 'scroll' will put a scrollbar around the element all the time, even if it isn't required; 'auto' will only put a scrollbar on an axis with overflow.
 
-Rocket also supports different overflow properties per axis, so you can (for example) set vertical overflow to 'scroll' and horizontal overflow to 'hidden' if you wish.
+{{page.lib_name}} also supports different overflow properties per axis, so you can (for example) set vertical overflow to 'scroll' and horizontal overflow to 'hidden' if you wish.
 
 Change the 'overflow' property on the content element to 'auto' or 'scroll' and check out the result.
 
@@ -285,7 +285,7 @@ Change the 'overflow' property on the content element to 'auto' or 'scroll' and 
 
 Well that doesn't look right! So what's happened here? When an element needs to generate a vertical scrollbar, it creates a block-level child element with a tag of 'scrollbarvertical' and anchors it to the right edge of the element. As it is block-level, its width defaults to 'auto' so it occupies the entire content area of its parent, the content element. So there's no space for the text! Not only that, but we haven't attached a decorator to the scrollbar elements so we can't actually see it yet.
 
-Elements that Rocket dynamically creates, like the scrollbar, can be styled through RCSS like normal elements. All we need to do is create a rule that will match the element 'scrollbarvertical'. First thing to do? Set its width so it doesn't occupy the whole element. The scrollbar graphics we've designed for Rocket Invaders from Mars are designed to be 27 pixels wide. This RCSS rule will resize the scrollbar:
+Elements that {{page.lib_name}} dynamically creates, like the scrollbar, can be styled through RCSS like normal elements. All we need to do is create a rule that will match the element 'scrollbarvertical'. First thing to do? Set its width so it doesn't occupy the whole element. The scrollbar graphics we've designed for _Rocket Invaders from Mars_ are designed to be 27 pixels wide. This RCSS rule will resize the scrollbar:
 
 ```css
 scrollbarvertical
@@ -474,7 +474,7 @@ The document is loaded on line 68 of main.cpp. Before the document is rendered, 
 
 ```cpp
 	// Load and show the tutorial document.
-	Rocket::Core::ElementDocument* document = context->LoadDocument("data/tutorial.rml");
+	{{page.lib_ns}}::Core::ElementDocument* document = context->LoadDocument("data/tutorial.rml");
 	if (document != NULL)
 	{
 		document->GetElementById("title")->SetInnerRML(document->GetTitle());

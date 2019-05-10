@@ -16,7 +16,7 @@ You can query the current size of an element with the GetBox() and GetNumBoxes()
 // Returns one of the boxes describing the size of the element.
 // @param[in] index The index of the desired box.
 // @return The requested box.
-const Rocket::Core::Box& GetBox(int index = 0) const;
+const {{page.lib_ns}}::Core::Box& GetBox(int index = 0) const;
 
 // Returns the number of boxes making up this element's geometry.
 // @return the number of boxes making up this element's geometry.
@@ -32,7 +32,7 @@ Elements measure their position as a pixel offset from a containing ancestor ele
 ```cpp
 // Returns the element from which all offset calculations are currently computed.
 // @return This element's offset parent.
-Rocket::Core::Element* GetOffsetParent();
+{{page.lib_ns}}::Core::Element* GetOffsetParent();
 ```
 
 To retrieve the element's offset, use GetRelativeOffset() or GetAbsoluteOffset():
@@ -42,13 +42,13 @@ To retrieve the element's offset, use GetRelativeOffset() or GetAbsoluteOffset()
 // offset parent's top-left border corner.
 // @param[in] area The desired area position.
 // @return The relative offset.
-Rocket::Core::Vector2f GetRelativeOffset(Rocket::Core::Box::Area area = Box::CONTENT) const;
+{{page.lib_ns}}::Core::Vector2f GetRelativeOffset({{page.lib_ns}}::Core::Box::Area area = Box::CONTENT) const;
 
 // Returns the position of the top-left corner of one of the areas of this element's primary box, relative to
 // the element root.
 // @param[in] area The desired area position.
 // @return The absolute offset.
-Rocket::Core::Vector2f GetAbsoluteOffset(Rocket::Core::Box::Area area = Box::CONTENT) const;
+{{page.lib_ns}}::Core::Vector2f GetAbsoluteOffset({{page.lib_ns}}::Core::Box::Area area = Box::CONTENT) const;
 ```
 
 GetRelativeOffset() will return the offset from the element's offset parent's top-left border to one of the areas of the element's primary box. GetAbsoluteOffset() will return the offset from the top-left corner of the context the element is part of.
@@ -65,11 +65,11 @@ To check if a pseudo-class is set on a particular element, you can use either th
 // Checks if a specific pseudo-class has been set on the element.
 // @param[in] pseudo_class The name of the pseudo-class to check for.
 // @return True if the pseudo-class is set on the element, false if not.
-bool IsPseudoClassSet(const Rocket::Core::String& pseudo_class) const;
+bool IsPseudoClassSet(const {{page.lib_ns}}::Core::String& pseudo_class) const;
 
 // Gets a list of the current active pseudo-classes.
 // @return The list of active pseudo-classes.
-const Rocket::Core::PseudoClassList& GetActivePseudoClasses() const;
+const {{page.lib_ns}}::Core::PseudoClassList& GetActivePseudoClasses() const;
 ```
 
 IsPseudoClassSet() will check for the prescence of a particular pseudo-class on the element, while GetActivePseudoClasses() will return an STL set containing all pseudo-classes.
@@ -80,10 +80,10 @@ To set or remove a pseudo-class, call SetPseudoClass().
 // Sets or removes a pseudo-class on the element.
 // @param[in] pseudo_class The pseudo class to activate or deactivate.
 // @param[in] activate True if the pseudo-class is to be activated, false to be deactivated.
-void SetPseudoClass(const Rocket::Core::String& pseudo_class, bool activate);
+void SetPseudoClass(const {{page.lib_ns}}::Core::String& pseudo_class, bool activate);
 ```
 
-Applications can make use of any pseudo-classes they wish for their own styling needs. However, Rocket maintains several pseudo-classes internally and it is not recommended you set or clear them yourself. These classes are:
+Applications can make use of any pseudo-classes they wish for their own styling needs. However, {{page.lib_name}} maintains several pseudo-classes internally and it is not recommended you set or clear them yourself. These classes are:
 
 * hover: Set when the mouse cursor is positioned over the element.
 * active: Set when the primary mouse button is depressed, and was positioned over the element when it was pressed.
@@ -92,9 +92,9 @@ Applications can make use of any pseudo-classes they wish for their own styling 
 
 ### DOM interface
 
-Rocket elements support the majority of [Gecko's HTML DOM element interface](https://developer.mozilla.org/en-US/docs/Web/API/element), so web developers should be familiar with most of an element's functionality.
+{{page.lib_name}} elements support the majority of [Gecko's HTML DOM element interface](https://developer.mozilla.org/en-US/docs/Web/API/element), so web developers should be familiar with most of an element's functionality.
 
-| Rocket functions | Brief description | Equivalent DOM property |
+| {{page.lib_name}} functions | Brief description | Equivalent DOM property |
 |------------------|-------------------|-------------------------|
 | GetAbsoluteLeft() | The distance from the context's left edge and the element's left border.
 | GetAbsoluteTop() | The distance from the context's top edge and the element's top border.
@@ -125,9 +125,9 @@ Rocket elements support the majority of [Gecko's HTML DOM element interface](htt
 | GetProperty(), SetProperty() | An object representing the declarations of an element's style attributes. | style
 | GetTagName() | The name of the tag for the given element. | tagName
 
-Supported methods have simply had their initial letter capitalised to match the rest of the Rocket API.
+Supported methods have simply had their initial letter capitalised to match the rest of the {{page.lib_name}} API.
 
-| Rocket function | Brief description | Equivalent DOM method |
+| {{page.lib_name}} function | Brief description | Equivalent DOM method |
 |-----------------|-------------------|-----------------------|
 | AddEventListener() | Register an event handler to a specific event type on the element. | addEventListener()
 | AppendChild() | Insert a node as the last child node of this element. The newly parented node will be detached from its existing parent. | appendChild()
@@ -150,7 +150,7 @@ Supported methods have simply had their initial letter capitalised to match the 
 
 ### Dynamically creating elements
 
-Elements should not be created with the 'new' operator; in order to be properly reference counted and released, in C++ they need to be created either through a document (using the CreateElement() or CreateTextNode() function) or through the Rocket factory (Rocket::Core::Factory) using the factory's static InstanceElement() function.
+Elements should not be created with the 'new' operator; in order to be properly reference counted and released, in C++ they need to be created either through a document (using the CreateElement() or CreateTextNode() function) or through the {{page.lib_name}} factory ({{page.lib_ns}}::Core::Factory) using the factory's static InstanceElement() function.
 
 #### Using the factory
 
@@ -163,10 +163,10 @@ Creating an element through the factory allows more control. The InstanceElement
 // @param[in] tag The tag of the element to be instanced.
 // @param[in] attributes The attributes to instance the element with.
 // @return The instanced element, or NULL if the instancing failed.
-static Rocket::Core::Element* InstanceElement(Rocket::Core::Element* parent,
-                                              const Rocket::Core::String& instancer,
-                                              const Rocket::Core::String& tag,
-                                              const Rocket::Core::XMLAttributes& attributes);
+static {{page.lib_ns}}::Core::Element* InstanceElement({{page.lib_ns}}::Core::Element* parent,
+                                              const {{page.lib_ns}}::Core::String& instancer,
+                                              const {{page.lib_ns}}::Core::String& tag,
+                                              const {{page.lib_ns}}::Core::XMLAttributes& attributes);
 ```
 
 The function's parameters are:
@@ -179,20 +179,20 @@ The function's parameters are:
 For example, the following will instance a 'div' element:
 
 ```cpp
-Rocket::Core::Element* div_element = Rocket::Core::Factory::InstanceElement(NULL,
+{{page.lib_ns}}::Core::Element* div_element = {{page.lib_ns}}::Core::Factory::InstanceElement(NULL,
                                                                             "div",
                                                                             "div",
-                                                                            Rocket::Core::XMLAttributes());
+                                                                            {{page.lib_ns}}::Core::XMLAttributes());
 ```
 
 The following will instance a radio button element using the Controls plugin input instancer, but gives it a tag of 'radio':
 
 ```cpp
-Rocket::Core::XMLAttributes attributes;
+{{page.lib_ns}}::Core::XMLAttributes attributes;
 attributes.Set("type", "radio");
 attributes.Set("name", "graphics");
 attributes.Set("value", "OK");
-Rocket::Core::Element* radio_element = Rocket::Core::Factory::InstanceElement(div_element,
+{{page.lib_ns}}::Core::Element* radio_element = {{page.lib_ns}}::Core::Factory::InstanceElement(div_element,
                                                                               "input",
                                                                               "radio",
                                                                               attributes);
@@ -207,11 +207,11 @@ To create an element through a document use one of the following functions:
 ```cpp
 // Creates the named element.
 // @param[in] name The tag name of the element.
-Rocket::Core::Element* CreateElement(const Rocket::Core::String& name);
+{{page.lib_ns}}::Core::Element* CreateElement(const {{page.lib_ns}}::Core::String& name);
 
 // Create a text element with the given text content.
 // @param[in] text The text content of the text element.
-Rocket::Core::ElementText* CreateTextNode(const Rocket::Core::String& text);
+{{page.lib_ns}}::Core::ElementText* CreateTextNode(const {{page.lib_ns}}::Core::String& text);
 ```
 
 CreateElement() takes a single parameter, name, the tag name of the new element. This will be used to both look up the instancer and tag the element. Like instancing the element through the factory, the new element will be returned if it was created successfully, or NULL if not.
@@ -223,13 +223,13 @@ Note that elements returned by these functions are not affiliated with the docum
 The following example adds a paragraph element with a text node under it to a document:
 
 ```cpp
-bool AddSampleText(Rocket::Core::Document* document)
+bool AddSampleText({{page.lib_ns}}::Core::Document* document)
 {
-	Rocket::Core::Element* new_element = document->CreateElement("p");
+	{{page.lib_ns}}::Core::Element* new_element = document->CreateElement("p");
 	if (new_element == NULL)
 		return false;
 
-	Rocket::Core::TextElement* new_text_element = document->CreateTextNode("Sample text.");
+	{{page.lib_ns}}::Core::TextElement* new_text_element = document->CreateTextNode("Sample text.");
 	if (new_text_element == NULL)
 	{
 		new_element->RemoveReference();
@@ -258,7 +258,7 @@ If you need special functionality on an element that you can't easily manage thr
 
 #### Creating a custom element
 
-All custom elements are classes derived (not necessarily directly) from Rocket::Core::Element. The constructor for Element takes one parameter, the tag of the element; a derived element's constructor can either pass a constant string down to the base constructor, or take a string themselves to pass down.
+All custom elements are classes derived (not necessarily directly) from {{page.lib_ns}}::Core::Element. The constructor for Element takes one parameter, the tag of the element; a derived element's constructor can either pass a constant string down to the base constructor, or take a string themselves to pass down.
 
 The virtual functions that can be overridden in a custom element are:
 
@@ -270,11 +270,11 @@ virtual float GetBaseline() const;
 // Gets the intrinsic dimensions of this element, if it is of a type that has an inherent size.
 // @param[in] dimensions The dimensions to size, if appropriate.
 // @return True if the element has intrinsic dimensions, false otherwise.
-virtual bool GetIntrinsicDimensions(Rocket::Core::Vector2f& dimensions);
+virtual bool GetIntrinsicDimensions({{page.lib_ns}}::Core::Vector2f& dimensions);
 
 // Called for every event sent to this element or one of its descendants.
 // @param[in] event The event to process.
-virtual void ProcessEvent(Rocket::Core::Event& event);
+virtual void ProcessEvent({{page.lib_ns}}::Core::Event& event);
 
 // Called during the update loop after children are updated.
 virtual void OnUpdate();
@@ -283,24 +283,24 @@ virtual void OnRender();
 
 // Called when attributes on the element are changed.
 // @param[in] changed_attributes The attributes changed on the element.
-virtual void OnAttributeChange(const Rocket::Core::AttributeNameList& changed_attributes);
+virtual void OnAttributeChange(const {{page.lib_ns}}::Core::AttributeNameList& changed_attributes);
 // Called when properties on the element are changed.
 // @param[in] changed_properties The properties changed on the element.
-virtual void OnPropertyChange(const Rocket::Core::PropertyNameList& changed_properties);
+virtual void OnPropertyChange(const {{page.lib_ns}}::Core::PropertyNameList& changed_properties);
 
 // Called when a child node has been added somewhere in the hierarchy.
 // @param[in] child The element that has been added. This may be this element.
-virtual void OnChildAdd(Rocket::Core::Element* child);
+virtual void OnChildAdd({{page.lib_ns}}::Core::Element* child);
 // Called when a child node has been removed somewhere in the hierarchy.
 // @param[in] child The element that has been removed. This may be this element.
-virtual void OnChildRemove(Rocket::Core::Element* child);
+virtual void OnChildRemove({{page.lib_ns}}::Core::Element* child);
 
 // Gets the markup and content of the element.
 // @param[out] content The content of the element.
-virtual void GetInnerRML(Rocket::Core::String& content) const;
+virtual void GetInnerRML({{page.lib_ns}}::Core::String& content) const;
 // Returns the RML of this element and all children.
 // @param[out] content The content of this element and those under it, in XML form.
-virtual void GetRML(Rocket::Core::String& content);
+virtual void GetRML({{page.lib_ns}}::Core::String& content);
 ```
 
 #### Layout
@@ -311,7 +311,7 @@ A custom element can override the GetIntrinsicDimensions() function if it wants 
 // Gets the intrinsic dimensions of this element, if it is of a type that has an inherent size.
 // @param[in] dimensions The dimensions to size, if appropriate.
 // @return True if the element has intrinsic dimensions, false otherwise.
-virtual bool GetIntrinsicDimensions(Rocket::Core::Vector2f& dimensions);
+virtual bool GetIntrinsicDimensions({{page.lib_ns}}::Core::Vector2f& dimensions);
 ```
 
 If a custom element is to be a replaced element, it should override this function and return true. The actual intrinsic dimensions of the element should be put into the dimensions parameter. This function will be called every time the element is laid out, so the dimension can be a dynamic value. The default element returns false.
@@ -336,7 +336,7 @@ Note that the element receives every event, and it is not necessary the target e
 ```cpp
 // Called for every event sent to this element or one of its descendants.
 // @param[in] event The event to process.
-virtual void ProcessEvent(Rocket::Core::Event& event);
+virtual void ProcessEvent({{page.lib_ns}}::Core::Event& event);
 ```
 
 #### Hooks into update and render loops
@@ -372,7 +372,7 @@ OnAttributeChange() is called whenever an attribute is added, removed or redefin
 ```cpp
 // Called when attributes on the element are changed.
 // @param[in] changed_attributes The attributes changed on the element.
-virtual void OnAttributeChange(const Rocket::Core::AttributeNameList& changed_attributes);
+virtual void OnAttributeChange(const {{page.lib_ns}}::Core::AttributeNameList& changed_attributes);
 ```
 
 OnPropertyChange() is called whenever the value of a property (or group of properties) is changed. The names of the changed properties are passed into the function in the 'changed_properties' variable, which (like for OnAttributeChange()) is an STL set of strings.
@@ -380,7 +380,7 @@ OnPropertyChange() is called whenever the value of a property (or group of prope
 ```cpp
 // Called when properties on the element are changed.
 // @param[in] changed_properties The properties changed on the element.
-virtual void OnPropertyChange(const Rocket::Core::PropertyNameList& changed_properties);
+virtual void OnPropertyChange(const {{page.lib_ns}}::Core::PropertyNameList& changed_properties);
 ```
 
 **Important**: If you override either of these functions, you must remember to call the base class's corresponding function! As with ProcessEvent(), the base element responds to many attribute and property changes, and all manner of strange behaviour may result if you don't do this.
@@ -391,11 +391,11 @@ A custom element can override the OnChildAdd() or OnChildRemove() functions to r
 
 // Called when a child node has been added somewhere in the hierarchy.
 // @param[in] child The element that has been added. This may be this element.
-virtual void OnChildAdd(Rocket::Core::Element* child);
+virtual void OnChildAdd({{page.lib_ns}}::Core::Element* child);
 
 // Called when a child node has been removed somewhere in the hierarchy.
 // @param[in] child The element that has been removed. This may be this element.
-virtual void OnChildRemove(Rocket::Core::Element* child);
+virtual void OnChildRemove({{page.lib_ns}}::Core::Element* child);
 
 #### RML generation
 
@@ -408,31 +408,31 @@ GetRML() is meant to return the RML required to generate the entire element. Thi
 ```cpp
 // Gets the markup and content of the element.
 // @param[out] content The content of the element.
-virtual void GetInnerRML(Rocket::Core::String& content) const;
+virtual void GetInnerRML({{page.lib_ns}}::Core::String& content) const;
 
 // Returns the RML of this element and all children.
 // @param[out] content The content of this element and those under it, in XML form.
-virtual void GetRML(Rocket::Core::String& content);
+virtual void GetRML({{page.lib_ns}}::Core::String& content);
 ```
 
 ### Creating a custom element instancer
 
-In order to have a custom element created through the Rocket factory, an instancer for the element needs to be registered with the factory against the appropriate RML tag names. An element instancer is responsible for creating and destroying its elements when required, and also destroying itself when Rocket is shut down.
+In order to have a custom element created through the {{page.lib_name}} factory, an instancer for the element needs to be registered with the factory against the appropriate RML tag names. An element instancer is responsible for creating and destroying its elements when required, and also destroying itself when {{page.lib_name}} is shut down.
 
-A custom element instancer needs to be derived from Rocket::Core::ElementInstancer, and implement the required pure virtual methods:
+A custom element instancer needs to be derived from {{page.lib_ns}}::Core::ElementInstancer, and implement the required pure virtual methods:
 
 ```cpp
 // Instances an element given the tag name and attributes.
 // @param[in] parent The element the new element is destined to be parented to.
 // @param[in] tag The tag of the element to instance.
 // @param[in] attributes Dictionary of attributes.
-virtual Rocket:Core::Element* InstanceElement(Rocket::Core::Element* parent,
-                                              const Rocket::Core::String& tag,
-                                              const Rocket::Core::XMLAttributes& attributes) = 0;
+virtual {{page.lib_ns}}::Core::Element* InstanceElement({{page.lib_ns}}::Core::Element* parent,
+                                              const {{page.lib_ns}}::Core::String& tag,
+                                              const {{page.lib_ns}}::Core::XMLAttributes& attributes) = 0;
 
 // Releases an element instanced by this instancer.
 // @param[in] element The element to release.
-virtual void ReleaseElement(Rocket::Core::Element* element) = 0;
+virtual void ReleaseElement({{page.lib_ns}}::Core::Element* element) = 0;
 
 // Release the instancer.
 virtual void Release() = 0;
@@ -448,15 +448,15 @@ If InstanceElement() is successful, return the new element. Otherwise, return NU
 
 ReleaseElement() will be called when an element instanced through the instancer is no longer required by the system. It should be deleted appropriately.
 
-Release() will be called when the element instancer is no longer required, usually when Rocket is shut down. The instancer should delete itself as appropriate.
+Release() will be called when the element instancer is no longer required, usually when {{page.lib_name}} is shut down. The instancer should delete itself as appropriate.
 
 #### Registering an instancer
 
-To register a custom instancer with Rocket, call the RegisterElementInstancer() function on the Rocket factory (Rocket::Core::Factory) after Rocket has been initialised.
+To register a custom instancer with {{page.lib_name}}, call the RegisterElementInstancer() function on the {{page.lib_name}} factory ({{page.lib_ns}}::Core::Factory) after {{page.lib_name}} has been initialised.
 
 ```cpp
-Rocket::Core::ElementInstancer* custom_instancer = new ElementInstancerCustom();
-Rocket::Core::Factory::RegisterElementInstancer("custom", custom_instancer);
+{{page.lib_ns}}::Core::ElementInstancer* custom_instancer = new ElementInstancerCustom();
+{{page.lib_ns}}::Core::Factory::RegisterElementInstancer("custom", custom_instancer);
 custom_instancer->RemoveReference();
 ```
 
@@ -466,11 +466,11 @@ Instancers are reference counted, and begin with a reference count of one which 
 
 #### Using a generic instancer
 
-If a custom element does not require any special behaviour from its instancer, the easiest way to generate an instancer for it is to use the templated ElementInstancerGeneric. Instead of deriving your own instancer class, simply construct a new Rocket::Core::ElementInstancerGeneric templated to the type of the custom element you'd like to instance, and register it with the factory as you would a normal instancer.
+If a custom element does not require any special behaviour from its instancer, the easiest way to generate an instancer for it is to use the templated ElementInstancerGeneric. Instead of deriving your own instancer class, simply construct a new {{page.lib_ns}}::Core::ElementInstancerGeneric templated to the type of the custom element you'd like to instance, and register it with the factory as you would a normal instancer.
 
 ```cpp
-Rocket::Core::ElementInstancer* custom_instancer = new Rocket::Core::ElementInstancerGeneric< CustomElement >();
-Rocket::Core::Factory::RegisterElementInstancer("custom", custom_instancer);
+{{page.lib_ns}}::Core::ElementInstancer* custom_instancer = new {{page.lib_ns}}::Core::ElementInstancerGeneric< CustomElement >();
+{{page.lib_ns}}::Core::Factory::RegisterElementInstancer("custom", custom_instancer);
 custom_instancer->RemoveReference();
 ```
 
@@ -484,7 +484,7 @@ Node handlers are registered against RML tag names. When an RML file is being pa
 
 #### Creating a custom XML node handler
 
-Custom node handlers derive from the Rocket::Core::XMLNodeHandler class and implement the pure virtual functions:
+Custom node handlers derive from the {{page.lib_ns}}::Core::XMLNodeHandler class and implement the pure virtual functions:
 
 ```cpp
 // Called when a new element tag is opened.
@@ -492,27 +492,27 @@ Custom node handlers derive from the Rocket::Core::XMLNodeHandler class and impl
 // @param name The XML tag name.
 // @param attributes The tag attributes.
 // @return The new element, may be NULL if no element was created.
-virtual Rocket::Core::Element* ElementStart(Rocket::Core::XMLParser* parser,
-                                            const Rocket::Core::String& name,
-                                            const Rocket::Core::XMLAttributes& attributes) = 0;
+virtual {{page.lib_ns}}::Core::Element* ElementStart({{page.lib_ns}}::Core::XMLParser* parser,
+                                            const {{page.lib_ns}}::Core::String& name,
+                                            const {{page.lib_ns}}::Core::XMLAttributes& attributes) = 0;
 
 // Called when an element is closed.
 // @param parser The parser executing the parse.
 // @param name The XML tag name.
-virtual bool ElementEnd(Rocket::Core::XMLParser* parser,
-                        const Rocket::Core::String& name) = 0;
+virtual bool ElementEnd({{page.lib_ns}}::Core::XMLParser* parser,
+                        const {{page.lib_ns}}::Core::String& name) = 0;
 
 // Called for element data.
 // @param parser The parser executing the parse.
 // @param data The element data.
-virtual bool ElementData(Rocket::Core::XMLParser* parser,
-                         const Rocket::Core::String& data) = 0;
+virtual bool ElementData({{page.lib_ns}}::Core::XMLParser* parser,
+                         const {{page.lib_ns}}::Core::String& data) = 0;
 
 // Called to release the node handler.
 virtual void Release() = 0;
 ```
 
-Release() is called when Rocket is shut down; the node handler should delete itself as appropriate.
+Release() is called when {{page.lib_name}} is shut down; the node handler should delete itself as appropriate.
 
 ElementStart(), ElementEnd() and ElementData() are called on the node handler for the appropriate XML parse events that occur while it is the active node handler. A self-closing tag will result in a call to ElementEnd() immediately after ElementStart(). ElementData() is called when loose non-whitespace data is encountered between two tags.
 
@@ -522,10 +522,10 @@ Each of these functions is passed a pointer to the XML parser running the parse.
 struct ParseFrame
 {
 	// Tag being parsed.
-	Rocket::Core::String tag;
+	{{page.lib_ns}}::Core::String tag;
 
 	// Element representing this frame.
-	Rocket::Core::Element* element;
+	{{page.lib_ns}}::Core::Element* element;
 
 	// Handler used for this frame.
 	XMLNodeHandler* node_handler;
@@ -543,7 +543,7 @@ If the node handler wants to change the node handler for the new element, it can
 // Pushes an element handler onto the parse stack for parsing child elements.
 // @param[in] tag The tag the handler was registered with.
 // @return True if an appropriate handler was found and pushed onto the stack, false if not.
-bool PushHandler(const Rocket::Core::String& tag);
+bool PushHandler(const {{page.lib_ns}}::Core::String& tag);
 
 // Pushes the default element handler onto the parse stack.
 void PushDefaultHandler();
@@ -552,15 +552,15 @@ void PushDefaultHandler();
 If it doesn't call either of these methods, it will remain the node handler for any child elements it creates.
 Registering a custom node handler
 
-Register a custom node handler with Rocket's XML parser with the static RegisterNodeHandler() function on Rocket::Core::XMLParser. You can register the same handler multiple times with the parser against different tag names. RegisterNodeHandler() adds a reference to the node handler, so be sure to remove the initial reference from the handler once it has been registered.
+Register a custom node handler with {{page.lib_name}}'s XML parser with the static RegisterNodeHandler() function on {{page.lib_ns}}::Core::XMLParser. You can register the same handler multiple times with the parser against different tag names. RegisterNodeHandler() adds a reference to the node handler, so be sure to remove the initial reference from the handler once it has been registered.
 
 ```cpp
 // Registers a custom node handler to be used to a given tag.
 // @param[in] tag The tag the custom parser will handle.
 // @param[in] handler The custom handler.
 // @return The registered XML node handler.
-static Rocket::Core::XMLNodeHandler* RegisterNodeHandler(const Rocket::Core::String& tag,
-                                                         Rocket::Core::XMLNodeHandler* handler);
+static {{page.lib_ns}}::Core::XMLNodeHandler* RegisterNodeHandler(const {{page.lib_ns}}::Core::String& tag,
+                                                         {{page.lib_ns}}::Core::XMLNodeHandler* handler);
 ```
 
 ### Samples

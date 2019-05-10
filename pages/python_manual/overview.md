@@ -4,11 +4,11 @@ title: Overview
 parent: python_manual
 ---
 
-RocketPython can be used in an application that extends or embeds Python. The only limitation is that your application initialises Rocket with the necessary System and Render interfaces, but these can easily be done from a custom Python module.
+RocketPython can be used in an application that extends or embeds Python. The only limitation is that your application initialises {{page.lib_name}} with the necessary System and Render interfaces, but these can easily be done from a custom Python module.
 
-To start using RocketPython simply import the module as you would any other extension. RocketPython will then plug itself into the running Rocket instance. It is important to import RocketPython before you create any Rocket Contexts, Documents or Elements otherwise you will not have access to these items from Python.
+To start using RocketPython simply import the module as you would any other extension. RocketPython will then plug itself into the running {{page.lib_name}} instance. It is important to import RocketPython before you create any {{page.lib_name}} Contexts, Documents or Elements otherwise you will not have access to these items from Python.
 
-For a full list of accessable classes and methods please see the libRocket Python [API Reference](api_reference.html).
+For a full list of accessable classes and methods please see the {{page.lib_name}} Python [API Reference](api_reference.html).
 
 ### Requirements
 

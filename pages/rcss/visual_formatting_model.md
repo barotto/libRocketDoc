@@ -4,7 +4,7 @@ title: Visual formatting model
 parent: rcss
 ---
 
-The visual formatting model used in RCSS is almost identical to that of [CSS](http://www.w3.org/TR/REC-CSS2/visuren.html), and it is recommended you read that for a detailed explanation of how Rocket builds and places element boxes. A short summary can be found below.
+The visual formatting model used in RCSS is almost identical to that of [CSS](http://www.w3.org/TR/REC-CSS2/visuren.html), and it is recommended you read that for a detailed explanation of how {{page.lib_name}} builds and places element boxes. A short summary can be found below.
 
 The differences between CSS and RCSS are:
 

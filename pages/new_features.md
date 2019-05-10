@@ -3,7 +3,7 @@ layout: page
 title: RmlUi Features and Changes
 ---
 
-A quick glance at some of the features added in RmlUi since libRocket.
+A quick glance at some of the features added in {{page.lib_name}} since libRocket.
 
  * [Animations, transitions, and transforms](rcss/animations_transitions_transforms.html)
  * [Density-independent pixel (dp)](rcss/syntax.html#density-independent-pixel-dp)

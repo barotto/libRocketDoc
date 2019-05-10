@@ -23,6 +23,18 @@ production_url : https://mikke89.github.io/RmlUiDoc
 # (see https://help.github.com/articles/migrating-your-pages-site-from-maruku)
 markdown: kramdown
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      lib_name : "RmlUi"
+      lib_site : "https://github.com/mikke89/RmlUi"
+      lib_ns   : "Rocket"
+      lib_dir  : "Rocket"
+      
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB :

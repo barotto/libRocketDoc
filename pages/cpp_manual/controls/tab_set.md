@@ -29,7 +29,7 @@ Here is an RML sample demonstrating the declaration of a tab set:
 </rml>
 ```
 
-The Rocket::Controls::ElementTabSet class (found in Rocket/Controls/ElementTabSet.h) defines the interface to tab set elements.
+The {{page.lib_ns}}::Controls::ElementTabSet class (found in {{page.lib_dir}}/Controls/ElementTabSet.h) defines the interface to tab set elements.
 
 The function GetNumTabs() will return the number of panels within the tab set.
 
@@ -47,12 +47,12 @@ Through C++, the contents of the panel tabs can be set to either unparsed RML or
 // Sets the specifed tab index's tab title RML.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] rml The RML to set on the tab title.
-void SetTab(int tab_index, const Rocket::Core::String& rml);
+void SetTab(int tab_index, const {{page.lib_ns}}::Core::String& rml);
 
 // Set the specifed tab index's title element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] element The root of the element tree to set as the tab title.
-void SetTab(int tab_index, Rocket::Core::Element* element);
+void SetTab(int tab_index, {{page.lib_ns}}::Core::Element* element);
 ```
 
 When the contents of a tab is set, it will replace whatever it had before. If you specify a tab index that doesn't exist, it will be created.
@@ -67,12 +67,12 @@ Similarly to the panel tabs, the content of the panels themselves can be set to 
 // Sets the specifed tab index's tab panel RML.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] rml The RML to set on the tab panel.
-void SetPanel(int tab_index, const Rocket::Core::String& rml);
+void SetPanel(int tab_index, const {{page.lib_ns}}::Core::String& rml);
 
 // Set the specified tab index's body element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] element The root of the element tree to set as the window.
-void SetPanel(int tab_index, Rocket::Core::Element* element);
+void SetPanel(int tab_index, {{page.lib_ns}}::Core::Element* element);
 ```
 
 ### Removing panels

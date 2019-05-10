@@ -3,7 +3,7 @@ layout: page
 title: Planned Features
 ---
 
-Based on discussions in the forums, the following are planned features for libRocket.
+Based on discussions in the forums, the following are planned features for {{page.lib_name}}.
 
 ### Sooner
 

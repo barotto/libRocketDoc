@@ -16,7 +16,7 @@ RegisterTag(tag_name, class_definition)
 >Registers an Python class to instance when a specific XML tag is encountered in an RML file. 
 
 Log(type, message)
->Sends a log message to libRocket (and the attached debugger if present).
+>Sends a log message to {{page.lib_name}} (and the attached debugger if present).
 >type should be one of:
 >* rocket.logtype.always
 >* rocket.logtype.error
@@ -25,7 +25,7 @@ Log(type, message)
 >* rocket.logtype.debug 
 
 contexts
->A dictionary of the active libRocket contexts. It can be indexed by string (in which case the context with the matching name is returned), or number (in which case the nth context is returned). The number of contexts can be queried with the len operator. 
+>A dictionary of the active {{page.lib_name}} contexts. It can be indexed by string (in which case the context with the matching name is returned), or number (in which case the nth context is returned). The number of contexts can be queried with the len operator. 
 
 ### Basic Types
 

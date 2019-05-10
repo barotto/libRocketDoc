@@ -3,9 +3,9 @@ layout: page
 title: Python Manual
 ---
 
-The Python interface to Rocket has been designed to resemble Javascript as closely as possible. Due the nature of the language, this is more possible in Python than C++.
+The Python interface to {{page.lib_name}} has been designed to resemble Javascript as closely as possible. Due the nature of the language, this is more possible in Python than C++.
 
-The functionality of Rocket is described fully in the [C++ Manual](cpp_manual.html); this manual defines the Python interface to the Rocket objects described there. Not all aspects of Rocket are accessible from Python; for example, custom decorators can only be created in C++. However the vast majority is accessible, enabling you to easily and efficiently develop the functionality of your documents.
+The functionality of {{page.lib_name}} is described fully in the [C++ Manual](cpp_manual.html); this manual defines the Python interface to the {{page.lib_name}} objects described there. Not all aspects of {{page.lib_name}} are accessible from Python; for example, custom decorators can only be created in C++. However the vast majority is accessible, enabling you to easily and efficiently develop the functionality of your documents.
 
 ### Integrating Python
 

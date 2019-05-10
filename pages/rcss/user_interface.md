@@ -22,7 +22,7 @@ auto
 string
 >The RML document loaded as a cursor and with \<string\> as a title is used as a cursor. If none exists, the default cursor is used. 
 
-Cursors can be loaded into Rocket using the Rocket::Core::Context::LoadCursor() function.
+Cursors can be loaded into {{page.lib_name}} using the {{page.lib_ns}}::Core::Context::LoadCursor() function.
 
 ### Pointer events: the 'pointer-events' property
 
@@ -90,4 +90,4 @@ none
 auto
 >The element inserts itself into the tabbing order in a location relative to its order in the element hierarchy. 
 
-Future versions of Rocket may have more advanced features for determining the tab order of elements. 
+Future versions of {{page.lib_name}} may have more advanced features for determining the tab order of elements. 

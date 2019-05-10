@@ -4,13 +4,13 @@ title: RmlUi Documentation
 description: RmlUi's documentation
 ---
 
-![rocket-home](assets/rmlui.png)
+![rmlui-logo](assets/rmlui.png)
 
-### RmlUi
+### {{page.lib_name}}
 
-[RmlUi](https://github.com/mikke89/RmlUi) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to RmlUi is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository](https://github.com/mikke89/RmlUiDoc).
+[{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository](https://github.com/mikke89/RmlUiDoc).
 
-[**RmlUi features and changes**](pages/rmlui_features.html)
+[**{{page.lib_name}} features and changes**](pages/new_features.html)
 
 ### Programming Documentation
 
@@ -20,7 +20,7 @@ description: RmlUi's documentation
 ### Authoring Documentation 
 
 1. [Rocket Markup Language](pages/rml.html)
-2. [Rocket CSS](pages/rcss.html)
+2. [Rocket Cascading Style Sheets](pages/rcss.html)
 3. [Style guide](pages/style_guide.html) 
 4. [Glossary](pages/glossary.html) 
 

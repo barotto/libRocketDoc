@@ -36,9 +36,9 @@ h1 span
 }
 ```
 
-### Rocket effects
+### {{page.lib_name}} effects
 
-Rocket comes with two built-in font effects:
+{{page.lib_name}} comes with two built-in font effects:
 
 1. For rendering shadows, the [shadow](font_effects/shadow.html) effect.
 2. For outlining text, the [outline](font_effects/outline.html) effect. 

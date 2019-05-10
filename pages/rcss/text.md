@@ -51,7 +51,7 @@ The colour of any decoration is the same as the font colour. Note that 'overline
 
 #### Text shadows: the 'shadow' font effect
 
-Instead of using the CSS-standard 'text-shadow' property, text-shadowing is implemented in libRocket using the more generic font effect system. Below is an example of how to specify a shadow for an element of text.
+Instead of using the CSS-standard 'text-shadow' property, text-shadowing is implemented in {{page.lib_name}} using the more generic font effect system. Below is an example of how to specify a shadow for an element of text.
 
 ```
 /* Specify a grey text shadow on primary headings. */

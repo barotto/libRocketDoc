@@ -3,11 +3,11 @@ layout: page
 title: Building Boost::Python
 ---
 
-This page describes how to build Boost::Python for use with libRocket. This describes how to build against a debug version of Python on the Windows platform.
+This page describes how to build Boost::Python for use with {{page.lib_name}}. This describes how to build against a debug version of Python on the Windows platform.
 
 ### Directory Structure
 
-The default libRocket configurations assume there is a support folder at the same directory structure level as the main rocket folder.
+The default {{page.lib_name}} configurations assume there is a support folder at the same directory structure level as the main rocket folder.
 
 ```
 D:\development

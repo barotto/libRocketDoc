@@ -4,11 +4,11 @@ title: Hidden elements
 parent: cpp_manual
 ---
 
-Rocket distinguishes between normal elements that are part of the DOM and visible to all subsystems, and hidden (or non-DOM) elements that (by default) can only be found if explicitly asked for. Hidden elements are typically used by custom elements; for example, the drop-down select element in the Controls plugin creates hidden elements for its arrow button, the value field and the selection box.
+{{page.lib_name}} distinguishes between normal elements that are part of the DOM and visible to all subsystems, and hidden (or non-DOM) elements that (by default) can only be found if explicitly asked for. Hidden elements are typically used by custom elements; for example, the drop-down select element in the Controls plugin creates hidden elements for its arrow button, the value field and the selection box.
 
 ### Differences in hidden elements
 
-The subsystems of Rocket that ignore hidden elements are:
+The subsystems of {{page.lib_name}} that ignore hidden elements are:
 
 * Automatic layout.
 * RML serialisation; ie, GetInnerRML() will not generate RML for hidden elements. 
@@ -23,7 +23,7 @@ Custom elements that make use of hidden elements can therefore control their siz
 
 ### Adding a hidden element
 
-Hidden elements are created just like other elements, either through the [Rocket factory](elements.html#dynamically-creating-elements) or CreateElement() on a [document](documents.html#creating-new-elements).
+Hidden elements are created just like other elements, either through the [{{page.lib_name}} factory](elements.html#dynamically-creating-elements) or CreateElement() on a [document](documents.html#creating-new-elements).
 
 To parent an element to another as a hidden element, call AppendChild() as normal but set the second parameter to 'false'.
 
@@ -60,15 +60,15 @@ Custom elements typically size and position their hidden elements internally whe
 
 #### Sizing
 
-Hidden elements can be sized by calling the SetBox() function. SetBox() takes a Rocket::Core::Box structure, which contains sizes for a two-dimensional content area and per-edge padding, borders and margin (see the RCSS documentation for more information on the box model).
+Hidden elements can be sized by calling the SetBox() function. SetBox() takes a {{page.lib_ns}}::Core::Box structure, which contains sizes for a two-dimensional content area and per-edge padding, borders and margin (see the RCSS documentation for more information on the box model).
 
 ```cpp
 // Sets the box describing the size of the element, and removes all others.
 // @param[in] box The new dimensions box for the element.
-void SetBox(const Rocket::Core::Box& box);
+void SetBox(const {{page.lib_ns}}::Core::Box& box);
 ```
 
-You can either construct the box yourself, or use the static BuildBox() function on Rocket::Core::ElementUtilities:
+You can either construct the box yourself, or use the static BuildBox() function on {{page.lib_ns}}::Core::ElementUtilities:
 
 ```cpp
 // Generates the box for an element.
@@ -76,10 +76,10 @@ You can either construct the box yourself, or use the static BuildBox() function
 // @param[in] containing_block The dimensions of the content area of the block containing the element.
 // @param[in] element The element to build the box for.
 // @param[in] inline_element True if the element is placed in an inline context, false if not.
-static void BuildBox(Box& box, const Rocket::Core::Vector2f& containing_block, Element* element, bool inline_element = false);
+static void BuildBox(Box& box, const {{page.lib_ns}}::Core::Vector2f& containing_block, Element* element, bool inline_element = false);
 ```
 
-BuildBox() will generate the values of a Rocket::Core::Box from the 'width', 'max-width', 'min-width', and 'height', 'max-height' and 'min-height' properties set on an element. The parameters are:
+BuildBox() will generate the values of a {{page.lib_ns}}::Core::Box from the 'width', 'max-width', 'min-width', and 'height', 'max-height' and 'min-height' properties set on an element. The parameters are:
 
 * box: The box to be generated.
 * containing_block: The element's containing block. This is typically the size of the content area of the containing element, but does not have to be.
@@ -89,17 +89,17 @@ BuildBox() will generate the values of a Rocket::Core::Box from the 'width', 'ma
 The following code will generate and set the box on a hidden element from within its parent:
 
 ```cpp
-Rocket::Core::Box box;
-Rocket::Core::ElementUtilities::BuildBox(box, GetBox().GetContentArea(), hidden_element);
+{{page.lib_ns}}::Core::Box box;
+{{page.lib_ns}}::Core::ElementUtilities::BuildBox(box, GetBox().GetContentArea(), hidden_element);
 hidden_element->SetBox(box);
 ```
 
 But if you want to force the hidden element to be a certain size, instead you might do:
 
 ```cpp
-Rocket::Core::Box box;
-box.SetContent(Rocket::Core::Vector2f(100, 150));
-box.SetEdge(Rocket::Core::Box::BORDER, Rocket::Core::Box::TOP, 1);
+{{page.lib_ns}}::Core::Box box;
+box.SetContent({{page.lib_ns}}::Core::Vector2f(100, 150));
+box.SetEdge({{page.lib_ns}}::Core::Box::BORDER, {{page.lib_ns}}::Core::Box::TOP, 1);
 hidden_element->SetBox(box);
 ```
 
@@ -112,19 +112,19 @@ To set the position of a hidden element, use the SetOffset() function. This sets
 // @param[in] offset The offset (in pixels) of our primary box's top-left border corner from our offset parent's top-left border corner.
 // @param[in] offset_parent The element this element is being positioned relative to.
 // @param[in] offset_fixed True if the element is fixed in place (and will not scroll), false if not.
-void SetOffset(const Rocket::Core::Vector2f& offset,
-               Rocket::Core::Element* offset_parent,
+void SetOffset(const {{page.lib_ns}}::Core::Vector2f& offset,
+               {{page.lib_ns}}::Core::Element* offset_parent,
                bool offset_fixed = false);
 ```
 
-However, Rocket::Core::ElementUtilities has a number of functions to aid in positioning a hidden element.
+However, {{page.lib_ns}}::Core::ElementUtilities has a number of functions to aid in positioning a hidden element.
 
 ```cpp
 // Sizes and positions an element within its parent.
 // @param element[in] The element to size and position.
 // @param offset[in] The offset of the element inside its parent's content area.
-static bool PositionElement(Rocket::Core::Element* element,
-                            const Rocket::Core::Vector2f& offset);
+static bool PositionElement({{page.lib_ns}}::Core::Element* element,
+                            const {{page.lib_ns}}::Core::Vector2f& offset);
 
 PositionElement() resizes an element (using BuildBox()) and positions it within its parent. As positioning border-corner to border-corner can be quite confusing, this function treats the offset as between the content areas of the elements.
 
@@ -132,9 +132,9 @@ PositionElement() resizes an element (using BuildBox()) and positions it within 
 // @param element[in] The element to size and position.
 // @param offset[in] The offset from the parent's borders.
 // @param anchor[in] Defines which corner or edge the border is to be positioned relative to.
-static bool PositionElement(Rocket::Core::Element* element,
-                            const Rocket::Core::Vector2f& offset,
-                            Rocket::Core::ElementUtilities::PositionAnchor anchor);
+static bool PositionElement({{page.lib_ns}}::Core::Element* element,
+                            const {{page.lib_ns}}::Core::Vector2f& offset,
+                            {{page.lib_ns}}::Core::ElementUtilities::PositionAnchor anchor);
 ```
 
 There is also an override for PositionElement() for positioning an element offset from a specific corner or edge of its parent, not just the top-left corner. The third parameter, 'anchor', can be one or more of the PositionAnchor enumeration ORed together:
@@ -156,19 +156,19 @@ enum PositionAnchor
 
 #### Invoking the layout engine
 
-Rocket's internal layout engine can be run on a hidden element to format the element's visible descendants. To do so, call the static FormatElement() function on Rocket::Core::ElementUtilities.
+{{page.lib_name}}'s internal layout engine can be run on a hidden element to format the element's visible descendants. To do so, call the static FormatElement() function on {{page.lib_ns}}::Core::ElementUtilities.
 
 ```cpp
 // Formats the contents of an element.
 // @param[in] element The element to lay out.
 // @param[in] containing_block The size of the element's containing block.
-static bool FormatElement(Rocket::Core::Element* element,
-                          const Rocket::Core::Vector2f& containing_block);
+static bool FormatElement({{page.lib_ns}}::Core::Element* element,
+                          const {{page.lib_ns}}::Core::Vector2f& containing_block);
 ```
 
 ### Formatting hidden text elements
 
-It possible to append text elements as hidden elements. In this case, you will need to use the Rocket::Core::ElementText API to get the element to generate and position strings of characters.
+It possible to append text elements as hidden elements. In this case, you will need to use the {{page.lib_ns}}::Core::ElementText API to get the element to generate and position strings of characters.
 
 #### Generating lines of text
 
@@ -184,7 +184,7 @@ Once a text element has had raw text set on it (through the SetText() function),
 // @param[in] right_spacing_width The width (in pixels) of the spacing that must be remaining on the right of the line if this is the final line.
 // @param[in] trim_whitespace_prefix If we're collapsing whitespace, whether or not to remove all prefixing whitespace or collapse it down to a single space.
 // @return True if the line reached the end of the element's text, false if not.
-bool GenerateLine(Rocket::Core::String& line,
+bool GenerateLine({{page.lib_ns}}::Core::String& line,
                   int& line_length,
                   float& line_width,
                   int line_begin,
@@ -208,14 +208,14 @@ The function will return true if the generated line is the last line required to
 The following code sample will generate all of the lines required for a text node, each line being allowed a maximum width of 200 pixels:
 
 ```cpp
-Rocket::Core::ElementText* text_element = document->CreateTextNode("sample text");
+{{page.lib_ns}}::Core::ElementText* text_element = document->CreateTextNode("sample text");
 
 int line_begin = 0;
 bool last_line = false;
 
 while (!last_line)
 {
-	Rocket::Core::String line;
+	{{page.lib_ns}}::Core::String line;
 	int line_length = 0;
 	float line_width = 0;
 
@@ -243,14 +243,14 @@ Then call AddLines() for each generated line.
 // Adds a new line into the text element.
 // @param[in] line_position The position of this line, as an offset from element.
 // @param[in] line The contents of the line.
-void AddLine(const Rocket::Core::Vector2f& line_position,
-             const Rocket::Core::String& line) = 0;
+void AddLine(const {{page.lib_ns}}::Core::Vector2f& line_position,
+             const {{page.lib_ns}}::Core::String& line) = 0;
 ```
 
 The following code sample extends the previous sample by placing each line of text as it is generated:
 
 ```cpp
-Rocket::Core::ElementText* text_element = document->CreateTextNode("sample text");
+{{page.lib_ns}}::Core::ElementText* text_element = document->CreateTextNode("sample text");
 
 int line_begin = 0;
 bool last_line = false;
@@ -258,15 +258,15 @@ float position = 0;
 
 while (!last_line)
 {
-	Rocket::Core::String line;
+	{{page.lib_ns}}::Core::String line;
 	int line_length = 0;
 	float line_width = 0;
 
 	last_line = text_element->GenerateString(line, line_length, line_width, line_begin, 200, 0, line_begin > 0);
 	line_begin += line_length;
 
-	text_element->AddLine(line, Rocket::Core::Vector2f(position, 0));
-	position += (float) Rocket::Core::ElementUtilities::GetLineHeight(text_element);
+	text_element->AddLine(line, {{page.lib_ns}}::Core::Vector2f(position, 0));
+	position += (float) {{page.lib_ns}}::Core::ElementUtilities::GetLineHeight(text_element);
 }
 ```
 

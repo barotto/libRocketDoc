@@ -6,11 +6,11 @@ parent: python_manual
 
 ### Interface
 
-The Python interface for Rocket elements closely resembles [Gecko's HTML DOM element interface](http://developer.mozilla.org/en/docs/DOM:element), similarly to the C++ element interface.
+The Python interface for {{page.lib_name}} elements closely resembles [Gecko's HTML DOM element interface](http://developer.mozilla.org/en/docs/DOM:element), similarly to the C++ element interface.
 
 ### Properties
 
-Rocket property | Brief description | Equivalent DOM property
+{{page.lib_name}} property | Brief description | Equivalent DOM property
 --------------- | ----------------- | -----------------------
 absolute_left | The distance from the context's left edge and the element's left border. 
 absolute_top | The distance from the context's top edge and the element's top border. 
@@ -82,7 +82,7 @@ if element.style.float != "none":
 
 ### Methods
 
-Rocket methods | Brief description | Equivalent DOM method
+{{page.lib_name}} methods | Brief description | Equivalent DOM method
 -------------- | ----------------- | ---------------------
 AddEventListener() | Register an event handler to a specific event type on the element. | addEventListener()
 AppendChild() | Insert a node as the last child node of this element. | appendChild()

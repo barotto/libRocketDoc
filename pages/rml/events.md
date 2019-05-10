@@ -71,17 +71,17 @@ A number of input events send through key modifiers. In this case the following 
 
 **keydown**
 >Sent to the focus element when a key is pressed.
->* key_identifier: A value from the Rocket::Core::Input::KeyIdentifier enumeration (found in Rocket/Core/Input.h).
+>* key_identifier: A value from the {{page.lib_ns}}::Core::Input::KeyIdentifier enumeration (found in {{page.lib_dir}}/Core/Input.h).
 >* Key modifiers. 
 
 **keyup**
 >Sent to the focus element when a key is released.
->* key_identifier: A value from the Rocket::Core::Input::KeyIdentifier enumeration.
+>* key_identifier: A value from the {{page.lib_ns}}::Core::Input::KeyIdentifier enumeration.
 >* Key modifiers. 
 
 **textinput**
 >Send to the focus element when a text character is entered.
->* data: An Rocket::Core::word corresponding to the character value. 
+>* data: An {{page.lib_ns}}::Core::word corresponding to the character value. 
 
 #### Mouse Events
 

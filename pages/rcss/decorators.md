@@ -16,7 +16,7 @@ The declaration of a decorator is a property of the form:
 <name>-decorator: <type>;
 ```
 
-where <name> is the user-specified name of the decorator to declare, and <type> is the application-specific type of decorator. Rocket ships with the decorators 'image', 'tiled-box', 'tiled-horizontal' and 'tiled-vertical'. The decorator type 'none' is a reserved name that represents no decorator. For example, in the following:
+where <name> is the user-specified name of the decorator to declare, and <type> is the application-specific type of decorator. {{page.lib_name}} ships with the decorators 'image', 'tiled-box', 'tiled-horizontal' and 'tiled-vertical'. The decorator type 'none' is a reserved name that represents no decorator. For example, in the following:
 
 ```css
 button
@@ -115,7 +115,7 @@ the 'icon' decorator will appear on top of the 'background' decorator. If no z-i
 
 ### Decorators and pseudo-classes
 
-Because of the way Rocket compiles pseudo-class rules within style sheets, overriding decorator properties within dynamic pseudo-classes (:active, :hover and :focus, not any of the structural classes) might not always work the way you think it should.
+Because of the way {{page.lib_name}} compiles pseudo-class rules within style sheets, overriding decorator properties within dynamic pseudo-classes (:active, :hover and :focus, not any of the structural classes) might not always work the way you think it should.
 
 In a nutshell, each decorator will only process properties from their element's base rules (ie, those not specifying dynamic pseudo-classes in their final simple selector) and one rule specifying a dynamic pseudo-class (or classes), that with the highest specificity. For example, in the following sample:
 
@@ -152,9 +152,9 @@ button:active:hover
 }
 ```
 
-### Rocket decorators
+### {{page.lib_name}} decorators
 
-Rocket comes with several built-in decorators for displaying images and tiled images behind elements.
+{{page.lib_name}} comes with several built-in decorators for displaying images and tiled images behind elements.
 
 1. For displaying a single stretched image, the [image](decorators/image.html) decorator.
 2. For tiling images horizontally, the [tiled-horizontal](decorators/tiled_horizontal.html) decorator.

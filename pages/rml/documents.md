@@ -6,7 +6,7 @@ parent: rml
 
 ### RML Element
 
-All Rocket documents begin with the RML element. The element should contain two children, HEAD and BODY.
+All {{page.lib_name}} documents begin with the RML element. The element should contain two children, HEAD and BODY.
 
 ### HEAD Element
 
@@ -25,9 +25,9 @@ The LINK element is used to specify additional resources the document requires.
 **type** = cdata (CI)
 
 >Type of link, which should be one of:
->* text/rcss - [Rocket Style Sheet Specification](../rcss.html)
->* text/template - [Rocket Template](templates.html)
->* text/script - Rocket script
+>* text/rcss - [{{page.lib_name}} Style Sheet Specification](../rcss.html)
+>* text/template - [{{page.lib_name}} Template](templates.html)
+>* text/script - {{page.lib_name}} script
 
 **href** = cdata (CS)
 
@@ -35,4 +35,4 @@ The LINK element is used to specify additional resources the document requires.
 
 ### BODY Element
 
-The body of a document contains the document's content. All elements within the body tag is laid out and rendered by Rocket based on the active style sheets. 
+The body of a document contains the document's content. All elements within the body tag is laid out and rendered by {{page.lib_name}} based on the active style sheets. 

@@ -3,7 +3,7 @@ layout: page
 title: Style Guide
 ---
 
-libRocket and the controls plugin features several functional elements that need to by sized and decorated with RCSS properties, such as scrollbars, sliders and drop-down boxes. This document will go over all these elements and give recommendations on how you should style them.
+{{page.lib_name}} and the controls plugin feature several functional elements that need to be sized and decorated with RCSS properties, such as scrollbars, sliders and drop-down boxes. This document will go over all these elements and give recommendations on how you should style them.
 
 ### Scrollbars
 
@@ -32,7 +32,7 @@ All of these elements can be styled through RCSS to be sized, positioned and ren
 4. Set the 'width' property of the _sliderbar_ as appropriate. The height of the bar will be generated internally, but you can override this with the 'height' property, or use the 'min-height' and 'max-height' properties to influence it.
 5. Apply decorators to the elements as appropriate. 
 
-See the Rocket Invaders from Mars demo style sheet and the [templating tutorial](tutorials/window_template.html) for more pointers.
+See the _Rocket Invaders from Mars_ demo style sheet and the [templating tutorial](tutorials/window_template.html) for more pointers.
 
 #### The 'scrollbar-margin' property
 
@@ -40,7 +40,7 @@ As described above, the scrollbar elements (_scrollbarvertical_ and _scrollbarho
 
 #### Example RCSS
 
-The following is the section of the style sheet for Rocket Invaders from Mars relevant for scrollbars.
+The following is the section of the style sheet for _Rocket Invaders from Mars_ relevant for scrollbars.
 
 ```css
 /* Fix the width and push the scrollbar back to the extents of the window. */
@@ -161,7 +161,7 @@ The select element generates three hidden elements:
 
 #### Example RCSS
 
-The following are the select element's RCSS rules and properties from the Rocket Invaders from Mars style sheet:
+The following are the select element's RCSS rules and properties from the _Rocket Invaders from Mars_ style sheet:
 
 ```css
 /* Specify the dimensions of the select element. */

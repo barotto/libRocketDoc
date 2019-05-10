@@ -3,7 +3,7 @@ layout: page
 title: Python Event Tutorial
 ---
 
-The Python interface to Rocket exposes a DOM API in a very similar way to Javascript. Python code can be attached to any event in the RML definition which in turn can dynamically update any part of the document, including opening new documents. Full source code to the final PyInvaders application can be found in the samples folder once the Python plugin has been installed.
+The Python interface to {{page.lib_name}} exposes a DOM API in a very similar way to Javascript. Python code can be attached to any event in the RML definition which in turn can dynamically update any part of the document, including opening new documents. Full source code to the final PyInvaders application can be found in the samples folder once the Python plugin has been installed.
 
 ### Step 1: Setting up the Python environment
 
@@ -30,7 +30,7 @@ private:
 
 We then implement these methods.
 
-*NOTE: Its a good idea to forcibly import the libRocket Python module. This ensures all Boost bindings have been done and that you can proceed to expose your own classes that rely on these bindings having taken place.*
+*NOTE: Its a good idea to forcibly import the {{page.lib_name}} Python module. This ensures all Boost bindings have been done and that you can proceed to expose your own classes that rely on these bindings having taken place.*
 
 *NOTE: For more information Python initialisation and shutdown please see the Python documentation at http://docs.python.org*
 
@@ -50,9 +50,9 @@ void PythonInterface::Shutdown()
 }
 ```
 
-PythonInterface::Initialise should be called before Rocket is initialised. This ensures the Python bindings are available when Rocket starts up.
+PythonInterface::Initialise should be called before {{page.lib_name}} is initialised. This ensures the Python bindings are available when {{page.lib_name}} starts up.
 
-PythonInterface::Shutdown should be called after you've released all contexts but before you call Rocket::Shutdown(). This ensures all Python objects are released before Rocket does its final cleanup.
+PythonInterface::Shutdown should be called after you've released all contexts but before you call {{page.lib_ns}}::Shutdown(). This ensures all Python objects are released before {{page.lib_name}} does its final cleanup.
 
 At this point you'll need to add the relevant Python and Boost::Python build paths to your project and then compile and link your project.
 
@@ -73,7 +73,7 @@ context.LoadDocument('data/main_menu.rml').Show()
 To run this script, we simply need to import it at application start up. Add an import helper to the PythonInterface and call it just before the main shell loop.
 
 ```cpp
-bool PythonInterface::Import(const Rocket::Core::String& name)
+bool PythonInterface::Import(const {{page.lib_ns}}::Core::String& name)
 {
     PyObject* module = PyImport_ImportModule(name.CString());
     if (!module)
@@ -204,7 +204,7 @@ BOOST_PYTHON_MODULE(game)
 
 ### Step 4: Custom Elements
 
-The next problem we'll hit when converting RocketInvaders is the ElementGame does not have a Python interface. Thus we can't give it focus when we start the game which means the defender cannot be moved until the user clicks the game with the mouse. To fix this, we need to define ElementGame to Python and register the Python instancer with Rocket::Factory instead of the C++ instancer.
+The next problem we'll hit when converting RocketInvaders is the ElementGame does not have a Python interface. Thus we can't give it focus when we start the game which means the defender cannot be moved until the user clicks the game with the mouse. To fix this, we need to define ElementGame to Python and register the Python instancer with {{page.lib_ns}}::Factory instead of the C++ instancer.
 
 Let's define a static method on ElementGame to do this and call it from our game module's initialisation.
 
@@ -212,13 +212,13 @@ Let's define a static method on ElementGame to do this and call it from our game
 void ElementGame::InitialisePythonInterface()
 {
     PyObject* object = python::class_<ElementGame, 
-                                      Rocket::Core::Python::ElementWrapper<ElementGame>,
-                                      python::bases<Rocket::Core::Element>, 
+                                      {{page.lib_ns}}::Core::Python::ElementWrapper<ElementGame>,
+                                      python::bases<{{page.lib_ns}}::Core::Element>, 
                                       boost::noncopyable >("ElementGame", python::init<const char*>())
     .ptr();
 
-    Rocket::Core::Factory::RegisterElementInstancer("game", 
-                                                    new Rocket::Core::Python::ElementInstancer(object))->RemoveReference();
+    {{page.lib_ns}}::Core::Factory::RegisterElementInstancer("game", 
+                                                    new {{page.lib_ns}}::Core::Python::ElementInstancer(object))->RemoveReference();
 }
 ```
 
@@ -235,7 +235,7 @@ void ElementGame::OnUpdate()
 	game->Update();
 
 	if (game->IsGameOver())
-		DispatchEvent("gameover", Rocket::Core::Dictionary(), false);
+		DispatchEvent("gameover", {{page.lib_ns}}::Core::Dictionary(), false);
 }
 ```
 

@@ -68,7 +68,7 @@ Update() | Updates the context.
 
 ### Creating contexts
 
-Contexts can be created in Python with the CreateContext() function in the Rocket module. This function takes the name of the context as a string and the dimensions as an Vector2i type.
+Contexts can be created in Python with the CreateContext() function in the {{page.lib_name}} module. This function takes the name of the context as a string and the dimensions as an Vector2i type.
 
 new_context = rocket.CreateContext("hud", rocket.Vector2i(1024, 768))
 

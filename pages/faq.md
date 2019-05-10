@@ -10,10 +10,10 @@ Use the AddEventListener function, passing in the name of the event you want to 
 From C++:
 
 ```cpp
-class MyListener : public Rocket::Core::EventListener
+class MyListener : public {{page.lib_ns}}::Core::EventListener
 {
 public:
-	void ProcessEvent(Rocket::Core::Event& event)
+	void ProcessEvent({{page.lib_ns}}::Core::Event& event)
 	{
 		printf("Processing event %s", event.GetType().CString());
 	}

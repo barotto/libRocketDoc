@@ -18,7 +18,7 @@ Example:
 <button onclick="print('Clicked!')"/>
 ```
 
-To aid in the coding of inline Python code, libRocket allows multiple lines of Python code can be put on one line, separated by a semicolon. The parser will then reformat this code before passing it to the Python interpreter.
+To aid in the coding of inline Python code, {{page.lib_name}} allows multiple lines of Python code can be put on one line, separated by a semicolon. The parser will then reformat this code before passing it to the Python interpreter.
 
 Example:
 

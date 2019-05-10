@@ -4,7 +4,7 @@ title: Events
 parent: cpp_manual
 ---
 
-Events are sent to elements to indicate actions that have occurred to that element. Rocket generates many events internally (these are fully specified in the [RML event documentation](../rml/events.html)). The application can also send arbitrary events to elements.
+Events are sent to elements to indicate actions that have occurred to that element. {{page.lib_name}} generates many events internally (these are fully specified in the [RML event documentation](../rml/events.html)). The application can also send arbitrary events to elements.
 
 When an event is dispatched to an element, it first goes through a bubble phase where the each of the element's ancestors has an opportunity to process the event and stop the propagation. The event is then sent to the target element, then goes through a capture phase where it falls back to its root ancestor.
 
@@ -14,7 +14,7 @@ Events can be handled internally by the elements they are sent to or by an event
 
 ### Event interface
 
-An event is represented by the Rocket::Core::Event structure, defined in Rocket/Core/Event.h. The public interface to an event object is:
+An event is represented by the {{page.lib_ns}}::Core::Event structure, defined in {{page.lib_dir}}/Core/Event.h. The public interface to an event object is:
 
 ```cpp
 class Event
@@ -24,25 +24,25 @@ public:
 
 	// Get the current propagation phase.
 	// @return Current phase the event is in.
-	Rocket::Core::Event::EventPhase GetPhase() const;
+	{{page.lib_ns}}::Core::Event::EventPhase GetPhase() const;
 
 	// Get the current element in the propagation.
 	// @return The current element in propagation.
-	Rocket::Core::Element* GetCurrentElement() const;
+	{{page.lib_ns}}::Core::Element* GetCurrentElement() const;
 
 	// Get the target element.
 	// @return The target element of this event.
-	Rocket::Core::Element* GetTargetElement() const;
+	{{page.lib_ns}}::Core::Element* GetTargetElement() const;
 
 	// Get the event type.
 	// @return The event type.
-	const Rocket::Core::String& GetType() const;
+	const {{page.lib_ns}}::Core::String& GetType() const;
 
 	// Returns the value of one of the event's parameters.
 	// @param key[in] The name of the desired parameter.
 	// @return The value of the requested parameter.
 	template < typename T >
-	T GetParameter(const Rocket::Core::String& key, const T& default_value);
+	T GetParameter(const {{page.lib_ns}}::Core::String& key, const T& default_value);
 
 	// Stops the propagation of the event.
 	void StopPropagation();
@@ -61,11 +61,11 @@ For event types that can be interrupted, a listener can call the StopPropagation
 
 ### Event listeners
 
-Any object that wants to listen for events derives from Rocket::Core::EventListener, and implements the one required pure virtual function:
+Any object that wants to listen for events derives from {{page.lib_ns}}::Core::EventListener, and implements the one required pure virtual function:
 
 ```cpp
 // Process the incoming event.
-virtual void ProcessEvent(Rocket::Core::Event& event) = 0;
+virtual void ProcessEvent({{page.lib_ns}}::Core::Event& event) = 0;
 ```
 
 The ProcessEvent() function will be called every time a relevant event is sent to an element the listener is subscribed to.
@@ -79,8 +79,8 @@ To subscribe an event listener to an element, call the AddEventListener() functi
 // @param[in] event Event to attach to.
 // @param[in] listener The listener object to be attached.
 // @param[in] in_capture_phase True to attach in the capture phase, false in bubble phase.
-void AddEventListener(const Rocket::Core::String& event,
-                      Rocket::Core::EventListener* listener,
+void AddEventListener(const {{page.lib_ns}}::Core::String& event,
+                      {{page.lib_ns}}::Core::EventListener* listener,
                       bool in_capture_phase = false);
 ```
 
@@ -98,28 +98,28 @@ To unsubscribe an event listener from an element, call the RemoveEventListener()
 // @param[in] event Event to detach from.
 // @param[in] listener The listener object to be detached.
 // @param[in] in_capture_phase True to detach from the capture phase, false from the bubble phase.
-void RemoveEventListener(const Rocket::Core::String& event,
-                         Rocket::Core::EventListener* listener,
+void RemoveEventListener(const {{page.lib_ns}}::Core::String& event,
+                         {{page.lib_ns}}::Core::EventListener* listener,
                          bool in_capture_phase = false);
 
 ### Sending events
 
-The application can send an arbitrary event to an element through the DispatchEvent() function on Rocket::Core::Element.
+The application can send an arbitrary event to an element through the DispatchEvent() function on {{page.lib_ns}}::Core::Element.
 
 ```cpp
 // Sends an event to this element.
 // @param[in] event Name of the event in string form.
 // @param[in] parameters The event parameters.
 // @param[in] interruptible True if the propagation of the event be stopped.
-void DispatchEvent(const Rocket::Core::String& event,
-                   const Rocket::Core::Dictionary& parameters,
+void DispatchEvent(const {{page.lib_ns}}::Core::String& event,
+                   const {{page.lib_ns}}::Core::Dictionary& parameters,
                    bool interruptible = false);
 ```
 
 The event will be created and sent through the standard event loop. The following example sends a "close" event to an element:
 
 ```cpp
-Rocket::Core::Dictionary parameters;
+{{page.lib_ns}}::Core::Dictionary parameters;
 parameters.Set("source", "user");
 
 element->DispatchEvent("close", parameters);
@@ -127,13 +127,13 @@ element->DispatchEvent("close", parameters);
 
 ### Custom events
 
-Events are instanced through an event instancer similarly to contexts. The instancer can be overridden with a custom instancer if a custom event is required; this is generally only needed to integrate a scripting language into Rocket.
+Events are instanced through an event instancer similarly to contexts. The instancer can be overridden with a custom instancer if a custom event is required; this is generally only needed to integrate a scripting language into {{page.lib_name}}.
 
-A custom event inherits from Rocket::Core::Event. There are no virtual functions to be overridden.
+A custom event inherits from {{page.lib_ns}}::Core::Event. There are no virtual functions to be overridden.
 
 #### Creating a custom event instancer
 
-A custom event instancer needs to be created and registered with the Rocket factory in order to have custom events instanced. A custom event instancer derives from Rocket::Core::EventInstancer and implements the required pure virtual functions:
+A custom event instancer needs to be created and registered with the {{page.lib_name}} factory in order to have custom events instanced. A custom event instancer derives from {{page.lib_ns}}::Core::EventInstancer and implements the required pure virtual functions:
 
 ```cpp
 // Instance an event object.
@@ -141,9 +141,9 @@ A custom event instancer needs to be created and registered with the Rocket fact
 // @param[in] name Name of this event.
 // @param[in] parameters Additional parameters for this event.
 // @param[in] interruptible If the event propagation can be stopped.
-virtual Rocket::Core::Event* InstanceEvent(Rocket::Core::Element* target,
-                                           const Rocket::Core::String& name,
-                                           const Rocket::Core::Dictionary& parameters,
+virtual {{page.lib_ns}}::Core::Event* InstanceEvent({{page.lib_ns}}::Core::Element* target,
+                                           const {{page.lib_ns}}::Core::String& name,
+                                           const {{page.lib_ns}}::Core::Dictionary& parameters,
                                            bool interruptible) = 0;
 
 // Releases an event instanced by this instancer.
@@ -165,17 +165,17 @@ If InstanceEvent() is successful, return the new event. Otherwise, return NULL (
 
 ReleaseEvent() will be called when an event instanced through the instancer is no longer required by the system. It should be deleted appropriately.
 
-Release() will be called when the event instancer is no longer required, usually when Rocket is shut down. The instancer should delete itself as appropriate.
+Release() will be called when the event instancer is no longer required, usually when {{page.lib_name}} is shut down. The instancer should delete itself as appropriate.
 
 #### Registering an instancer
 
-To register a custom instancer with Rocket, call the RegisterEventInstancer() function on the Rocket factory (Rocket::Core::Factory) after Rocket has been initialised.
+To register a custom instancer with {{page.lib_name}}, call the RegisterEventInstancer() function on the {{page.lib_name}} factory ({{page.lib_ns}}::Core::Factory) after {{page.lib_name}} has been initialised.
 
 ```cpp
 // Registers an instancer for all events.
 // @param[in] instancer The instancer to be called.
 // @return The registered instanced on success, NULL on failure.
-static Rocket::Core::EventInstancer* RegisterEventInstancer(Rocket::Core::EventInstancer* instancer);
+static {{page.lib_ns}}::Core::EventInstancer* RegisterEventInstancer({{page.lib_ns}}::Core::EventInstancer* instancer);
 ```
 
 Like other instancers, the event instancer is reference counted. Remember to remove the initial reference after you register a custom instancer with the factory.
@@ -195,15 +195,15 @@ Event responses can be specified as element attributes inside RML, similarly to 
 
 Notice the "on" prefix before the event name of "click". All event bindings from RML are prefixed this way.
 
-Rocket sends inline events to event listener proxy objects that are created by the application. An application must therefore register a custom event listener instancer to have an opportunity to interpret the events.
+{{page.lib_name}} sends inline events to event listener proxy objects that are created by the application. An application must therefore register a custom event listener instancer to have an opportunity to interpret the events.
 Creating a custom event listener instancer
 
-A custom event listener instancer derives from Rocket::Core::EventListenerInstancer. The following pure virtual functions must be implemented:
+A custom event listener instancer derives from {{page.lib_ns}}::Core::EventListenerInstancer. The following pure virtual functions must be implemented:
 
 ```cpp
 // Instance an event listener object.
 // @param value Value of the event.
-virtual Rocket::Core::EventListener* InstanceEventListener(const Rocket::Core::String& value) = 0;
+virtual {{page.lib_ns}}::Core::EventListener* InstanceEventListener(const {{page.lib_ns}}::Core::String& value) = 0;
 
 // Releases this event listener instancer.
 virtual void Release() = 0;
@@ -211,4 +211,4 @@ virtual void Release() = 0;
 
 InstanceEventListener() will be called during RML parsing whenever the factory needs to find an event listener for an inline event. The parameter value will be the raw event response string as specified in the RML.
 
-Release() will be called when the event instancer is no longer required, usually when Rocket is shut down. The instancer should delete itself as appropriate. 
+Release() will be called when the event instancer is no longer required, usually when {{page.lib_name}} is shut down. The instancer should delete itself as appropriate. 

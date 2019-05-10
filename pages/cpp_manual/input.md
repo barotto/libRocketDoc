@@ -4,13 +4,13 @@ title: User input
 parent: cpp_manual
 ---
 
-Rocket does not read user input, but requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.
+{{page.lib_name}} does not read user input, but requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.
 
 ### Key modifiers
 
 Most of the input functions take the parameter 'key_modifier_state'. This is a bitmask of active key modifiers; keys such as Control, Alt, etc, as well as the lock keys. This is used to generate the key modifier parameters on any events that are spawned, so is entirely optional. If you don't want or need the key modifier parameters on your input events, feel free to pass '0' for the key_modifier_state into all the input functions you call.
 
-The bitmask should be configured using the enumeration Rocket::Core::Input::KeyModifier, detailed below:
+The bitmask should be configured using the enumeration {{page.lib_ns}}::Core::Input::KeyModifier, detailed below:
 
 ```cpp
 enum KeyModifier
@@ -89,7 +89,7 @@ If you want to send mouse-wheel events to your documents, call the ProcessMouseW
 
 ```cpp
 // Sends a mouse-wheel movement event into this context.
-// @param[in] wheel_delta The mouse-wheel movement this frame. Rocket treats a negative delta as up movement (away from the user), positive as down.
+// @param[in] wheel_delta The mouse-wheel movement this frame. {{page.lib_name}} treats a negative delta as up movement (away from the user), positive as down.
 // @param[in] key_modifier_state The state of key modifiers.
 void ProcessMouseWheel(int wheel_delta, int key_modifier_state);
 ```
@@ -98,9 +98,9 @@ ProcessMouseWheel() will generate an 'onmousescroll' event targeted at the hover
 
 ### Key input
 
-The key input functions use the KeyIdentifier enumeration found in <Rocket/Core/Input.h>; refer to that file for the possible values. They are modeled after the Windows virtual key codes (the VK_* enumeration), so should be familiar to Windows developers. Any confusing enumeration names are explained in the comments.
+The key input functions use the KeyIdentifier enumeration found in <{{page.lib_dir}}/Core/Input.h>; refer to that file for the possible values. They are modeled after the Windows virtual key codes (the VK_* enumeration), so should be familiar to Windows developers. Any confusing enumeration names are explained in the comments.
 
-Rocket makes a distinction between key input and text input; key input (specified by the ProcessKeyDown() and ProcessKeyUp() functions) refers to actual physical key presses, while text input refers to characters being generated from user input. Depending on user locale, it may take more than one physical key stroke to generate a single character of text input. At present, Rocket offers no translation between key input and text input; that is left up to the application.
+{{page.lib_name}} makes a distinction between key input and text input; key input (specified by the ProcessKeyDown() and ProcessKeyUp() functions) refers to actual physical key presses, while text input refers to characters being generated from user input. Depending on user locale, it may take more than one physical key stroke to generate a single character of text input. At present, {{page.lib_name}} offers no translation between key input and text input; that is left up to the application.
 
 Call the following functions on a context to inform the context of key presses or releases:
 
@@ -108,32 +108,32 @@ Call the following functions on a context to inform the context of key presses o
 // Sends a key down event into this context.
 // @param[in] key_identifier The key pressed.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessKeyDown(Rocket::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
+void ProcessKeyDown({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
 
 // Sends a key up event into this context.
 // @param[in] key_identifier The key released.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessKeyUp(Rocket::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
+void ProcessKeyUp({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
 ```
 
 ProcessKeyDown() will generate an 'onkeydown' event targeted at the current focus element (if an element is in focus). ProcessKeyUp() will likewise generate the 'onkeyup' event.
 
 ### Text input
 
-Rocket takes text input as 16-bit, UCS2-encoded characters. When text input occurs that you wish a Rocket context to know about, use the following functions:
+{{page.lib_name}} takes text input as 16-bit, UCS2-encoded characters. When text input occurs that you wish a {{page.lib_name}} context to know about, use the following functions:
 
 ```cpp
 // Sends a single character of text as text input into this context.
 // @param[in] character The UCS-2 character to send into this context.
-void ProcessTextInput(Rocket::Core::word character);
+void ProcessTextInput({{page.lib_ns}}::Core::word character);
 
 // Sends a string of text as text input into this context.
 // @param[in] string The UCS-2 string to send into this context.
-void ProcessTextInput(const Rocket::Core::String& string);
+void ProcessTextInput(const {{page.lib_ns}}::Core::String& string);
 ```
 
 These functions will generate an 'ontextinput' event targeted at the context's current focus element (if there is one).
 
 ### Sample input processing
 
-The sample shell (found under your Rocket installation at /samples/shell/) contains a sample implementation of input processing for all of Rocket's supported platforms, including a key-to-text converter for a US-keyboard layout (see /samples/shell/src/Input.cpp). 
+The sample shell (found under your {{page.lib_name}} installation at /samples/shell/) contains a sample implementation of input processing for all of {{page.lib_name}}'s supported platforms, including a key-to-text converter for a US-keyboard layout (see /samples/shell/src/Input.cpp). 
