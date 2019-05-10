@@ -12,11 +12,11 @@ If you haven't already done so, take a look at the sample applications in /Sampl
 
 ### Setting up the build environment
 
-{{page.lib_name}} is developed for use on the following platforms:
+{{page.lib_name}} is developed following the C++11 standard and to be used on the following platforms:
 
-* Windows 32-bit compiling with Microsoft Visual Studio 2005-2010.
-* MacOSX Intel 32/64bit compiling with GCC 4.
-* Linux compiling with GCC 4. 
+* Windows 32/64bit, compiling with Microsoft Visual Studio 2015+.
+* MacOSX Intel 32/64bit, compiling with GCC 4.8+.
+* Linux, compiling with GCC 4.8+. 
 
 #### Visual Studio
 
@@ -28,7 +28,7 @@ If you haven't already done so, take a look at the sample applications in /Sampl
 
 #### MacOSX / Linux
 
-* Add the {{page.lib_name}} include path (/include/ under the {{page.lib_dir}} directory) and library path (/bin/) to the paths in your build system.
+* Add the {{page.lib_name}} include path (/include/ under the {{page.lib_dir}} directory) and library path (/lib/) to the paths in your build system.
 * #include <{{page.lib_dir}}/Core.h> in your project.
 * Link with RocketCore.
 * Either copy the {{page.lib_name}} libraries into your application's working directory, or set a LD_LIBRARY_PATH (DYLD_LIBRARY_PATH for MacOSX) environment variable. 
@@ -42,7 +42,7 @@ Before you can initialise {{page.lib_name}}, you'll need to set the interfaces t
 The system interface is defined in <{{page.lib_dir}}/Core/SystemInterface.h>. In order to create a valid system interface, you'll need to create a class that inherits from {{page.lib_ns}}::Core::SystemInterface and provides the function:
 
 ```cpp
-virtual float GetElapsedTime();
+virtual double GetElapsedTime();
 ```
 
 The function should return the time (in seconds) since the start of the application. Install your system interface by calling {{page.lib_ns}}::Core::SetSystemInterface() with a pointer to the interface. Note that {{page.lib_name}} won't release your interfaces!
@@ -53,7 +53,7 @@ For more uses of the system interface, see the [documentation](interfaces.html#t
 
 The render interface is defined in <{{page.lib_dir}}/Core/RenderInterface.h>. It provides a way for {{page.lib_name}} to send its geometry into your application's rendering pipeline. If you want to get {{page.lib_name}} up and running as quickly as possible in your own application, you can copy the render interface defined in the sample shell if your application is using OpenGL (you can find this at /samples/shell/include/ShellRenderInterface.h and /samples/shell/src/ShellRenderInterface.cpp), or the DirectX sample if your application is using DirectX 9 (you can find this at /samples/basic/directx/src/RenderInterfaceDirectX.*).
 
-One you have a render interface for your application, install it into {{page.lib_name}} by calling {{page.lib_ns}}::Core::SetRenderInterface().
+Once you have a render interface for your application, install it into {{page.lib_name}} by calling {{page.lib_ns}}::Core::SetRenderInterface().
 
 If you'd like to take an in-depth look at setting up your own render interface, please see the [documentation](interfaces.html#the-render-interface).
 
