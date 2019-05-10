@@ -23,4 +23,6 @@ display: inline-block;
 will shrink to the width of their content, like in CSS.
 
  * The slider on the `input.range` element can be dragged from anywhere in the element.
+ 
+ * The `font-size` property now accepts a \<length\> value instead of \<number\>, like in CSS.
 
