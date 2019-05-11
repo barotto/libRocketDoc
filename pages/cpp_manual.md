@@ -6,8 +6,8 @@ title: C++ Manual
 ### Introduction
 
 1. [Getting started with {{page.lib_name}}](cpp_manual/getting_started.html)
-2. [{{page.lib_name}} packages](cpp_manual/packages.html)
-3. [{{page.lib_name}} overview](cpp_manual/core_overview.html) 
+2. [Packages](cpp_manual/packages.html)
+3. [Core overview](cpp_manual/core_overview.html) 
 
 ### Elements
 
@@ -25,8 +25,8 @@ title: C++ Manual
 
 1. [Loading fonts](cpp_manual/fonts.html)
 2. [User input](cpp_manual/input.html)
-3. [Developing custom interfaces for {{page.lib_name}}](cpp_manual/interfaces.html)
-4. [Developing plugins](cpp_manual/plugins.html) 
+3. [Custom interfaces for {{page.lib_name}}](cpp_manual/interfaces.html)
+4. [Plugins](cpp_manual/plugins.html) 
 
 ### Plugins
 
