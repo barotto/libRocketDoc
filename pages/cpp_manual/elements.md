@@ -325,7 +325,8 @@ virtual float GetBaseline() const;
 ```
 
 The GetBaseline() function returns the pixel offset from the bottom of the element's content area that neighbouring text should, by default, line their baselines up with. This will only affect the element's positioning if it is placed inline.
-Event processing
+
+#### Event processing
 
 A custom element can override the ProcessEvent() function to intercept all events sent to this element, or one of its descendants. The element receives the event between the bubble and capture phases.
 
@@ -478,7 +479,7 @@ The only requirement on the element type that it is templated to is that the con
 
 ### Custom XML node handling
 
-For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, in the Controls plugin, columns in a data grid element are specified by <col> tags immediately beneath the <datagrid> tag. If the standard XML parsing was being executed, an element would be instanced and parented to the data grid for each column tag - but this isn't what is wanted. So a custom XML node handler is used for data grids that processes the column tag differently.
+For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, in the Controls plugin, columns in a data grid element are specified by `<col>` tags immediately beneath the `<datagrid>` tag. If the standard XML parsing was being executed, an element would be instanced and parented to the data grid for each column tag - but this isn't what is wanted. So a custom XML node handler is used for data grids that processes the column tag differently.
 
 Node handlers are registered against RML tag names. When an RML file is being parsed, the XML parser maintains a stack of node handlers. Whenever a new tag is encountered, the parser checks if a specific node handler is registered against that tag; if so, that handler is pushed onto the stack and takes over the parsing until its associated tag is closed. If no handler is associated with a particular element, the current node handler continues parsing.
 
