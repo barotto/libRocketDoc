@@ -12,16 +12,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles -->
-    <link href="{{ ASSETS_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="{{ ASSETS_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ THEME_ASSETS_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="{{ THEME_ASSETS_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- fav and touch icons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ BASE_PATH }}/assets/icons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ BASE_PATH }}/assets/icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ BASE_PATH }}/assets/icons/favicon-16x16.png">
-	<link rel="manifest" href="{{ BASE_PATH }}/assets/icons/site.webmanifest">
-	<link rel="mask-icon" href="{{ BASE_PATH }}/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
-	<link rel="shortcut icon" href="{{ BASE_PATH }}/assets/icons/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ ASSETS_PATH }}/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ ASSETS_PATH }}/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ ASSETS_PATH }}/icons/favicon-16x16.png">
+	<link rel="manifest" href="{{ ASSETS_PATH }}/icons/site.webmanifest">
+	<link rel="mask-icon" href="{{ ASSETS_PATH }}/icons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="{{ ASSETS_PATH }}/icons/favicon.ico">
 	
     <!-- atom & rss feed -->
 
@@ -31,12 +31,12 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="mycontainer">
-          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <a class="brand" href="{{ HOME_URL }}">{{ site.title }}</a>
           {% if page.parent != nil %}
             {% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
             {% for parent_page in site.pages %}
               {% if parent_page.url == parent_url %}
-                {% capture parent_link %}<a class="nav" href="{{BASE_PATH}}{{ parent_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
+                {% capture parent_link %}<a class="nav" href="{{ parent_url | relative_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -54,7 +54,7 @@
       <footer>
         <p><small>
           {{ page.lib_name }} is licensed under the terms and conditions of the 
-          <a href="{{ BASE_PATH }}/pages/license.html">MIT license</a>.<br />
+          <a href="{{ "pages/license.html" | relative_url }}">MIT license</a>.<br />
           Copyright (c) 2008-2014 CodePoint Ltd, Shift Technology Ltd, and contributors<br />
           Copyright (c) 2019 The {{ page.lib_name }} Team, and contributors<br />
           <a href="{{ page.lib_site }}">{{ page.lib_name }} source code and release packages</a>

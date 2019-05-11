@@ -1,5 +1,5 @@
 {% capture rmluicache %}
-    {% assign BASE_PATH = site.production_url %}
-    {% assign HOME_PATH = site.production_url %}
-    {% capture ASSETS_PATH %}{{ BASE_PATH }}/assets/themes/{{ layout.theme.name }}{% endcapture %}
+    {% capture HOME_URL %}{{ "index.html" | relative_url }}{% endcapture %}
+    {% capture ASSETS_PATH %}{{ "assets/" | relative_url }}{% endcapture %}
+    {% capture THEME_ASSETS_PATH %}{{ ASSETS_PATH }}themes/{{ layout.theme.name }}{% endcapture %}
 {% endcapture %}{% assign rmluicache = nil %}
