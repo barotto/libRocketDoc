@@ -8,9 +8,9 @@ parent: cpp_manual
 
 ### Key modifiers
 
-Most of the input functions take the parameter 'key_modifier_state'. This is a bitmask of active key modifiers; keys such as Control, Alt, etc, as well as the lock keys. This is used to generate the key modifier parameters on any events that are spawned, so is entirely optional. If you don't want or need the key modifier parameters on your input events, feel free to pass '0' for the key_modifier_state into all the input functions you call.
+Most of the input functions take the parameter `key_modifier_state`. This is a bitmask of active key modifiers; keys such as Control, Alt, etc, as well as the lock keys. This is used to generate the key modifier parameters on any events that are spawned, so is entirely optional. If you don't want or need the key modifier parameters on your input events, feel free to pass `0` for the `key_modifier_state` into all the input functions you call.
 
-The bitmask should be configured using the enumeration {{page.lib_ns}}::Core::Input::KeyModifier, detailed below:
+The bitmask should be configured using the enumeration `{{page.lib_ns}}::Core::Input::KeyModifier`, detailed below:
 
 ```cpp
 enum KeyModifier
@@ -33,7 +33,7 @@ Different aspects of mouse input are given to a context through a variety of fun
 
 #### Mouse movement
 
-Call the ProcessMouseMove() function on a context to inform the context that the position of the mouse cursor within the context has changed.
+Call the `ProcessMouseMove()` function on a context to inform the context that the position of the mouse cursor within the context has changed.
 
 ```cpp
 // Sends a mouse movement event into this context.
@@ -43,19 +43,19 @@ Call the ProcessMouseMove() function on a context to inform the context that the
 void ProcessMouseMove(int x, int y, int key_modifier_state);
 ```
 
-Note that the x and y coordinates are in pixel offsets from the top-left of the context. If the position of the mouse cursor is not different from the last time ProcessMouseMove() was called, no action will be taken. If the mouse has moved, then any of the following events may be generated, targeted at the appropriate elements:
+Note that the x and y coordinates are in pixel offsets from the top-left of the context. If the position of the mouse cursor is not different from the last time `ProcessMouseMove()` was called, no action will be taken. If the mouse has moved, then any of the following events may be generated, targeted at the appropriate elements:
 
-* onmousemove
-* onmouseover
-* onmouseout
-* ondragstart
-* ondrag
-* ondragover
-* ondragout 
+* _onmousemove_
+* _onmouseover_
+* _onmouseout_
+* _ondragstart_
+* _ondrag_
+* _ondragover_
+* _ondragout_
 
 #### Mouse buttons
 
-Call ProcessMouseButtonDown() and ProcessMouseButtonUp() on a context to to inform the context when a mouse button is pressed or released.
+Call `ProcessMouseButtonDown()` and `ProcessMouseButtonUp()` on a context to to inform the context when a mouse button is pressed or released.
 
 ```cpp
 // Sends a mouse-button down event into this context.
@@ -69,23 +69,23 @@ void ProcessMouseButtonDown(int button_index, int key_modifier_state);
 void ProcessMouseButtonUp(int button_index, int key_modifier_state);
 ```
 
-ProcessMouseButtonDown() may generate any of the following events:
+`ProcessMouseButtonDown()` may generate any of the following events:
 
-* onfocus
-* onblur
-* onmousedown 
+* _onfocus_
+* _onblur_
+* _onmousedown_
 
-ProcessMouseButtonUp() may generate:
+`ProcessMouseButtonUp()` may generate:
 
-* onmouseup
-* onclick
-* ondblclick
-* ondragdrop
-* ondragend 
+* _onmouseup_
+* _onclick_
+* _ondblclick_
+* _ondragdrop_
+* _ondragend_
 
 #### Mouse wheel
 
-If you want to send mouse-wheel events to your documents, call the ProcessMouseWheel() function on your contexts as appropriate.
+If you want to send mouse-wheel events to your documents, call the `ProcessMouseWheel()` function on your contexts as appropriate.
 
 ```cpp
 // Sends a mouse-wheel movement event into this context.
@@ -94,13 +94,13 @@ If you want to send mouse-wheel events to your documents, call the ProcessMouseW
 void ProcessMouseWheel(int wheel_delta, int key_modifier_state);
 ```
 
-ProcessMouseWheel() will generate an 'onmousescroll' event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
+`ProcessMouseWheel()` will generate an _onmousescroll_ event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
 
 ### Key input
 
-The key input functions use the KeyIdentifier enumeration found in <{{page.lib_dir}}/Core/Input.h>; refer to that file for the possible values. They are modeled after the Windows virtual key codes (the VK_* enumeration), so should be familiar to Windows developers. Any confusing enumeration names are explained in the comments.
+The key input functions use the `KeyIdentifier` enumeration found in `<{{page.lib_dir}}/Core/Input.h>`{:.incl}; refer to that file for the possible values. They are modeled after the Windows virtual key codes (the VK_* enumeration), so should be familiar to Windows developers. Any confusing enumeration names are explained in the comments.
 
-{{page.lib_name}} makes a distinction between key input and text input; key input (specified by the ProcessKeyDown() and ProcessKeyUp() functions) refers to actual physical key presses, while text input refers to characters being generated from user input. Depending on user locale, it may take more than one physical key stroke to generate a single character of text input. At present, {{page.lib_name}} offers no translation between key input and text input; that is left up to the application.
+{{page.lib_name}} makes a distinction between key input and text input; key input (specified by the `ProcessKeyDown()` and `ProcessKeyUp()` functions) refers to actual physical key presses, while text input refers to characters being generated from user input. Depending on user locale, it may take more than one physical key stroke to generate a single character of text input. At present, {{page.lib_name}} offers no translation between key input and text input; that is left up to the application.
 
 Call the following functions on a context to inform the context of key presses or releases:
 
@@ -116,7 +116,7 @@ void ProcessKeyDown({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, 
 void ProcessKeyUp({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
 ```
 
-ProcessKeyDown() will generate an 'onkeydown' event targeted at the current focus element (if an element is in focus). ProcessKeyUp() will likewise generate the 'onkeyup' event.
+`ProcessKeyDown()` will generate an _onkeydown_ event targeted at the current focus element (if an element is in focus). `ProcessKeyUp()` will likewise generate the _onkeyup_ event.
 
 ### Text input
 
@@ -132,8 +132,8 @@ void ProcessTextInput({{page.lib_ns}}::Core::word character);
 void ProcessTextInput(const {{page.lib_ns}}::Core::String& string);
 ```
 
-These functions will generate an 'ontextinput' event targeted at the context's current focus element (if there is one).
+These functions will generate an _ontextinput_ event targeted at the context's current focus element (if there is one).
 
 ### Sample input processing
 
-The sample shell (found under your {{page.lib_name}} installation at /Samples/shell/) contains a sample implementation of input processing for all of {{page.lib_name}}'s supported platforms, including a key-to-text converter for a US-keyboard layout (see /Samples/shell/src/Input.cpp). 
+The sample shell (found under your {{page.lib_name}} installation at `/Samples/shell/`{:.path}) contains a sample implementation of input processing for all of {{page.lib_name}}'s supported platforms, including a key-to-text converter for a US-keyboard layout (see `/Samples/shell/src/Input.cpp`{:.path}). 

@@ -4,7 +4,7 @@ title: Documents
 parent: cpp_manual
 ---
 
-Documents are container elements. They are designed to represent a single 'window' within your application's interface. Documents are elements themselves, and the elements they contain directly are parented to them.
+Documents are container [elements](elements.html). They are designed to represent a single 'window' within your application's interface. Documents are elements themselves, and the elements they contain directly are parented to them.
 
 ### Identification
 

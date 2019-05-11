@@ -6,7 +6,7 @@ parent: cpp_manual/controls
 
 The Controls plugin comes with a tab set control for breaking up content over multiple tabbed panels. The control has a list of tabs which are always visible and can be clicked on to display their associated panel. Only one panel is visible at any one time.
 
-You can find the RML documentation for the tab set element [here](../../rml/controls.html#tab-set-element).
+You can find the RML documentation for the tab set element [here]({{"pages/rml/controls.html#tab-set-element"|relative_url}}).
 
 Here is an RML sample demonstrating the declaration of a tab set:
 
@@ -29,9 +29,9 @@ Here is an RML sample demonstrating the declaration of a tab set:
 </rml>
 ```
 
-The {{page.lib_ns}}::Controls::ElementTabSet class (found in {{page.lib_dir}}/Controls/ElementTabSet.h) defines the interface to tab set elements.
+The `{{page.lib_ns}}::Controls::ElementTabSet` class (found in `<{{page.lib_dir}}/Controls/ElementTabSet.h>`{:.incl}) defines the interface to tab set elements.
 
-The function GetNumTabs() will return the number of panels within the tab set.
+The function `GetNumTabs()` will return the number of panels within the tab set.
 
 ```cpp
 // Retrieve the number of tabs in the tab set.
@@ -77,7 +77,7 @@ void SetPanel(int tab_index, {{page.lib_ns}}::Core::Element* element);
 
 ### Removing panels
 
-The RemoveTab() function will remove an existing tab and its panel from the tab set.
+The `RemoveTab()` function will remove an existing tab and its panel from the tab set.
 
 ```cpp
 // Remove one of the tab set's panels and its corresponding tab.
@@ -87,7 +87,7 @@ void RemoveTab(int tab_index);
 
 ### Applying properties
 
-Tab sets and their elements can have properties applied on them like other elements, and will need to in order to be positioned correctly. By default, all tabs have their 'display' property set to 'inline-block', as required for a horizontal layout. If you want to change this behaviour, you will need to edit the tab creation code in ElementTabSet.cpp.
+Tab sets and their elements can have properties applied on them like other elements, and will need to in order to be positioned correctly. By default, all tabs have their `display`{:.prop} property set to _inline-block_, as required for a horizontal layout. If you want to change this behaviour, you will need to edit the tab creation code in `ElementTabSet.cpp`{:.path}.
 
 The diagram below details the internal hierarchy of the tab set.
 

@@ -25,10 +25,10 @@ title: C++ Manual
 
 1. [Loading fonts](cpp_manual/fonts.html)
 2. [User input](cpp_manual/input.html)
-3. [Custom interfaces for {{page.lib_name}}](cpp_manual/interfaces.html)
+3. [Custom interfaces](cpp_manual/interfaces.html)
 4. [Plugins](cpp_manual/plugins.html) 
 
 ### Plugins
 
-1. [Debugger](cpp_manual/debugger.html)
-2. [Controls](cpp_manual/controls.html) 
+1. [Controls](cpp_manual/controls.html)
+2. [Debugger](cpp_manual/debugger.html)

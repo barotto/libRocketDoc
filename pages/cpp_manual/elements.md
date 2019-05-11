@@ -4,13 +4,13 @@ title: Elements
 parent: cpp_manual
 ---
 
-An element is the smallest subdivision of functionality within a document.
+An element is the smallest subdivision of functionality within a [document](documents.html).
 
 ### Size
 
 Elements are made up of zero or more boxes, each of which has a rectangular content area surrounded by three areas of varying thicknesses; padding, borders and margin (see the [box model documentation](../rcss/box_model.html) for more details).
 
-You can query the current size of an element with the GetBox() and GetNumBoxes() functions:
+You can query the current size of an element with the `GetBox()` and `GetNumBoxes()` functions:
 
 ```cpp
 // Returns one of the boxes describing the size of the element.
@@ -27,7 +27,7 @@ Most elements will have one box, except if they represent inline content split o
 
 ### Position
 
-Elements measure their position as a pixel offset from a containing ancestor element. The containing element, referred to as the offset parent, is generally the element's closest ancestor with a 'position' value other than 'static'. To get an element's offset parent, call the GetOffsetParent() function.
+Elements measure their position as a pixel offset from a containing ancestor element. The containing element, referred to as the offset parent, is generally the element's closest ancestor with a 'position' value other than 'static'. To get an element's offset parent, call the `GetOffsetParent()` function.
 
 ```cpp
 // Returns the element from which all offset calculations are currently computed.
@@ -35,7 +35,7 @@ Elements measure their position as a pixel offset from a containing ancestor ele
 {{page.lib_ns}}::Core::Element* GetOffsetParent();
 ```
 
-To retrieve the element's offset, use GetRelativeOffset() or GetAbsoluteOffset():
+To retrieve the element's offset, use `GetRelativeOffset()` or `GetAbsoluteOffset()`:
 
 ```cpp
 // Returns the position of the top-left corner of one of the areas of this element's primary box, relative to its
@@ -51,15 +51,15 @@ To retrieve the element's offset, use GetRelativeOffset() or GetAbsoluteOffset()
 {{page.lib_ns}}::Core::Vector2f GetAbsoluteOffset({{page.lib_ns}}::Core::Box::Area area = Box::CONTENT) const;
 ```
 
-GetRelativeOffset() will return the offset from the element's offset parent's top-left border to one of the areas of the element's primary box. GetAbsoluteOffset() will return the offset from the top-left corner of the context the element is part of.
+`GetRelativeOffset()` will return the offset from the element's offset parent's top-left border to one of the areas of the element's primary box. `GetAbsoluteOffset()` will return the offset from the top-left corner of the context the element is part of.
 
-You can also use the [DOM functions](#dom-interface) GetClientLeft() and GetClientTop().
+You can also use the [DOM functions](#dom-interface) `GetClientLeft()` and `GetClientTop()`.
 
 ### Pseudo-classes
 
 Elements may have one or more pseudo-classes active on them at any one time. Pseudo-classes represent minor, temporary changes of state (such as input focus or mouse hovering) that can be used to change the value of RCSS properties.
 
-To check if a pseudo-class is set on a particular element, you can use either the IsPseudoClassSet() or GetActivePseudoClasses() function.
+To check if a pseudo-class is set on a particular element, you can use either the `IsPseudoClassSet()` or `GetActivePseudoClasses()` function.
 
 ```cpp
 // Checks if a specific pseudo-class has been set on the element.
@@ -72,9 +72,9 @@ bool IsPseudoClassSet(const {{page.lib_ns}}::Core::String& pseudo_class) const;
 const {{page.lib_ns}}::Core::PseudoClassList& GetActivePseudoClasses() const;
 ```
 
-IsPseudoClassSet() will check for the prescence of a particular pseudo-class on the element, while GetActivePseudoClasses() will return an STL set containing all pseudo-classes.
+`IsPseudoClassSet()` will check for the prescence of a particular pseudo-class on the element, while `GetActivePseudoClasses()` will return an STL set containing all pseudo-classes.
 
-To set or remove a pseudo-class, call SetPseudoClass().
+To set or remove a pseudo-class, call `SetPseudoClass()`.
 
 ```cpp
 // Sets or removes a pseudo-class on the element.
@@ -85,10 +85,11 @@ void SetPseudoClass(const {{page.lib_ns}}::Core::String& pseudo_class, bool acti
 
 Applications can make use of any pseudo-classes they wish for their own styling needs. However, {{page.lib_name}} maintains several pseudo-classes internally and it is not recommended you set or clear them yourself. These classes are:
 
-* hover: Set when the mouse cursor is positioned over the element.
-* active: Set when the primary mouse button is depressed, and was positioned over the element when it was pressed.
-* focus: Set if an element has input focus. Usually this occurs when the element is clicked on.
-* disabled: Set on a disabled form control. 
+* _hover_: Set when the mouse cursor is positioned over the element.
+* _active_: Set when the primary mouse button is depressed, and was positioned over the element when it was pressed.
+* _focus_: Set if an element has input focus. Usually this occurs when the element is clicked on.
+* _disabled_: Set on a disabled [form control](controls/form.html). 
+* _checked_: Set on a selected element of a [drop-down list control](controls/form.html#drop-down-select-box).
 
 ### DOM interface
 
@@ -150,11 +151,11 @@ Supported methods have simply had their initial letter capitalised to match the 
 
 ### Dynamically creating elements
 
-Elements should not be created with the 'new' operator; in order to be properly reference counted and released, in C++ they need to be created either through a document (using the CreateElement() or CreateTextNode() function) or through the {{page.lib_name}} factory ({{page.lib_ns}}::Core::Factory) using the factory's static InstanceElement() function.
+Elements should not be created with the `new` operator; in order to be properly reference counted and released, in C++ they need to be created either through a document (using the `CreateElement()` or `CreateTextNode()` function) or through the {{page.lib_name}} factory (`{{page.lib_ns}}::Core::Factory`) using the factory's static `InstanceElement()` function.
 
 #### Using the factory
 
-Creating an element through the factory allows more control. The InstanceElement() function is detailed below:
+Creating an element through the factory allows more control. The `InstanceElement()` function is detailed below:
 
 ```cpp
 // Instances a single element.
@@ -171,12 +172,12 @@ static {{page.lib_ns}}::Core::Element* InstanceElement({{page.lib_ns}}::Core::El
 
 The function's parameters are:
 
-* parent: The element you intend to parent the element to once it has been created. This is only used by custom instancers; if you're instancing a generic element you can leave this out. Note that the new element will not be automatically parented to this element, you still need to do that yourself once the element has been created.
-* instancer: The tag name the instancer you want to create the element was registered against. For creating generic elements, this can be the same as the third parameter, 'tag'. For more information, see the section on custom element instancers.
-* tag: The tag the new element should have.
-* attributes: Any attributes you want the new element to be constructed with. This is a dictionary type. The attributes will be passed into the instancer and set on the element if instancing was successful. 
+* `parent`: The element you intend to parent the element to once it has been created. This is only used by custom instancers; if you're instancing a generic element you can leave this out. Note that the new element will not be automatically parented to this element, you still need to do that yourself once the element has been created.
+* `instancer`: The tag name the instancer you want to create the element was registered against. For creating generic elements, this can be the same as the third parameter, `tag`. For more information, see the section on [custom element instancers](#creating-a-custom-element-instancer).
+* `tag`: The tag the new element should have.
+* `attributes`: Any attributes you want the new element to be constructed with. This is a dictionary type. The attributes will be passed into the instancer and set on the element if instancing was successful. 
 
-For example, the following will instance a 'div' element:
+For example, the following will instance a `div`{:.tag} element:
 
 ```cpp
 {{page.lib_ns}}::Core::Element* div_element = {{page.lib_ns}}::Core::Factory::InstanceElement(NULL,
@@ -185,7 +186,7 @@ For example, the following will instance a 'div' element:
                                                                             {{page.lib_ns}}::Core::XMLAttributes());
 ```
 
-The following will instance a radio button element using the Controls plugin input instancer, but gives it a tag of 'radio':
+The following will instance a radio button element using the Controls plugin input instancer, but gives it a tag of `radio`{:.tag}:
 
 ```cpp
 {{page.lib_ns}}::Core::XMLAttributes attributes;
@@ -214,9 +215,9 @@ To create an element through a document use one of the following functions:
 {{page.lib_ns}}::Core::ElementText* CreateTextNode(const {{page.lib_ns}}::Core::String& text);
 ```
 
-CreateElement() takes a single parameter, name, the tag name of the new element. This will be used to both look up the instancer and tag the element. Like instancing the element through the factory, the new element will be returned if it was created successfully, or NULL if not.
+`CreateElement()` takes a single parameter, name, the tag name of the new element. This will be used to both look up the instancer and tag the element. Like instancing the element through the factory, the new element will be returned if it was created successfully, or NULL if not.
 
-CreateTextNode() creates a single text element containing the text given in the parameter text.
+`CreateTextNode()` creates a single text element containing the text given in the parameter text.
 
 Note that elements returned by these functions are not affiliated with the document itself. The new element will have an initial reference count of one owned by the constructing code, so remember to remove the reference once the element has been attached to another element.
 
@@ -244,7 +245,7 @@ bool AddSampleText({{page.lib_ns}}::Core::Document* document)
 
 ### Destroying elements
 
-Elements are reference-counted objects, so are not meant to be deleted directly. If an element is part of a hierarchy, simply remove it from its parent to destroy it with the RemoveChild() function. If it is a loose element, remove the initial reference on the object with the RemoveReference() function.
+Elements are reference-counted objects, so are not meant to be deleted directly. If an element is part of a hierarchy, simply remove it from its parent to destroy it with the `RemoveChild()` function. If it is a loose element, remove the initial reference on the object with the `RemoveReference()` function.
 
 ### Custom elements
 
@@ -258,7 +259,7 @@ If you need special functionality on an element that you can't easily manage thr
 
 #### Creating a custom element
 
-All custom elements are classes derived (not necessarily directly) from {{page.lib_ns}}::Core::Element. The constructor for Element takes one parameter, the tag of the element; a derived element's constructor can either pass a constant string down to the base constructor, or take a string themselves to pass down.
+All custom elements are classes derived (not necessarily directly) from `{{page.lib_ns}}::Core::Element`. The constructor for Element takes one parameter, the tag of the element; a derived element's constructor can either pass a constant string down to the base constructor, or take a string themselves to pass down.
 
 The virtual functions that can be overridden in a custom element are:
 
@@ -305,7 +306,7 @@ virtual void GetRML({{page.lib_ns}}::Core::String& content);
 
 #### Layout
 
-A custom element can override the GetIntrinsicDimensions() function if it wants to be laid out as a replaced element. Replaced elements are elements with intrinsic dimensions that can be positioned like inline or block content. Examples of replaced elements are images and form controls.
+A custom element can override the `GetIntrinsicDimensions()` function if it wants to be laid out as a replaced element. Replaced elements are elements with intrinsic dimensions that can be positioned like inline or block content. Examples of replaced elements are images and form controls.
 
 ```cpp
 // Gets the intrinsic dimensions of this element, if it is of a type that has an inherent size.
@@ -316,7 +317,7 @@ virtual bool GetIntrinsicDimensions({{page.lib_ns}}::Core::Vector2f& dimensions)
 
 If a custom element is to be a replaced element, it should override this function and return true. The actual intrinsic dimensions of the element should be put into the dimensions parameter. This function will be called every time the element is laid out, so the dimension can be a dynamic value. The default element returns false.
 
-A custom replaced element (ie, one with intrinsic dimensions) can override the GetBaseline() function if it wants to change its reference point for horizontal positioning on a line.
+A custom replaced element (ie, one with intrinsic dimensions) can override the `GetBaseline()` function if it wants to change its reference point for horizontal positioning on a line.
 
 ```cpp
 // Returns the baseline of the element, in pixels offset from the bottom of the element's content area.
@@ -324,14 +325,15 @@ A custom replaced element (ie, one with intrinsic dimensions) can override the G
 virtual float GetBaseline() const;
 ```
 
-The GetBaseline() function returns the pixel offset from the bottom of the element's content area that neighbouring text should, by default, line their baselines up with. This will only affect the element's positioning if it is placed inline.
-Event processing
+The `GetBaseline()` function returns the pixel offset from the bottom of the element's content area that neighbouring text should, by default, line their baselines up with. This will only affect the element's positioning if it is placed inline.
 
-A custom element can override the ProcessEvent() function to intercept all events sent to this element, or one of its descendants. The element receives the event between the bubble and capture phases.
+#### Event processing
+
+A custom element can override the `ProcessEvent()` function to intercept all events sent to this element, or one of its descendants. The element receives the event between the bubble and capture phases.
 
 Note that the element receives every event, and it is not necessary the target element! Be sure to check the target element of the event and the event type.
 
-**Important**: You must remember to call the base class's ProcessEvent() function with any unprocessed events! The base element responds to many events in its ProcessEvent() function, and all manner of strange behaviour may result if you don't do this.
+**Important**: You must remember to call the base class's `ProcessEvent()` function with any unprocessed events! The base element responds to many events in its `ProcessEvent()` function, and all manner of strange behaviour may result if you don't do this.
 
 ```cpp
 // Called for every event sent to this element or one of its descendants.
@@ -341,22 +343,22 @@ virtual void ProcessEvent({{page.lib_ns}}::Core::Event& event);
 
 #### Hooks into update and render loops
 
-A custom element can override the OnUpdate() or OnRender() functions to hook functionality into the update or render loops.
+A custom element can override the `OnUpdate()` or `OnRender()` functions to hook functionality into the update or render loops.
 
-The OnUpdate() function is called from the base element's update loop after the element's children have been updated. Child elements will therefore have their OnUpdate() functions call before their parents. There is no need to call the base element's OnUpdate() function if you do not wish to.
+The `OnUpdate()` function is called from the base element's update loop after the element's children have been updated. Child elements will therefore have their `OnUpdate()` functions call before their parents. There is no need to call the base element's `OnUpdate()` function if you do not wish to.
 
 ```cpp
 // Called during the update loop after children are updated.
 virtual void OnUpdate();
 ```
 
-The OnRender() function is called from the base element's render loop after the following has occurred:
+The `OnRender()` function is called from the base element's render loop after the following has occurred:
 
 * Descendant elements in the element's stacking context with a z-index of lower than 0 have been rendered.
 * The clipping region has been set for the element (if appropriate).
 * The elements background, border and all appropriate decorators have been rendered. 
 
-There is no need to call the base element's OnRender() function is you do not wish to. Note that most custom rendering can be accomplished through the use of custom decorators; this is recommended rather than overriding OnRender() for reusability.
+There is no need to call the base element's `OnRender()` function is you do not wish to. Note that most custom rendering can be accomplished through the use of custom decorators; this is recommended rather than overriding `OnRender()` for reusability.
 
 ```cpp
 // Called during render after backgrounds, borders, decorators, but before children, are rendered.
@@ -365,9 +367,9 @@ virtual void OnRender();
 
 #### Changes to properties or attributes
 
-A custom element can override the OnAttributeChange() or OnPropertyChange() functions to respond to changes to its attributes or properties.
+A custom element can override the `OnAttributeChange()` or `OnPropertyChange()` functions to respond to changes to its attributes or properties.
 
-OnAttributeChange() is called whenever an attribute is added, removed or redefined. The names of the changed attributes are passed into the function in the 'changed_attributes' variable, which is an STL set of strings. To check if a specific attribute has been altered, look for its presence in the list with the find() function.
+`OnAttributeChange()` is called whenever an attribute is added, removed or redefined. The names of the changed attributes are passed into the function in the 'changed_attributes' variable, which is an STL set of strings. To check if a specific attribute has been altered, look for its presence in the list with the `find()` function.
 
 ```cpp
 // Called when attributes on the element are changed.
@@ -375,7 +377,7 @@ OnAttributeChange() is called whenever an attribute is added, removed or redefin
 virtual void OnAttributeChange(const {{page.lib_ns}}::Core::AttributeNameList& changed_attributes);
 ```
 
-OnPropertyChange() is called whenever the value of a property (or group of properties) is changed. The names of the changed properties are passed into the function in the 'changed_properties' variable, which (like for OnAttributeChange()) is an STL set of strings.
+`OnPropertyChange()` is called whenever the value of a property (or group of properties) is changed. The names of the changed properties are passed into the function in the 'changed_properties' variable, which (like for `OnAttributeChange()`) is an STL set of strings.
 
 ```cpp
 // Called when properties on the element are changed.
@@ -383,12 +385,13 @@ OnPropertyChange() is called whenever the value of a property (or group of prope
 virtual void OnPropertyChange(const {{page.lib_ns}}::Core::PropertyNameList& changed_properties);
 ```
 
-**Important**: If you override either of these functions, you must remember to call the base class's corresponding function! As with ProcessEvent(), the base element responds to many attribute and property changes, and all manner of strange behaviour may result if you don't do this.
+**Important**: If you override either of these functions, you must remember to call the base class's corresponding function! As with `ProcessEvent()`, the base element responds to many attribute and property changes, and all manner of strange behaviour may result if you don't do this.
 
 #### Hierarchy changes
 
-A custom element can override the OnChildAdd() or OnChildRemove() functions to respond to changes in the element's hierarchy. When an element is added or removed from another, the appropriate function is called on it immediately. The base implementation then passes the call onto its parent, thereby informing the whole hierarchy. If you want to prevent messages from propagating up the element hierarchy, you can choose to not call the base element's OnChildAdd() or OnChildRemove() function as appropriate.
+A custom element can override the `OnChildAdd()` or `OnChildRemove()` functions to respond to changes in the element's hierarchy. When an element is added or removed from another, the appropriate function is called on it immediately. The base implementation then passes the call onto its parent, thereby informing the whole hierarchy. If you want to prevent messages from propagating up the element hierarchy, you can choose to not call the base element's `OnChildAdd()` or `OnChildRemove()` function as appropriate.
 
+```cpp
 // Called when a child node has been added somewhere in the hierarchy.
 // @param[in] child The element that has been added. This may be this element.
 virtual void OnChildAdd({{page.lib_ns}}::Core::Element* child);
@@ -396,14 +399,15 @@ virtual void OnChildAdd({{page.lib_ns}}::Core::Element* child);
 // Called when a child node has been removed somewhere in the hierarchy.
 // @param[in] child The element that has been removed. This may be this element.
 virtual void OnChildRemove({{page.lib_ns}}::Core::Element* child);
+```
 
 #### RML generation
 
-A custom element can override the GetRML() and GetInnerRML() function if the default RML generation functions are inadequate. This is generally not needed, unless an element rearranges its child elements internally, or makes heavy use of custom XML node handlers; in this case, the default functions may generate nonsensical RML.
+A custom element can override the `GetRML()` and `GetInnerRML()` function if the default RML generation functions are inadequate. This is generally not needed, unless an element rearranges its child elements internally, or makes heavy use of custom XML node handlers; in this case, the default functions may generate nonsensical RML.
 
-GetInnerRML() is meant to return the internal RML of the element; ie, only the RML needed to generate the element's content, not the element itself. By default, it calls GetRML() on all of its DOM children and concatenates the result.
+`GetInnerRML()` is meant to return the internal RML of the element; ie, only the RML needed to generate the element's content, not the element itself. By default, it calls `GetRML()` on all of its DOM children and concatenates the result.
 
-GetRML() is meant to return the RML required to generate the entire element. This therefore includes the element's tag and all of its attributes as well as all of its descendant's RML. By default, it generates its open tag, appends to that the the result of GetInnerRML(), and finally appends its closing tag.
+`GetRML()` is meant to return the RML required to generate the entire element. This therefore includes the element's tag and all of its attributes as well as all of its descendant's RML. By default, it generates its open tag, appends to that the the result of `GetInnerRML()`, and finally appends its closing tag.
 
 ```cpp
 // Gets the markup and content of the element.
@@ -419,7 +423,7 @@ virtual void GetRML({{page.lib_ns}}::Core::String& content);
 
 In order to have a custom element created through the {{page.lib_name}} factory, an instancer for the element needs to be registered with the factory against the appropriate RML tag names. An element instancer is responsible for creating and destroying its elements when required, and also destroying itself when {{page.lib_name}} is shut down.
 
-A custom element instancer needs to be derived from {{page.lib_ns}}::Core::ElementInstancer, and implement the required pure virtual methods:
+A custom element instancer needs to be derived from `{{page.lib_ns}}::Core::ElementInstancer`, and implement the required pure virtual methods:
 
 ```cpp
 // Instances an element given the tag name and attributes.
@@ -438,21 +442,21 @@ virtual void ReleaseElement({{page.lib_ns}}::Core::Element* element) = 0;
 virtual void Release() = 0;
 ```
 
-InstanceElement() will be called whenever the factory is called upon to instance an element with a tag that the instancer was registered against. The parameters to the function are:
+`InstanceElement()` will be called whenever the factory is called upon to instance an element with a tag that the instancer was registered against. The parameters to the function are:
 
-* parent: The element that the new element will be parented to if it is created successfully; you do not need to actually do the parenting! This will only be non-NULL if the element is instanced from RML.
-* tag: The string that whoever is creating the element wants the element's tag to be; due to the way elements are constructed through the factory, this may not be one of the tags the instancer was registered against. It is recommended you pass this through to the element to be its tag name, but this is not required.
-* attributes: The attributes defined on the element's tag in RML or passed into the factory. You do not need to set these attributes on the element yourself; that will be done automatically if the instancing is successful. You only need to use these if element instancing is dependent on the values (for example, the instancer for 'input' elements instances different types depending on the value of the 'type' attribute). 
+* `parent`: The element that the new element will be parented to if it is created successfully; you do not need to actually do the parenting! This will only be non-NULL if the element is instanced from RML.
+* `tag`: The string that whoever is creating the element wants the element's tag to be; due to the way elements are constructed through the factory, this may not be one of the tags the instancer was registered against. It is recommended you pass this through to the element to be its tag name, but this is not required.
+* `attributes`: The attributes defined on the element's tag in RML or passed into the factory. You do not need to set these attributes on the element yourself; that will be done automatically if the instancing is successful. You only need to use these if element instancing is dependent on the values (for example, the instancer for `input`{:.tag} elements instances different types depending on the value of the `type`{:.attr} attribute). 
 
-If InstanceElement() is successful, return the new element. Otherwise, return NULL (0) to indicate an instancing error.
+If `InstanceElement()` is successful, return the new element. Otherwise, return NULL (0) to indicate an instancing error.
 
-ReleaseElement() will be called when an element instanced through the instancer is no longer required by the system. It should be deleted appropriately.
+`ReleaseElement()` will be called when an element instanced through the instancer is no longer required by the system. It should be deleted appropriately.
 
-Release() will be called when the element instancer is no longer required, usually when {{page.lib_name}} is shut down. The instancer should delete itself as appropriate.
+`Release()` will be called when the element instancer is no longer required, usually when {{page.lib_name}} is shut down. The instancer should delete itself as appropriate.
 
 #### Registering an instancer
 
-To register a custom instancer with {{page.lib_name}}, call the RegisterElementInstancer() function on the {{page.lib_name}} factory ({{page.lib_ns}}::Core::Factory) after {{page.lib_name}} has been initialised.
+To register a custom instancer with {{page.lib_name}}, call the `RegisterElementInstancer()` function on the {{page.lib_name}} factory (`{{page.lib_ns}}::Core::Factory`) after {{page.lib_name}} has been initialised.
 
 ```cpp
 {{page.lib_ns}}::Core::ElementInstancer* custom_instancer = new ElementInstancerCustom();
@@ -460,13 +464,13 @@ To register a custom instancer with {{page.lib_name}}, call the RegisterElementI
 custom_instancer->RemoveReference();
 ```
 
-The first parameter to RegisterElementInstancer() is the tag name the instancer is bound to. In the above example, the custom instancer will be called to instance an element whenever an element with the tag 'custom' is encountered while parsing an RML stream, or as otherwise required by the factory. You can register an instancer as many times as you like with the factory against different tag names.
+The first parameter to `RegisterElementInstancer()` is the tag name the instancer is bound to. In the above example, the custom instancer will be called to instance an element whenever an element with the tag 'custom' is encountered while parsing an RML stream, or as otherwise required by the factory. You can register an instancer as many times as you like with the factory against different tag names.
 
 Instancers are reference counted, and begin with a reference count of one which belongs to the constructing process. The factory itself will add a reference for every tag name it is bound to. Therefore, remember to remove a reference from the object after it has been registered with the factory. If you don't, it will never be released.
 
 #### Using a generic instancer
 
-If a custom element does not require any special behaviour from its instancer, the easiest way to generate an instancer for it is to use the templated ElementInstancerGeneric. Instead of deriving your own instancer class, simply construct a new {{page.lib_ns}}::Core::ElementInstancerGeneric templated to the type of the custom element you'd like to instance, and register it with the factory as you would a normal instancer.
+If a custom element does not require any special behaviour from its instancer, the easiest way to generate an instancer for it is to use the templated `ElementInstancerGeneric`. Instead of deriving your own instancer class, simply construct a new `{{page.lib_ns}}::Core::ElementInstancerGeneric` templated to the type of the custom element you'd like to instance, and register it with the factory as you would a normal instancer.
 
 ```cpp
 {{page.lib_ns}}::Core::ElementInstancer* custom_instancer = new {{page.lib_ns}}::Core::ElementInstancerGeneric< CustomElement >();
@@ -478,13 +482,13 @@ The only requirement on the element type that it is templated to is that the con
 
 ### Custom XML node handling
 
-For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, in the Controls plugin, columns in a data grid element are specified by <col> tags immediately beneath the <datagrid> tag. If the standard XML parsing was being executed, an element would be instanced and parented to the data grid for each column tag - but this isn't what is wanted. So a custom XML node handler is used for data grids that processes the column tag differently.
+For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, in the Controls plugin, columns in a data grid element are specified by `<col>`{:.tag} tags immediately beneath the `<datagrid>`{:.tag} tag. If the standard XML parsing was being executed, an element would be instanced and parented to the data grid for each column tag - but this isn't what is wanted. So a custom XML node handler is used for data grids that processes the column tag differently.
 
 Node handlers are registered against RML tag names. When an RML file is being parsed, the XML parser maintains a stack of node handlers. Whenever a new tag is encountered, the parser checks if a specific node handler is registered against that tag; if so, that handler is pushed onto the stack and takes over the parsing until its associated tag is closed. If no handler is associated with a particular element, the current node handler continues parsing.
 
 #### Creating a custom XML node handler
 
-Custom node handlers derive from the {{page.lib_ns}}::Core::XMLNodeHandler class and implement the pure virtual functions:
+Custom node handlers derive from the `{{page.lib_ns}}::Core::XMLNodeHandler` class and implement the pure virtual functions:
 
 ```cpp
 // Called when a new element tag is opened.
@@ -512,11 +516,11 @@ virtual bool ElementData({{page.lib_ns}}::Core::XMLParser* parser,
 virtual void Release() = 0;
 ```
 
-Release() is called when {{page.lib_name}} is shut down; the node handler should delete itself as appropriate.
+`Release()` is called when {{page.lib_name}} is shut down; the node handler should delete itself as appropriate.
 
-ElementStart(), ElementEnd() and ElementData() are called on the node handler for the appropriate XML parse events that occur while it is the active node handler. A self-closing tag will result in a call to ElementEnd() immediately after ElementStart(). ElementData() is called when loose non-whitespace data is encountered between two tags.
+`ElementStart()`, `ElementEnd()` and `ElementData()` are called on the node handler for the appropriate XML parse events that occur while it is the active node handler. A self-closing tag will result in a call to `ElementEnd()` immediately after `ElementStart()`. `ElementData()` is called when loose non-whitespace data is encountered between two tags.
 
-Each of these functions is passed a pointer to the XML parser running the parse. From the parser the current parse frame can be requested with the GetParseFrame() function; the parse frame object contains the current element and tag being processed, as well as the active node handler.
+Each of these functions is passed a pointer to the XML parser running the parse. From the parser the current parse frame can be requested with the `GetParseFrame()` function; the parse frame object contains the current element and tag being processed, as well as the active node handler.
 
 ```cpp
 struct ParseFrame
@@ -535,9 +539,9 @@ struct ParseFrame
 };
 ```
 
-ElementStart() is called with the name and attributes of the opening tag. If the node handler creates a new element and wants it on the top parse frame, it should return the element. Otherwise, it should return NULL to keep the current element on top of the parse frame stack. This is useful if the node handler creates internal elements for the current element, but doesn't want any further parsing executed on them.
+`ElementStart()` is called with the name and attributes of the opening tag. If the node handler creates a new element and wants it on the top parse frame, it should return the element. Otherwise, it should return NULL to keep the current element on top of the parse frame stack. This is useful if the node handler creates internal elements for the current element, but doesn't want any further parsing executed on them.
 
-If the node handler wants to change the node handler for the new element, it can push a new handler onto the XML parser's stack using PushHandler() or PushDefaultHandler() from ElementStart(). The default handler will instance elements as described previously in the documentation.
+If the node handler wants to change the node handler for the new element, it can push a new handler onto the XML parser's stack using `PushHandler()` or `PushDefaultHandler()` from `ElementStart()`. The default handler will instance elements as described previously in the documentation.
 
 ```cpp
 // Pushes an element handler onto the parse stack for parsing child elements.
@@ -552,7 +556,7 @@ void PushDefaultHandler();
 If it doesn't call either of these methods, it will remain the node handler for any child elements it creates.
 Registering a custom node handler
 
-Register a custom node handler with {{page.lib_name}}'s XML parser with the static RegisterNodeHandler() function on {{page.lib_ns}}::Core::XMLParser. You can register the same handler multiple times with the parser against different tag names. RegisterNodeHandler() adds a reference to the node handler, so be sure to remove the initial reference from the handler once it has been registered.
+Register a custom node handler with {{page.lib_name}}'s XML parser with the static `RegisterNodeHandler()` function on `{{page.lib_ns}}::Core::XMLParser`. You can register the same handler multiple times with the parser against different tag names. `RegisterNodeHandler()` adds a reference to the node handler, so be sure to remove the initial reference from the handler once it has been registered.
 
 ```cpp
 // Registers a custom node handler to be used to a given tag.
@@ -565,4 +569,4 @@ static {{page.lib_ns}}::Core::XMLNodeHandler* RegisterNodeHandler(const {{page.l
 
 ### Samples
 
-Custom XML node handlers are used extensively in the Controls plugin; consult the source for the XMLNodeHandlerDataGrid, XMLNodeHandlerTabSet and XMLNodeHandlerTextArea classes for demonstrations of their use. 
+Custom XML node handlers are used extensively in the Controls plugin; consult the source for the `XMLNodeHandlerDataGrid`, `XMLNodeHandlerTabSet` and `XMLNodeHandlerTextArea` classes for demonstrations of their use. 

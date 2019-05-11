@@ -20,7 +20,7 @@ Computer terminals or consoles in a 3D game world could themselves be {{page.lib
 
 ### Creating a context
 
-To create a new context, use the CreateContext() function in {{page.lib_ns}}::Core.
+To create a new context, use the `CreateContext()` function in `{{page.lib_ns}}::Core`.
 
 ```cpp
 // Creates a new element context.
@@ -33,7 +33,7 @@ To create a new context, use the CreateContext() function in {{page.lib_ns}}::Co
 
 The context needs a unique string name and initial dimensions. The dimensions are used to generate relative lengths (for example, if a document has a percentage dimension), and sets the extents for the mouse cursor within the context.
 
-To fetch a previously-constructed context, use the GetContext() function.
+To fetch a previously-constructed context, use the `GetContext()` function.
 
 ```cpp
 // Fetches a previously constructed context by name.
@@ -44,18 +44,18 @@ To fetch a previously-constructed context, use the GetContext() function.
 
 ### Releasing a context
 
-Contexts are reference counted, and begin with a reference count of one. Once you have finished with a context, call RemoveReference() to release it. It will be destroyed, and all of its documents released.
+Contexts are reference counted, and begin with a reference count of one. Once you have finished with a context, call `RemoveReference()` to release it. It will be destroyed, and all of its documents released.
 
 ### Update and rendering
 
-If a context is active, it should have Update() called on it after the frame's input events have been sent to it.
+If a context is active, it should have `Update()` called on it after the frame's input events have been sent to it.
 
 ```cpp
 // Updates all elements in the context's documents.
 bool Update();
 ```
 
-To render a context, call Render() on it. Easy!
+To render a context, call `Render()` on it. Easy!
 
 ```cpp
 // Renders all visible elements in the context's documents.
@@ -64,7 +64,7 @@ bool Render();
 
 ### Loading and creating documents
 
-Documents are loaded through contexts. To load a document from an RML file into a context, call the LoadDocument() function on the appropriate context.
+Documents are loaded through contexts. To load a document from an RML file into a context, call the `LoadDocument()` function on the appropriate context.
 
 ```cpp
 // Load a document into the context.
@@ -73,7 +73,7 @@ Documents are loaded through contexts. To load a document from an RML file into 
 ElementDocument* LoadDocument(const {{page.lib_ns}}::Core::String& document_path);
 ```
 
-The document_path parameter will be given to {{page.lib_name}}'s [file interface](interfaces.html#the-file-interface) to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call Show() on the document to make it visible.
+The `document_path` parameter will be given to {{page.lib_name}}'s [file interface](interfaces.html#the-file-interface) to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call `Show()` on the document to make it visible.
 
 You can also load documents directly from a memory stream, this can be useful if you want to receive documents over the network or similar.
 
@@ -84,7 +84,7 @@ You can also load documents directly from a memory stream, this can be useful if
 ElementDocument* LoadDocumentFromMemory(const {{page.lib_ns}}::Core::String& string);
 ```
 
-To create a new, empty document you can populate dynamically, use the CreateDocument() function.
+To create a new, empty document you can populate dynamically, use the `CreateDocument()` function.
 
 ```cpp
 // Creates a new, empty document and places it into this context.
@@ -93,7 +93,7 @@ To create a new, empty document you can populate dynamically, use the CreateDocu
 ElementDocument* CreateDocument(const {{page.lib_ns}}::Core::String& tag = "document");
 ```
 
-The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a {{page.lib_ns}}::Core::ElementDocument is instanced, it will be added to the context and returned.
+The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a `{{page.lib_ns}}::Core::ElementDocument` is instanced, it will be added to the context and returned.
 
 ### Cursors
 
@@ -101,7 +101,7 @@ Each context maintains a list of cursors that can be used to represent the mouse
 
 #### Loading cursors
 
-Mouse cursors can be loaded into a context using the LoadMouseCursor() function.
+Mouse cursors can be loaded into a context using the `LoadMouseCursor()` function.
 
 ```cpp
 // Loads a document as a mouse cursor within this context.
@@ -112,11 +112,11 @@ Mouse cursors can be loaded into a context using the LoadMouseCursor() function.
 
 Cursors are documents themselves, and are loaded the same way internally. Any valid RML document can be loaded as a document; of course, you're most likely to want a simple document with an image decorator, but you're not limited to this!
 
-Note that the cursor's 'name' is the title of its document. This is the name you'll use to specify it through the 'cursor' property.
+Note that the cursor's 'name' is the title of its document. This is the name you'll use to specify it through the `cursor`{:.prop} property.
 
 #### Sharing cursors
 
-Mouse cursors can also be shared across contexts with the AddMouseCursor() function.
+Mouse cursors can also be shared across contexts with the `AddMouseCursor()` function.
 
 ```cpp
 // Adds a previously-loaded cursor document as a mouse cursor within this context.
@@ -124,11 +124,11 @@ Mouse cursors can also be shared across contexts with the AddMouseCursor() funct
 void AddMouseCursor({{page.lib_ns}}::Core::ElementDocument* cursor_document);
 ```
 
-Call AddMouseCursor() with a cursor loaded into another context.
+Call `AddMouseCursor()` with a cursor loaded into another context.
 
 ### Events
 
-Event listeners can be attached to a context (rather than an element) to receive events sent to all elements within that context. As with elements, call AddEventListener() to attach a listener and RemoveEventListener() to detach.
+Event listeners can be attached to a context (rather than an element) to receive events sent to all elements within that context. As with elements, call `AddEventListener()` to attach a listener and `RemoveEventListener()` to detach.
 
 ```cpp
 // Adds an event listener to the context's root element.
@@ -158,11 +158,11 @@ Contexts are created, like elements and decorators, through instancers. You can 
 
 #### Creating a custom context
 
-A custom context is a class derived from {{page.lib_ns}}::Core::Context. There are no virtual methods on {{page.lib_ns}}::Core::Context, so it cannot be specialised.
+A custom context is a class derived from `{{page.lib_ns}}::Core::Context`. There are no virtual methods on `{{page.lib_ns}}::Core::Context`, so it cannot be specialised.
 
 #### Creating a custom context instancer
 
-A custom context instancer needs to be registered with the {{page.lib_name}} factory in order to override the default instancer. A custom context instancer needs to be derived from {{page.lib_ns}}::Core::ContextInstancer, and implement the required virtual methods:
+A custom context instancer needs to be registered with the {{page.lib_name}} factory in order to override the default instancer. A custom context instancer needs to be derived from `{{page.lib_ns}}::Core::ContextInstancer`, and implement the required virtual methods:
 
 ```cpp
 // Instances a context.
@@ -178,15 +178,15 @@ virtual void ReleaseContext({{page.lib_ns}}::Core::Context* context) = 0;
 virtual void Release() = 0;
 ```
 
-InstanceContext() will be called whenever a new context is requested. It takes a single parameter, name, the name of the new context. If a context can be created, it should be initialised and returned. Otherwise, return NULL (0).
+`InstanceContext()` will be called whenever a new context is requested. It takes a single parameter, name, the name of the new context. If a context can be created, it should be initialised and returned. Otherwise, return NULL (0).
 
-ReleaseContext() will be called whenever a context is released. The context instancer should destroy the context and free and resources allocated for it.
+`ReleaseContext()` will be called whenever a context is released. The context instancer should destroy the context and free and resources allocated for it.
 
-Release() will be called when {{page.lib_name}} is shut down. The instancer should delete itself if it was dynamically allocated.
+`Release()` will be called when {{page.lib_name}} is shut down. The instancer should delete itself if it was dynamically allocated.
 
 #### Registering an instancer
 
-To register a custom instancer with {{page.lib_name}}, call RegisterContextInstancer() on the {{page.lib_name}} factory after {{page.lib_name}} has been initialised.
+To register a custom instancer with {{page.lib_name}}, call `RegisterContextInstancer()` on the {{page.lib_name}} factory after {{page.lib_name}} has been initialised.
 
 ```cpp
 {{page.lib_ns}}::Core::ContextInstancer* custom_instancer = new CustomContextInstancer();
@@ -198,4 +198,4 @@ Like other instancers, context instancers are reference counted and begin with a
 
 #### Enumerating Contexts
 
-All active contexts can be enumerated via the {{page.lib_ns}}::Core::GetNumContexts() and {{page.lib_ns}}::Core::GetContext(int index) function calls. 
+All active contexts can be enumerated via the `{{page.lib_ns}}::Core::GetNumContexts()` and `{{page.lib_ns}}::Core::GetContext(int index)` function calls. 
