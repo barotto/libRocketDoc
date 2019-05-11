@@ -1,3 +1,4 @@
+{% capture page.title %}{{ page.title | flatify }}{% endcapture %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles -->
-    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ ASSETS_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="{{ ASSETS_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- fav and touch icons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ BASE_PATH }}/assets/icons/apple-touch-icon.png">
@@ -63,6 +64,5 @@
 
     </div>
 
-    {% include JB/analytics %}
   </body>
 </html>
