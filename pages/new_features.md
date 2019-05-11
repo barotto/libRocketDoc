@@ -1,7 +1,9 @@
 ---
 layout: page
-title: RmlUi Features and Changes
+title: New Features and Changes
 ---
+
+### New Features
 
 A quick glance at some of the features added in {{page.lib_name}} since libRocket.
 
@@ -11,10 +13,8 @@ A quick glance at some of the features added in {{page.lib_name}} since libRocke
  * [Pointer-events property](rcss/user_interface.html#pointer-events-the-pointer-events-property)
  * [Border property shorthand](rcss/box_model.html#border-shorthands)
  * [:checked pseudo class](rcss/selectors.html)
- 
 
 ### Various changes
-
 
  * Unlike the original branch, elements with
 ```css

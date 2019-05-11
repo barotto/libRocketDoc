@@ -1,6 +1,6 @@
 ---
 layout: page
-title: RmlUi Interfaces
+title: Custom interfaces
 parent: cpp_manual
 ---
 

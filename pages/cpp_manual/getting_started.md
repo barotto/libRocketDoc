@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Getting started with RmlUi
+title: Getting started
 parent: cpp_manual
 ---
 

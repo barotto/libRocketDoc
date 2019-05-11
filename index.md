@@ -8,7 +8,7 @@ description: RmlUi's documentation
 
 ### {{page.lib_name}}
 
-[{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository](https://github.com/mikke89/RmlUiDoc).
+[{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
 
 [**{{page.lib_name}} features and changes**](pages/new_features.html)
 
@@ -40,6 +40,6 @@ description: RmlUi's documentation
 
 ### Building
 
-1. [Building RmlUi with CMake](pages/building_with_cmake.html)
+1. [Building {{page.lib_name}} with CMake](pages/building_with_cmake.html)
 2. [Building FreeType for iOS](pages/building_freetype_for_ios.html)
 3. [Building Boost::Python](pages/building_boost_python.html)
