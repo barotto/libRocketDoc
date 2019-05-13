@@ -15,7 +15,7 @@ The following is a list of elements supported by RML:
 * [`<handle>`{:.tag}](controls.html#handle)
 * [`<style>`{:.tag}](style_sheets.html#style)
 
-The following is a list of elements supported when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url"}}) is used:
+The following is a list of elements supported when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used:
 
 * [`<datagrid>`{:.tag}](data_display.html#datagrid)
 * [`<col>`{:.tag}](data_display.html#col)

@@ -6,7 +6,7 @@ parent: rml
 
 A form is a collection of input elements inside a `<form>`{:.tag} element - when the form is "submitted", the information stored in the each child input element is sent through to the listening process.
 
-Form elements are supported only when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url"}}) is used.
+Form elements are supported only when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
 
 ### \<form\>
 

@@ -8,7 +8,7 @@ parent: rml
 
 `<datagrid>`{:.tag} represents an element capable of fetching, positioning and rendering dynamic tabulated data. For a detailed description see [Data grid]({{"pages/cpp_manual/controls/data_grid.html"|relative_url}}) in the C++ Manual.
 
-Supported when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url"}}) is used.
+Supported when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
 
 _Attributes_
 

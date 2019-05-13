@@ -26,7 +26,7 @@ _Attributes_
 
 A `<tabset>`{:.tag} element contains `<tab>`{:.tag} elements and `<panel>`{:.tag} elements.
 
-Tabset elements are supported only when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url"}}) is used.
+Tabset elements are supported only when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
 
 #### \<tab\>
 
