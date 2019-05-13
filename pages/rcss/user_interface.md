@@ -19,7 +19,7 @@ This property defines the cursor to display while the mouse is hovering over the
 `auto`{:.value}
 : The default cursor is used. 
 
-`string`{:.value}
+`<string>`{:.value}
 : The RML document loaded as a cursor and with \<string\> as a title is used as a cursor. If none exists, the default cursor is used. 
 
 Cursors can be loaded into {{page.lib_name}} using the `{{page.lib_ns}}::Core::Context::LoadCursor()` function.
