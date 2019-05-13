@@ -65,7 +65,7 @@ dd
 	border-left: 3px solid #F7F7F9;
 }
 
-.path, .incl, .tag, .attr, .prop, .value, .cls
+.path, .incl, .tag, .attr, .prop, .value, .cls, .evt
 {
 	border: none;
 }
@@ -78,4 +78,9 @@ dd
 .tag, .attr, .prop
 {
 	color: blue;
+}
+
+.evt
+{
+	color: green;
 }
