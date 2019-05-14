@@ -12,14 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles -->
-    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ THEME_ASSETS_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="{{ THEME_ASSETS_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- fav and touch icons -->
-
+	
     <!-- atom & rss feed -->
-    <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
   </head>
 
@@ -27,12 +25,12 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="mycontainer">
-          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <a class="brand" href="{{ HOME_URL }}">{{ site.title }}</a>
           {% if page.parent != nil %}
             {% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
             {% for parent_page in site.pages %}
               {% if parent_page.url == parent_url %}
-                {% capture parent_link %}<a class="nav" href="{{ parent_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
+                {% capture parent_link %}<a class="nav" href="{{ parent_url | relative_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -49,13 +47,14 @@
       <hr>
       <footer>
         <p><small>
+          {{ page.lib_name }} is licensed under the terms and conditions of the 
+          <a href="{{ "pages/license.html" | relative_url }}">MIT license</a>.<br />
           Copyright (c) 2008-2014 CodePoint Ltd, Shift Technology Ltd, and contributors<br />
-          <a href="https://github.com/libRocket/libRocket">libRocket on GitHub</a>
+          <a href="{{ page.lib_site }}">{{ page.lib_name }} source code and release packages</a>
         </small></p>
       </footer>
 
     </div>
 
-    {% include JB/analytics %}
   </body>
 </html>

@@ -4,13 +4,13 @@ title: Packages
 parent: cpp_manual
 ---
 
-Rocket ships with four libraries, all with full source code.
+{{page.lib_name}} ships with four libraries, all with full source code.
 
 ### RocketCore
 
-RocketCore is the main Rocket library. It contains all the basic types, the basic element hierarchy, the style sheet and property system, the layout engine and the RML parser. RocketCore is all you need to display content from C++.
+RocketCore is the main {{page.lib_name}} library. It contains all the basic types, the basic element hierarchy, the style sheet and property system, the layout engine and the RML parser. RocketCore is all you need to display content from C++.
 
-To use RocketCore, include <Rocket/Core.h> in your application and link with RocketCore or RocketCore_d.
+To use RocketCore, include `<{{page.lib_dir}}/Core.h>`{:.incl} in your application and link with RocketCore or RocketCore_d.
 
 ### RocketControls
 
@@ -18,15 +18,15 @@ RocketControls contains custom elements for form controls (radio buttons, range 
 
 This package is a great place to look at for examples of creating new elements and writing custom XML parsing.
 
-To use RocketControls, include <Rocket/Controls.h> in your application and link with RocketControls or RocketControls_d.
+To use RocketControls, include `<{{page.lib_dir}}/Controls.h>`{:.incl} in your application and link with RocketControls or RocketControls_d.
 
-This package also contains all the required code to expose the controls to Python if you are using Rocket with RocketPython.
+This package also contains all the required code to expose the controls to Python if you are using {{page.lib_name}} with RocketPython.
 
 ### RocketDebugger
 
-RocketDebugger is a visual debugger for Rocket elements, inspired by similar debuggers for Firefox. We strongly recommend you use this in your application during development!
+RocketDebugger is a visual debugger for {{page.lib_name}} elements, inspired by similar debuggers for Firefox. We strongly recommend you use this in your application during development!
 
-To use RocketDebugger, include <Rocket/Debugger.h> in your application and link with RocketDebugger or RocketDebugger_d.
+To use RocketDebugger, include `<{{page.lib_dir}}/Debugger.h>`{:.incl} in your application and link with RocketDebugger or RocketDebugger_d.
 
 ### RocketPython
 

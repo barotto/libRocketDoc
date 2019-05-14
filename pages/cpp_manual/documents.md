@@ -4,20 +4,20 @@ title: Documents
 parent: cpp_manual
 ---
 
-Documents are container elements. They are designed to represent a single 'window' within your application's interface. Documents are elements themselves, and the elements they contain directly are parented to them.
+Documents are container [elements](elements.html). They are designed to represent a single 'window' within your application's interface. Documents are elements themselves, and the elements they contain directly are parented to them.
 
 ### Identification
 
-Documents have a title, defined in RML by contents of the <title> tag within the document header. By default the title does not do anything, but can be used to populate the contents of a title bar (as in the Rocket Invaders from Mars demo). The function GetTitle() will return the document's title, SetTitle() will set it.
+Documents have a title, defined in RML by contents of the <title> tag within the document header. By default the title does not do anything, but can be used to populate the contents of a title bar (as in the _Rocket Invaders from Mars_ demo). The function GetTitle() will return the document's title, SetTitle() will set it.
 
 ```cpp
 // Sets the document's title.
 // @param[in] title The new title of the document.
-void SetTitle(Rocket::Core::String& title);
+void SetTitle({{page.lib_ns}}::Core::String& title);
 
 // Returns the title of this document.
 // @return The document's title.
-const Rocket::Core::String& GetTitle() const;
+const {{page.lib_ns}}::Core::String& GetTitle() const;
 ```
 
 If a document was loaded from an RML file, the function GetSourceURL() will return the path of the source RML.
@@ -25,7 +25,7 @@ If a document was loaded from an RML file, the function GetSourceURL() will retu
 ```cpp
 // Returns the source address of this document.
 // @return The source of this document, usually a file name.
-const Rocket::Core::String& GetSourceURL() const;
+const {{page.lib_ns}}::Core::String& GetSourceURL() const;
 ```
 
 ### Documents and contexts
@@ -37,7 +37,7 @@ The function GetContext() will return the document's context.
 ```cpp
 // Returns the document's context.
 // @return The context this document exists within.
-Rocket::Core::Context* GetContext();
+{{page.lib_ns}}::Core::Context* GetContext();
 ```
 
 #### Layering
@@ -67,14 +67,14 @@ When a document is loaded into a context, it begins hidden (it has a 'visibility
 ```cpp
 // Show the document.
 // @param[in] focus_flags Flags controlling the changing of focus. Leave as FOCUS to switch focus to the document.
-void Show(int focus_flags = Rocket::Core::Document::FOCUS);
+void Show(int focus_flags = {{page.lib_ns}}::Core::Document::FOCUS);
 ```
 
 By default, the Show() function will make the document visible and switch keyboard focus to the document. Possible values of the focus_flags parameter are:
 
-* Rocket::Core::ElementDocument::NONE: The document will not steal focus, but will still be made visible.
-* Rocket::Core::ElementDocument::FOCUS: The default; the document will steal focus if possible.
-* Rocket::Core::ElementDocument::MODAL: The document will steal focus and prevent other documents from taking focus away until another Show() is called on the document without Rocket::Core::Document::MODAL. 
+* {{page.lib_ns}}::Core::ElementDocument::NONE: The document will not steal focus, but will still be made visible.
+* {{page.lib_ns}}::Core::ElementDocument::FOCUS: The default; the document will steal focus if possible.
+* {{page.lib_ns}}::Core::ElementDocument::MODAL: The document will steal focus and prevent other documents from taking focus away until another Show() is called on the document without {{page.lib_ns}}::Core::Document::MODAL. 
 
 To hide a document, call Hide().
 
@@ -94,12 +94,12 @@ void Close();
 
 ### Creating new elements
 
-Similarly to HTML documents, Rocket documents are capable of creating new elements and text nodes. You can use the CreateElement() function to create a new element of a certain type:
+Similarly to HTML documents, {{page.lib_name}} documents are capable of creating new elements and text nodes. You can use the CreateElement() function to create a new element of a certain type:
 
 ```cpp
 // Creates the named element.
 // @param[in] name The tag name of the element.
-Rocket::Core::Element* CreateElement(const Rocket::Core::String& name);
+{{page.lib_ns}}::Core::Element* CreateElement(const {{page.lib_ns}}::Core::String& name);
 ```
 
 The name parameter is the desired tag name of the new element. Note that as you cannot specify an independent instancer name or RML attributes to pass to the instancer, this method is not as flexible as creating an element through the factory, but is useful for easily creating simple elements.
@@ -109,26 +109,26 @@ Call CreateTextNode() to create a new text element with a given text string:
 ```cpp
 // Create a text element with the given text content.
 // @param[in] text The text content of the text element.
-Rocket::Core::ElementText* CreateTextNode(const Rocket::Core::String& text);
+{{page.lib_ns}}::Core::ElementText* CreateTextNode(const {{page.lib_ns}}::Core::String& text);
 ```
 
-The text parameter will be interpreted as a UTF-8 encoded string and converted to a UCS-2 string inside the text node. The element returned will be derived from Rocket::Core::ElementText.
+The text parameter will be interpreted as a UTF-8 encoded string and converted to a UCS-2 string inside the text node. The element returned will be derived from {{page.lib_ns}}::Core::ElementText.
 
 Note that neither of these functions actually attaches the new element to the document in any way.
 
 ### Custom documents
 
-All documents are instanced like normal elements from the 'body' tag. The process for [creating a custom document](elements.html#custom-elements) type is identical to that for creating a custom element, except you should derive from Rocket::Core::ElementDocument instead of Rocket::Core::Element, and only register the element instancer against the 'body' tag.
+All documents are instanced like normal elements from the 'body' tag. The process for [creating a custom document](elements.html#custom-elements) type is identical to that for creating a custom element, except you should derive from {{page.lib_ns}}::Core::ElementDocument instead of {{page.lib_ns}}::Core::Element, and only register the element instancer against the 'body' tag.
 
-If you register an instancer for the 'body' tag that returns an element not derived from Rocket::Core::ElementDocument, documents will fail to load.
+If you register an instancer for the 'body' tag that returns an element not derived from {{page.lib_ns}}::Core::ElementDocument, documents will fail to load.
 
-There is one virtual function that is particular to Rocket::Core::ElementDocument:
+There is one virtual function that is particular to {{page.lib_ns}}::Core::ElementDocument:
 
 ```cpp
 // Load a script into the document.
 // @param[in] stream Stream of code to process.
 // @param[in] source_name Name of the the script the source comes from, useful for debug information.
-virtual void LoadScript(Rocket::Core::Stream* stream, const Rocket::Core::String& source_name);
+virtual void LoadScript({{page.lib_ns}}::Core::Stream* stream, const {{page.lib_ns}}::Core::String& source_name);
 ```
 
-LoadScript() is generally only used to integrate a scripting language into Rocket. It is called on a document for every <script> tag with the script content. The default implementation does nothing; custom documents can do whatever they need to here to load, compile and bind the scripts for their elements. 
+LoadScript() is generally only used to integrate a scripting language into {{page.lib_name}}. It is called on a document for every <script> tag with the script content. The default implementation does nothing; custom documents can do whatever they need to here to load, compile and bind the scripts for their elements. 

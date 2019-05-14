@@ -1,4 +1,7 @@
-License (MIT)
+---
+layout: page
+title: License (MIT)
+---
 
 Copyright (c) 2008-2014 CodePoint Ltd, Shift Technology Ltd, and contributors  
 

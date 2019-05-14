@@ -5,9 +5,9 @@ title: C++ Manual
 
 ### Introduction
 
-1. [Getting started with Rocket](cpp_manual/getting_started.html)
-2. [Rocket packages](cpp_manual/packages.html)
-3. [Rocket overview](cpp_manual/core_overview.html) 
+1. [Getting started with {{page.lib_name}}](cpp_manual/getting_started.html)
+2. [Packages](cpp_manual/packages.html)
+3. [Core overview](cpp_manual/core_overview.html) 
 
 ### Elements
 
@@ -25,10 +25,10 @@ title: C++ Manual
 
 1. [Loading fonts](cpp_manual/fonts.html)
 2. [User input](cpp_manual/input.html)
-3. [Developing custom interfaces for Rocket](cpp_manual/interfaces.html)
-4. [Developing plugins](cpp_manual/plugins.html) 
+3. [Custom interfaces](cpp_manual/interfaces.html)
+4. [Plugins](cpp_manual/plugins.html) 
 
 ### Plugins
 
-1. [Debugger](cpp_manual/debugger.html)
-2. [Controls](cpp_manual/controls.html) 
+1. [Controls](cpp_manual/controls.html)
+2. [Debugger](cpp_manual/debugger.html)

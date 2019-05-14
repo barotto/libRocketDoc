@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Rocket Cascading Style Sheet
+title: Rocket Cascading Style Sheets
 ---
 
-This document defines the Rocket Cascading Style Sheet language. RCSS is based on the [CSS2 specification](http://www.w3.org/TR/REC-CSS2/), with certain elements removed or altered to suit the needs of Rocket. In some cases, elements have been taken from the [CSS3 working draft](http://www.w3.org/Style/CSS/current-work). This document provides an overview of RCSS and the differences between RCSS and CSS, and should be read in conjunction with the CSS2 specification.
+This document defines the _Rocket Cascading Style Sheets_ language. RCSS is based on the [CSS2 specification](http://www.w3.org/TR/REC-CSS2/), with certain elements removed or altered to suit the needs of {{page.lib_name}}. In some cases, elements have been taken from the [CSS3 working draft](http://www.w3.org/Style/CSS/current-work). This document provides an overview of RCSS and the differences between RCSS and CSS, and should be read in conjunction with the CSS2 specification.
 
 RCSS interacts with RML in an identical fashion to CSS and HTML. Style properties declared in a RCSS are attached selectively to elements defined in RML to affect layout, positioning and other style attributes (such as font, color, text decoration, etc).
 
@@ -19,13 +19,13 @@ If you are not, read through this documentation while consulting the CSS2 specif
 4. [Box model](rcss/box_model.html)
 5. [Visual formatting model](rcss/visual_formatting_model.html)
 6. [Visual formatting model details](rcss/visual_formatting_model_details.html)
-7. [Visual effects](rcss/visual_effects.html)
-8. [Colours and backgrounds](rcss/colours_backgrounds.html)
-9. [Fonts](rcss/fonts.html)
-10. [Text](rcss/text.html)
-11. [Cursors, Dragging and Tabbing](rcss/user_interface.html)
-12. [Decorators](rcss/decorators.html)
-13. [Font effects](rcss/font_effects.html)
+8. [Visual effects](rcss/visual_effects.html)
+9. [Colours and backgrounds](rcss/colours_backgrounds.html)
+10. [Fonts](rcss/fonts.html)
+11. [Text](rcss/text.html)
+12. [Cursors, Dragging and Tabbing](rcss/user_interface.html)
+13. [Decorators](rcss/decorators.html)
+14. [Font effects](rcss/font_effects.html)
 
 ### Appendix
 

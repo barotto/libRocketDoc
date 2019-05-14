@@ -6,7 +6,7 @@ parent: python_manual
 
 ### Statically in RML
 
-The easiest way to attach to events with python is to write your code directly into the RML files, using the on\* attributes. When the event is fired three global variables are set up, document, event and self.
+The easiest way to attach to events with python is to write your code directly into the RML files, using the `on*`{:.attr} attributes. When the event is fired three global variables are set up, document, event and self.
 
 self | The element thats currently being processed
 [document](documents.html) | The document the element thats currently being processed belongs to
@@ -18,7 +18,7 @@ Example:
 <button onclick="print('Clicked!')"/>
 ```
 
-To aid in the coding of inline Python code, libRocket allows multiple lines of Python code can be put on one line, separated by a semicolon. The parser will then reformat this code before passing it to the Python interpreter.
+To aid in the coding of inline Python code, {{page.lib_name}} allows multiple lines of Python code can be put on one line, separated by a semicolon. The parser will then reformat this code before passing it to the Python interpreter.
 
 Example:
 
