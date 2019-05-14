@@ -12,11 +12,11 @@ If you haven't already done so, take a look at the sample applications in `/Samp
 
 ### Setting up the build environment
 
-{{page.lib_name}} is developed following the C++11 standard and to be used on the following platforms:
+{{page.lib_name}} is developed for use on the following platforms:
 
-* Windows 32/64bit, compiling with Microsoft Visual Studio 2015+.
-* macOS Intel 32/64bit, compiling with GCC 4.8+.
-* Linux, compiling with GCC 4.8+. 
+* Windows 32-bit compiling with Microsoft Visual Studio 2005-2010.
+* MacOSX Intel 32/64bit compiling with GCC 4.
+* Linux compiling with GCC 4. 
 
 #### Visual Studio
 
@@ -42,7 +42,7 @@ Before you can initialise {{page.lib_name}}, you'll need to set the [interfaces]
 The system interface is defined in `<{{page.lib_dir}}/Core/SystemInterface.h>`{:.incl}. In order to create a valid system interface, you'll need to create a class that inherits from `{{page.lib_ns}}::Core::SystemInterface` and provides the function:
 
 ```cpp
-virtual double GetElapsedTime();
+virtual float GetElapsedTime();
 ```
 
 The function should return the time (in seconds) since the start of the application. Install your system interface by calling `{{page.lib_ns}}::Core::SetSystemInterface()` with a pointer to the interface. Note that {{page.lib_name}} won't release your interfaces!

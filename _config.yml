@@ -8,18 +8,18 @@ highlighter: rouge
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : RmlUi Documentation
+title : libRocket Documentation
 author :
-  name : Michael R. P. Ragazzon
-  email : michael.ragazzon@gmail.com
-  github : mikke89
+  name : Marco Bortolin
+  email : barotto@gmail.com
+  github : barotto
   twitter : nil
   feedburner : nil
 
 # Tell Github to use the kramdown markdown interpreter
 markdown: kramdown
 
-repository_url : https://github.com/mikke89/RmlUiDoc
+repository_url : https://github.com/barotto/libRocketDoc
 
 defaults:
   -
@@ -27,7 +27,7 @@ defaults:
       path: ""
       type: "pages"
     values:
-      lib_name : "RmlUi"
-      lib_site : "https://github.com/mikke89/RmlUi"
+      lib_name : "libRocket"
+      lib_site : "https://github.com/libRocket/libRocket"
       lib_ns   : "Rocket"
       lib_dir  : "Rocket"

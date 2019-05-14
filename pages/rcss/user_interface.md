@@ -24,26 +24,6 @@ This property defines the cursor to display while the mouse is hovering over the
 
 Cursors can be loaded into {{page.lib_name}} using the `{{page.lib_ns}}::Core::Context::LoadCursor()` function.
 
-### Pointer events: the 'pointer-events' property
-
-`pointer-events`{:.prop}
-
-Value: | auto \| none
-Initial: | auto
-Applies to: | all elements
-Inherited: | yes
-Percentages: | N/A
-
-Set the element property to disregard mouse input events on this and descending elements.
-
-
-`auto`{:.value}
-: The element behaves as it would if the pointer-events property were not specified.
-
-`none`{:.value}
-: The element is never the target of pointer events.
-
-
 ### Drag & drop: the 'drag' property
 
 The `drag`{:.prop} property is a new property, not shared by CSS. It controls the generation of events as the mouse cursor begins a drag over an element (ie, clicks the left mouse button and moves the mouse), drags over elements (moves the mouse with the button depressed) and finishes a drag, or 'drops', an element over another.

@@ -52,7 +52,7 @@ This property can be used to request normal or bolded versions of a font from wi
 
 `font-size`{:.prop} 
 
-Value: | \<length\> \| \<percentage\>
+Value: | \<number\> \| \<percentage\>
 Initial: | 12px
 Applies to: | all elements
 Inherited: | yes
@@ -60,7 +60,7 @@ Percentages: | N/A
 
 Values have the following meanings:
 
-`<length>`{:.value} 
+`<number>`{:.value} 
 : The font size is generated at the point size requested. For font-relative units (such as `em`{:.value} ), the font size is relative to the parent element's font size.
 
 `<percentage>`{:.value} 

@@ -89,7 +89,6 @@ Applications can make use of any pseudo-classes they wish for their own styling 
 * `active`{:.cls}: Set when the primary mouse button is depressed, and was positioned over the element when it was pressed.
 * `focus`{:.cls}: Set if an element has input focus. Usually this occurs when the element is clicked on.
 * `disabled`{:.cls}: Set on a disabled [form control](controls/form.html). 
-* `checked`{:.cls}: Set on a selected element of a [drop-down list control](controls/form.html#drop-down-select-box).
 
 ### DOM interface
 

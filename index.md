@@ -1,16 +1,10 @@
 ---
 layout: page
-title: RmlUi Documentation
-description: RmlUi's documentation
+title: libRocket Documentation
+description: libRocket's documentation
 ---
 
-![rmlui-logo](assets/rmlui.png)
-
-### {{page.lib_name}}
-
-[{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is a work-in-progress, but generally the libRocket documentation applies. Pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
-
-[**{{page.lib_name}} features and changes**](pages/new_features.html)
+![rocket-home](assets/rocket-home.gif)
 
 ### Programming Documentation
 
@@ -36,7 +30,6 @@ description: RmlUi's documentation
 
 1. [Localisation](pages/localisation.html)
 2. [Frequently Asked Questions](pages/faq.html)
-3. [Planned features](pages/planned_features.html)
 
 ### Building
 

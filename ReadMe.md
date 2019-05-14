@@ -1,11 +1,11 @@
-## RmlUi Documentation
+## libRocket Documentation
 
-This is the official documentation of [RmlUi](https://github.com/mikke89/RmlUi).
+This is the documentation of [libRocket](https://github.com/libRocket/libRocket) converted to Markdown (kramdown) from a mirror of the original libRocket website.
 
 To compile for offline use, use [Jekyll](https://jekyllrb.com/).
 
-You can read the online version [here](https://mikke89.github.io/RmlUiDoc).
+You can read the online version [here](https://barotto.github.io/libRocketDoc).
 
 ### License
 
-RmlUiDoc is released under the [MIT license](License.md).
+libRocket is released under the [MIT license](License.md).

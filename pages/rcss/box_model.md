@@ -153,14 +153,3 @@ h1
 	border-bottom: 2px rgb(0%, 23%, 80%);
 }
 ```
-
-`border`{:.prop}
-
-Shorthand property for setting an element's border. It sets the values of `border-width`{:.prop} and `border-color`{:.prop}.
-
-```css
-h1
-{
-	border: 4px #e99;
-}
-```

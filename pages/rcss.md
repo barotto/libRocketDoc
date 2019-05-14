@@ -19,7 +19,6 @@ If you are not, read through this documentation while consulting the CSS2 specif
 4. [Box model](rcss/box_model.html)
 5. [Visual formatting model](rcss/visual_formatting_model.html)
 6. [Visual formatting model details](rcss/visual_formatting_model_details.html)
-7. [Animations, transitions, and transforms](rcss/animations_transitions_transforms.html)
 8. [Visual effects](rcss/visual_effects.html)
 9. [Colours and backgrounds](rcss/colours_backgrounds.html)
 10. [Fonts](rcss/fonts.html)
